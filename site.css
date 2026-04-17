@@ -114,7 +114,7 @@ nav.top {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 nav.top .brand {
   display: inline-flex;
@@ -134,7 +134,7 @@ nav.top .brand:hover {
 nav.top ul {
   list-style: none;
   display: flex;
-  gap: 26px;
+  gap: 36px;
   margin: 0;
   padding: 0;
 }
@@ -253,7 +253,7 @@ header.hero.slim .tagline {
 header.hero.centered {
   text-align: center;
   padding: 56px 0 44px;
-  border-bottom: 2px solid var(--fg);
+  border-bottom: 1px solid var(--fg);
 }
 header.hero.centered .hero-logo {
   display: block;
@@ -292,6 +292,7 @@ header.hero.centered .tagline {
 .stats.standalone {
   border-top: 1px solid var(--fg);
   margin-top: 32px;
+  margin-bottom: 12px;
 }
 .stat {
   padding: 24px 18px;
@@ -843,7 +844,8 @@ footer.site .foot-line-1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: 6px 14px;
 }
 footer.site .foot-line-1 a {
@@ -876,12 +878,7 @@ footer.site .foot-credo p {
   letter-spacing: 0.005em;
 }
 footer.site .foot-copy {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--muted);
-  margin: 18px 0 0;
+  display: none;
 }
 
 /* ============================================================
@@ -1006,11 +1003,16 @@ footer.site .foot-copy {
 /* ============================================================
    LEDGER PAGE — scoped under body.ledger-page
    ============================================================ */
+body.ledger-page header.hero.slim .tagline {
+  white-space: nowrap;
+  max-width: none;
+}
+
 body.ledger-page .intro {
   background: var(--card);
   border: 1px solid var(--fg);
   padding: 20px 24px;
-  margin: 0 0 28px;
+  margin: 20px 0 28px;
   font-family: var(--font-serif);
   font-size: 0.98rem;
   color: var(--fg-soft);

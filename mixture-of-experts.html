@@ -20,7 +20,7 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="ledger.html">Ledger</a></li>
+      <li><a href="ledger.html">Prediction Ledger</a></li>
       <li><a href="mixture-of-experts.html" aria-current="page">Expert Scoreboard</a></li>
       <li><a href="reports.html">Reports</a></li>
     </ul>
@@ -49,6 +49,18 @@
       <h2>Experts</h2>
       <p class="eyebrow"><span id="expert-count">…</span> tracked analysts · click any column to sort</p>
     </div>
+    <div class="controls">
+      <input class="grow" type="search" id="expert-search" placeholder="Filter by name or category…" autocomplete="off">
+      <select id="expert-min-accuracy">
+        <option value="">All accuracy</option>
+        <option value="50">≥ 50% accuracy</option>
+        <option value="60">≥ 60% accuracy</option>
+        <option value="75">≥ 75% accuracy</option>
+        <option value="80" selected>≥ 80% accuracy</option>
+        <option value="90">≥ 90% accuracy</option>
+      </select>
+      <button id="expert-reset">Reset</button>
+    </div>
     <div class="table-wrap">
       <table id="expert-table">
         <thead>
@@ -57,7 +69,7 @@
             <th class="sortable" data-sort="expert">Expert</th>
             <th class="sortable num" data-sort="accuracy_score">Accuracy</th>
             <th>Distribution</th>
-            <th class="sortable num" data-sort="total_predictions">Preds</th>
+            <th class="sortable num" data-sort="total_predictions">Predictions</th>
             <th class="sortable num" data-sort="resolved">Resolved</th>
             <th>Categories</th>
           </tr>
@@ -71,6 +83,11 @@
     <div class="section-head">
       <h2>Categories</h2>
       <p class="eyebrow">Accuracy by topic across all experts</p>
+    </div>
+    <div class="controls">
+      <input class="grow" type="search" id="cat-search" placeholder="Filter by category name…" autocomplete="off">
+      <button id="cat-reset">Reset</button>
+      <span class="count" id="cat-count"></span>
     </div>
     <div class="table-wrap">
       <table id="category-table">
@@ -124,11 +141,14 @@
         <tbody><tr><td colspan="7" class="loading">Loading data…</td></tr></tbody>
       </table>
     </div>
+    <div style="text-align:center;margin-top:16px;" id="load-more-wrap" hidden>
+      <button id="load-more-preds" class="controls" style="padding:10px 28px;font-family:var(--font-mono);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;border:1px solid var(--fg);background:var(--bg);color:var(--fg);cursor:pointer;"></button>
+    </div>
   </section>
 
   <footer class="site">
     <div class="foot-line-1">
-      <span>Independent geopolitical forecasting since 2020</span>
+      <span>© 2020–2026 Unmitigated Wisdom</span>
       <span class="sep">·</span>
       <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
       <span class="sep">·</span>
@@ -137,7 +157,7 @@
       <a href="https://www.reddit.com/user/UnmitigatedWisdom/" target="_blank" rel="noopener">Reddit</a>
     </div>
     <blockquote class="foot-credo">
-      <p>&ldquo;only theoretical frameworks that predict the future can be taken seriously in describing the past&rdquo;</p>
+      <p>&ldquo;Only theoretical frameworks that predict the future can be taken seriously in describing the past.&rdquo;</p>
     </blockquote>
     <p class="foot-copy">© 2020–2026 Unmitigated Wisdom</p>
   </footer>
@@ -208,9 +228,26 @@ function renderAccBar(ratings) {
 
 let expertSortKey = 'accuracy_score';
 let expertSortDir = 'desc';
-function renderExperts(experts) {
-  $('#expert-count').textContent = experts.length;
-  const sorted = [...experts].sort((a, b) => {
+let expertFilterText = '';
+let expertMinAccuracy = 80;
+let _allExperts = [];
+
+function getFilteredExperts() {
+  return _allExperts.filter(e => {
+    if (expertMinAccuracy && e.accuracy_score < expertMinAccuracy) return false;
+    if (expertFilterText) {
+      const hay = (e.expert + ' ' + (e.categories || []).join(' ')).toLowerCase();
+      if (!hay.includes(expertFilterText)) return false;
+    }
+    return true;
+  });
+}
+
+function renderExperts() {
+  const filtered = getFilteredExperts();
+  const total = _allExperts.length;
+  $('#expert-count').textContent = filtered.length === total ? total : `${filtered.length} of ${total}`;
+  const sorted = [...filtered].sort((a, b) => {
     let av = a[expertSortKey], bv = b[expertSortKey];
     if (expertSortKey === 'rank') { av = a._rank; bv = b._rank; }
     if (typeof av === 'string') return expertSortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
@@ -233,10 +270,31 @@ function renderExperts(experts) {
   });
 }
 
+function setupExpertFilter() {
+  const searchEl = $('#expert-search');
+  const minAccEl = $('#expert-min-accuracy');
+  const resetBtn = $('#expert-reset');
+  searchEl.addEventListener('input', () => { expertFilterText = searchEl.value.trim().toLowerCase(); renderExperts(); });
+  minAccEl.addEventListener('change', () => { expertMinAccuracy = minAccEl.value ? Number(minAccEl.value) : 0; renderExperts(); });
+  resetBtn.addEventListener('click', () => {
+    searchEl.value = ''; expertFilterText = '';
+    minAccEl.value = '80'; expertMinAccuracy = 80;
+    renderExperts();
+  });
+}
+
 let catSortKey = 'accuracy_score';
 let catSortDir = 'desc';
-function renderCategories(cats) {
-  const sorted = [...cats].sort((a, b) => {
+let catFilterText = '';
+let _allCategories = [];
+
+function renderCategories() {
+  const filtered = catFilterText
+    ? _allCategories.filter(c => c.category.toLowerCase().includes(catFilterText))
+    : _allCategories;
+  const countEl = $('#cat-count');
+  if (countEl) countEl.textContent = filtered.length < _allCategories.length ? `${filtered.length} of ${_allCategories.length}` : '';
+  const sorted = [...filtered].sort((a, b) => {
     const av = a[catSortKey], bv = b[catSortKey];
     if (typeof av === 'string') return catSortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
     return catSortDir === 'asc' ? av - bv : bv - av;
@@ -255,6 +313,13 @@ function renderCategories(cats) {
   });
 }
 
+function setupCategoryFilter() {
+  const searchEl = $('#cat-search');
+  const resetBtn = $('#cat-reset');
+  if (searchEl) searchEl.addEventListener('input', () => { catFilterText = searchEl.value.trim().toLowerCase(); renderCategories(); });
+  if (resetBtn) resetBtn.addEventListener('click', () => { searchEl.value = ''; catFilterText = ''; renderCategories(); });
+}
+
 function renderSourceLinks(prefix, sources) {
   if (!sources || !sources.length) return '';
   return sources.map(s =>
@@ -262,13 +327,23 @@ function renderSourceLinks(prefix, sources) {
   ).join('');
 }
 
-function renderPredictions(predictions) {
+const PRED_PAGE_SIZE = 10;
+let predPage = 1;
+let _currentPredictions = [];
+
+function renderPredictions(predictions, resetPage) {
+  if (resetPage) predPage = 1;
+  _currentPredictions = predictions;
   const tbody = $('#pred-table tbody');
+  const loadMoreWrap = $('#load-more-wrap');
+  const loadMoreBtn = $('#load-more-preds');
   if (!predictions.length) {
     tbody.innerHTML = `<tr><td colspan="7" class="empty">No predictions match the current filters.</td></tr>`;
+    loadMoreWrap.hidden = true;
     return;
   }
-  tbody.innerHTML = predictions.map(p => {
+  const shown = predictions.slice(0, predPage * PRED_PAGE_SIZE);
+  tbody.innerHTML = shown.map(p => {
     const r = RATING_KEY[p.accuracy] || RATING_KEY['UNRESOLVED'];
     return `<tr class="pred-row">
       <td class="expert">${escHtml(p.expert)}</td>
@@ -280,9 +355,22 @@ function renderPredictions(predictions) {
       <td><span class="src-links">${renderSourceLinks('P', p.prediction_sources)}${renderSourceLinks('O', p.outcome_sources)}</span></td>
     </tr>`;
   }).join('');
+  if (shown.length < predictions.length) {
+    loadMoreWrap.hidden = false;
+    loadMoreBtn.textContent = `Load more (${predictions.length - shown.length} remaining)`;
+  } else {
+    loadMoreWrap.hidden = true;
+  }
 }
 
-function setupExpertSorting(experts) {
+function setupLoadMore() {
+  $('#load-more-preds').addEventListener('click', () => {
+    predPage++;
+    renderPredictions(_currentPredictions, false);
+  });
+}
+
+function setupExpertSorting() {
   $$('#expert-table thead th.sortable').forEach(th => {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;
@@ -292,12 +380,12 @@ function setupExpertSorting(experts) {
         expertSortKey = k;
         expertSortDir = (k === 'expert') ? 'asc' : 'desc';
       }
-      renderExperts(experts);
+      renderExperts();
     });
   });
 }
 
-function setupCategorySorting(cats) {
+function setupCategorySorting() {
   $$('#category-table thead th.sortable').forEach(th => {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;
@@ -307,7 +395,7 @@ function setupCategorySorting(cats) {
         catSortKey = k;
         catSortDir = (k === 'category') ? 'asc' : 'desc';
       }
-      renderCategories(cats);
+      renderCategories();
     });
   });
 }
@@ -346,7 +434,7 @@ function setupPredictionExplorer(predictions, experts, categories) {
       return true;
     });
     countEl.textContent = `${filtered.length} of ${predictions.length}`;
-    renderPredictions(filtered);
+    renderPredictions(filtered, true);
   }
 
   [search, expertSel, catSel, rating].forEach(el => el.addEventListener('input', apply));
@@ -376,11 +464,16 @@ function setupPredictionExplorer(predictions, experts, categories) {
       .sort((a, b) => b.accuracy_score - a.accuracy_score)
       .map((e, i) => ({ ...e, _rank: i + 1 }));
 
-    renderExperts(experts);
-    setupExpertSorting(experts);
+    _allExperts = experts;
+    renderExperts();
+    setupExpertSorting();
+    setupExpertFilter();
+    setupLoadMore();
 
-    renderCategories(data.category_summary);
-    setupCategorySorting(data.category_summary);
+    _allCategories = data.category_summary;
+    renderCategories();
+    setupCategorySorting();
+    setupCategoryFilter();
 
     $('#pred-total').textContent = data.predictions.length;
     setupPredictionExplorer(data.predictions, experts, data.category_summary);
