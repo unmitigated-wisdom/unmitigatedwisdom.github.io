@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Missile That Wasn&#x27;t Destroyed — Iran SRBM Fact Brief · Unmitigated Wisdom</title>
-<meta name="description" content="The Missile That Wasn&#x27;t Destroyed — Iran SRBM Fact Brief — a report from Unmitigated Wisdom, originally posted to Telegram on 6 April 2026.">
+<title>The Missile That Wasn't Destroyed · Unmitigated Wisdom</title>
+<meta name="description" content="Thirty-eight days of operational data show Iran's SRBM campaign sustaining well above 20 launches per day — with a sharp resurgence in late March that the &quot;90% destroyed&quot; narrative cannot explain.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -18,40 +19,194 @@
     </ul>
   </nav>
   <header class="post-head">
-    <p class="eyebrow">Report</p>
-    <h1>The Missile That Wasn&#x27;t Destroyed — Iran SRBM Fact Brief</h1>
+    <p class="eyebrow">Fact Brief — Iran Ballistic Missile Force</p>
+    <h1>The Missile That Wasn't Destroyed</h1>
     <p class="meta">
       By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
       <time datetime="2026-04-06">6 April 2026</time> &nbsp;·&nbsp;
       <a href="https://t.me/unmitigated_wisdom/134" target="_blank" rel="noopener">View on Telegram →</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="artifact" src="../telegram/reports/8a55ae9b-ec91-40ba-9968-27e190956363_files/saved_resource(1).html" loading="lazy" title="The Missile That Wasn&#x27;t Destroyed — Iran SRBM Fact Brief"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">Thirty-eight days of operational data show Iran's short-range ballistic missile campaign sustaining well above 20 launches per day — with a sharp resurgence in late March that the "90% destroyed" narrative cannot explain.</p>
+
+    <div class="key-stats">
+      <div><div class="value">D1–D38</div><span class="label">Coverage</span></div>
+      <div><div class="value accent">1,725+</div><span class="label">Total BMs Fired</span></div>
+      <div><div class="value accent">Resurgence</div><span class="label">Phase V Trend</span></div>
+      <div><div class="value">Apr 6, 2026</div><span class="label">Prepared</span></div>
+    </div>
+
+    <blockquote>
+      We have destroyed roughly 70 to 90 percent of Iran's missile launchers and ballistic missile production capacity. Their missiles are just about used up or beaten.
+      <cite>CENTCOM and White House messaging, March 2026</cite>
+    </blockquote>
+
+    <p>Through 38 days of war, Iran has fired <strong>more than 1,725 ballistic missiles</strong> at GCC states, Israel, and Jordan. After bottoming out at 18.6 BMs/day on Day 26, the seven-day rolling average <strong>rose every day through Day 33</strong>. Day 29 logged 43 ballistic missiles — the highest single-day total since the opening salvo. <strong>The campaign is not declining. It is reorganising.</strong></p>
+
+    <h2>Thirty-eight days. Seventeen hundred missiles.</h2>
+
+    <p>Every figure below is a confirmed floor, drawn from official Ministry of Defence statements published by the UAE, Bahrain, Kuwait, Saudi Arabia, Jordan, and Israel, then triangulated against Alma Research daily reports and CTP-ISW analysis. Actual launches are estimated to be 20–35% higher than these floors, because Saudi Arabia does not publish systematic cumulative figures and several countries dropped their granular reporting after the first week.</p>
+
+    <div class="key-stats">
+      <div><div class="value accent">1,725</div><span class="label">Ballistic Missiles</span><span class="sub">D1–D38 confirmed floor, all theatres</span></div>
+      <div><div class="value accent">3,186</div><span class="label">Drones &amp; UAVs</span><span class="sub">D1–D38 confirmed floor, all theatres</span></div>
+      <div><div class="value accent">4,911</div><span class="label">Combined Projectiles</span><span class="sub">Largest sustained barrage in modern history</span></div>
+      <div><div class="value">38</div><span class="label">Days of Sustained Fire</span><span class="sub">No multi-day pauses recorded</span></div>
+    </div>
+
+    <p>The opening 24 hours produced 503 ballistic missiles. That number drops sharply over the first week — the source of the "Iran is collapsing" narrative — and then settles into a remarkably durable floor. The most analytically important fact in the entire dataset is not the opening salvo. It is the floor.</p>
+
+    <h2>Five phases. The fifth one is going up.</h2>
+
+    <p>Plotting the daily ballistic missile and drone counts across all theatres reveals five distinct operational phases. The first four are consistent with the public narrative of Iranian degradation. The fifth — the one we are currently in — is not.</p>
+
+    <figure class="chart">
+      <canvas id="dailyChart" height="360"></canvas>
+      <figcaption>Daily ordnance — Iran → all theatres, D1 to D38. Stacked bars show ballistic missiles (red) and drones/UAVs (steel); gold line is the seven-day rolling BM average.</figcaption>
+    </figure>
+
+    <div class="key-stats">
+      <div><div class="value">148.7 <small>BM/d</small></div><span class="label">Phase I · D1–D6</span><span class="sub">334.7 dr/d</span></div>
+      <div><div class="value">37.8 <small>BM/d</small></div><span class="label">Phase II · D7–D16</span><span class="sub">103.5 dr/d</span></div>
+      <div><div class="value">28.7 <small>BM/d</small></div><span class="label">Phase III · D17–D22</span><span class="sub">85.0 dr/d</span></div>
+      <div><div class="value">19.0 <small>BM/d</small></div><span class="label">Phase IV · D23–D28</span><span class="sub">46.0 dr/d</span></div>
+      <div class="highlight"><div class="value">27.8 <small>BM/d</small></div><span class="label">Phase V · D29–D38 ↑</span><span class="sub">61.0 dr/d</span></div>
+    </div>
+
+    <div class="callout">
+      <span class="label">The trend reversed in Phase V</span>
+      <p>The 7-day rolling BM average bottomed at Day 26 (18.6/day) and has risen every day since. Comparing Phase IV (D23–D27) to Phase V (D28–D33), the BM rate rose roughly 74% — from 19.0 to 27.8 launches per day. The drone rate rose 34%. This is not what running out of ammunition looks like. It is what reconstitution and operational adaptation look like.</p>
+    </div>
+
+    <p>The CENTCOM "92% decline" figure was technically accurate when it was issued. It compared Phase I (148.7 BMs/day) to the bottom of Phase IV (~12 BMs/day on the lowest days). What it concealed was that the floor was already lifting by the time the figure was published. The narrative bought time for a battlefield assessment that the data was already invalidating.</p>
+
+    <h2>Two missile populations. Only one is being targeted.</h2>
+
+    <p>The single most consequential analytical error in the public discourse is conflating two entirely separate Iranian weapon populations. The CENTCOM claim of "70% of launchers destroyed" and the IDF launcher-destruction campaign apply almost exclusively to the medium-range ballistic missile population that targets Israel. They do not apply to the short-range fleet attacking the Gulf.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>SRBM — The Gulf Fleet</th>
+          <th>MRBM — The Israel Fleet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Range</th>
+          <td><strong>200–800 km.</strong> Fateh-110, Fateh-313, Zolfaghar, Qiam-1, Scud derivatives.</td>
+          <td><strong>1,000–2,000+ km.</strong> Shahab-3, Ghadr, Emad, Sejjil-2, Khorramshahr, Kheibar Shekan, Fattah.</td>
+        </tr>
+        <tr>
+          <th>Targets</th>
+          <td>All six GCC states · US bases in the Gulf · Jordan</td>
+          <td>Israel · Diego Garcia · distant strategic targets</td>
+        </tr>
+        <tr>
+          <th>Pre-War Stock</th>
+          <td><strong>5,000–8,000+.</strong> Iran exported hundreds of Fateh-110 equivalents to Hezbollah alone. Domestic stockpiles are an order of magnitude larger.</td>
+          <td><strong>~1,500–2,500.</strong> IDF estimate, February 2026. Alma Research notes the figure's ambiguity — it may refer only to Israel-capable warheads.</td>
+        </tr>
+        <tr>
+          <th>Launcher Type</th>
+          <td>Simple angled rail mounted on a standard truck. Launches from anywhere, relocates immediately. Effectively impossible to map from the air.</td>
+          <td>Large 8×8 and 10×10 transporter-erector launchers. Visible in satellite imagery. Semi-fixed launch pads with prepared infrastructure.</td>
+        </tr>
+        <tr>
+          <th>Targeted by US/Israel?</th>
+          <td><strong>No.</strong> Not the primary target of the launcher-destruction campaign. Too dispersed, too small, too cheap to find and kill at scale.</td>
+          <td><strong>Yes.</strong> IDF reported 330 of approximately 470 targeted MRBM launchers destroyed or disabled by Day 24. This is the source of the "70% destroyed" figure.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber">
+      <span class="label">Read this carefully</span>
+      <p>The 2,500-missile figure cited in nearly every public discussion refers primarily to MRBMs — the missiles capable of reaching Israel. Iran's SRBM fleet is a separate, much larger population. The Fateh family alone was produced in quantities sufficient for Iran to export hundreds to Hezbollah as a proxy force. CENTCOM's own 2022 estimate was "over 3,000 ballistic missiles of all ranges" — and the Iranian programme has expanded substantially since then. The realistic SRBM stockpile is in the range of <strong>5,000 to 8,000 rounds</strong>, much of it stored in underground facilities that survived the 12-Day War of June 2025 and the current campaign.</p>
+    </div>
+
+    <h2>Three errors compounded into one delusion.</h2>
+
+    <p>The Western public assessment of Iran's missile force was not built on a single mistake. It was built on three separate analytical errors that reinforced each other — and the operational data of the past ten days has now exposed all three simultaneously.</p>
+
+    <h3>Error one — conflating two inventories</h3>
+    <p>The MRBM and SRBM populations were treated as a single number. When IDF launcher strikes destroyed roughly 330 of approximately 470 targeted Israel-range launchers, the resulting "70%" figure was applied to the entire Iranian missile force. It was never true of the SRBMs. The Fateh, Zolfaghar, and Qiam launchers attacking Gulf states were never the focus of the launcher-destruction campaign and remain largely intact.</p>
+
+    <h3>Error two — mistaking the trough for the trend</h3>
+    <p>The CENTCOM "decline" figure was anchored to the lowest observed launch days — the bottom of Phase IV — rather than to a rolling average. A statistic that is technically accurate at the moment of measurement can mislead about the direction of travel. The seven-day rolling BM average has now risen for nine consecutive days. The trough was not a baseline. It was an inflection point.</p>
+
+    <h3>Error three — confusing stockpile with production</h3>
+    <p>Public commentary repeatedly framed Iran's missile expenditure as drawdown from a fixed warehouse. But Iran's SRBM production is partially dispersed and partially underground. The June 2025 strikes did not eliminate Fateh production, and the February 2026 strikes have damaged but not destroyed it. A campaign that consumes 25 SRBMs per day from a stockpile of 5,000+ rounds, while production continues at any meaningful rate, has runway measured in <em>months</em> — not weeks.</p>
+
+    <h2>The arithmetic does not say what Washington says it says.</h2>
+
+    <ol>
+      <li><strong>The Phase V resurgence is almost certainly SRBM-driven.</strong> The MRBM force was always smaller and was systematically targeted. The rebound from 18.6 to 27.8 BMs per day cannot be coming from the missile category that has actually been hunted. By process of elimination, the launches sustaining the curve are Fateh-family and Zolfaghar-class short-range systems aimed at Gulf targets.</li>
+      <li><strong>Iran has runway. The defenders do not.</strong> Iran is firing roughly 25 SRBMs per day from a stockpile likely in the thousands. The defenders are firing roughly 60 to 90 Patriot interceptors per day from a sovereign GCC stock that is 86% depleted. The cost asymmetry is the wrong way around: the cheaper, more numerous weapon is held by the attacker; the scarcer, more expensive weapon is held by the defender.</li>
+      <li><strong>The CENTCOM "decline" figure was a snapshot of the trough, not a description of the trajectory.</strong> Communicated as a trend, it was not. The 7-day rolling average has risen for nine consecutive days. Any policy decision anchored to the "90% destroyed" framing is now operating on stale information.</li>
+      <li><strong>The June 2025 12-Day War proved the point in advance.</strong> After that conflict, Iran was widely assessed as having had its missile and nuclear programmes set back by years. Eight months later it launched the largest sustained ballistic missile campaign in modern history. The pattern that should have been learned from June 2025 is the pattern still being missed in April 2026: <em>Iranian missile recovery is faster than Western assessments assume, every single time.</em></li>
+      <li><strong>The narrative gap is itself an operational variable.</strong> If US and allied decision-makers are operating on the "Iran is finished" framing, they will set deadlines, threats, and ceasefire terms calibrated to a missile force that does not exist. The mismatch between the assumed and actual Iranian capability is precisely the kind of intelligence failure that produces escalation by miscalculation.</li>
+    </ol>
+
+    <div class="ornament">· · ·</div>
+
+    <h2>The bottom line.</h2>
+
+    <div class="callout">
+      <span class="label">Fact Brief Conclusion</span>
+      <p>The Western narrative that Iran's ballistic missile force has been "destroyed" or "just about used up" conflates the targeted MRBM fleet with the much larger, untargeted SRBM fleet — and reads the trough of the daily curve as if it were the trend. The actual operational data shows <strong>1,725+ ballistic missiles fired in 38 days</strong>, a sustained floor of <strong>20+ launches per day</strong>, and a sharp resurgence in late March that is still climbing. Iran's short-range stockpile, estimated at 5,000 to 8,000 rounds before the war, has runway measured in months. The defenders' interceptor stockpile does not.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">What this brief is not</span>
+      <p>A defence of the Iranian regime, a celebration of the missile programme, or a prediction about how the war ends. It is a correction to a factual claim that is shaping policy and public expectations on the basis of inaccurate inventory accounting. The arithmetic matters because the people making decisions are using it.</p>
+    </div>
+
+    <div class="method">
+      <h3>Sources</h3>
+      <p>UAE MoD · Alma Research · CTP-ISW · INSS · CSIS · RUSI · JINSA</p>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
 <script>
-(function () {
-  var f = document.querySelector('iframe.artifact');
-  if (!f) return;
-  function fit() {
-    try {
-      var d = f.contentDocument;
-      if (!d || !d.documentElement) return;
-      var h = Math.max(d.body ? d.body.scrollHeight : 0, d.documentElement.scrollHeight);
-      if (h > 0) f.style.height = (h + 24) + 'px';
-    } catch (e) {}
+const dates = ['Feb28','Mar1','Mar2','Mar3','Mar4','Mar5','Mar6','Mar7','Mar8','Mar9','Mar10','Mar11','Mar12','Mar13','Mar14','Mar15','Mar16','Mar17','Mar18','Mar19','Mar20','Mar21','Mar22','Mar23','Mar24','Mar25','Mar26','Mar27','Mar28','Mar29','Mar30','Mar31','Apr1','Apr2','Apr3','Apr4','Apr5','Apr6'];
+const DAILY_BM = [503,98,89,87,54,61,74,36,37,53,30,27,40,29,29,23,22,28,56,25,18,23,17,23,19,8,22,25,43,20,32,30,17,19,26,35,18,20];
+const DAILY_DR = [577,487,251,211,214,268,150,137,155,48,61,42,67,156,131,88,135,49,132,70,57,67,62,84,45,20,35,30,87,54,53,63,50,26,73,79,77,33];
+const rolling7 = DAILY_BM.map((v,i) => i<6 ? null : parseFloat((DAILY_BM.slice(i-6,i+1).reduce((a,b)=>a+b)/7).toFixed(1)));
+
+new Chart(document.getElementById('dailyChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: dates,
+    datasets: [
+      { label: 'Ballistic Missiles', data: DAILY_BM, backgroundColor: '#b8342f', stack: 'A', order: 2 },
+      { label: 'Drones / UAVs', data: DAILY_DR, backgroundColor: '#6b8aa8', stack: 'A', order: 2 },
+      { label: '7-Day Rolling BM Average', data: rolling7, type: 'line', borderColor: '#c47a1e', backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 2, pointBackgroundColor: '#c47a1e', fill: false, tension: 0.4, order: 1 }
+    ]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#6b6b6b', font: { family: "ui-sans-serif, system-ui", size: 11 }, boxWidth: 14, padding: 14 } },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      x: { stacked: true, ticks: { color: '#888', font: { size: 9 }, maxRotation: 90 }, grid: { color: 'rgba(0,0,0,0.04)' } },
+      y: { stacked: true, ticks: { color: '#888', font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.06)' } }
+    },
+    interaction: { mode: 'index', intersect: false }
   }
-  f.addEventListener('load', function () {
-    fit(); setTimeout(fit, 250); setTimeout(fit, 1200);
-    try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
-  });
-  window.addEventListener('resize', fit);
-})();
+});
 </script>
 </body>
 </html>

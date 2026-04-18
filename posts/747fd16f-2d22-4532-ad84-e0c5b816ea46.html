@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How Does the Iran War End — and What Happens Along the Way? · Unmitigated Wisdom</title>
-<meta name="description" content="How Does the Iran War End — and What Happens Along the Way? — a report from Unmitigated Wisdom, originally posted to Telegram on 24 March 2026.">
+<meta name="description" content="A Bayesian aggregation of expert forecasts, weighted by historical prediction accuracy, on both the strategic outcome and near-term trajectory of the 2026 US–Israel–Iran war.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -26,32 +27,329 @@
       <a href="https://t.me/unmitigated_wisdom/122" target="_blank" rel="noopener">View on Telegram →</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="artifact" src="../telegram/reports/747fd16f-2d22-4532-ad84-e0c5b816ea46_files/747fd16f-2d22-4532-ad84-e0c5b816ea46.html" loading="lazy" title="How Does the Iran War End — and What Happens Along the Way?"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">A Bayesian aggregation of expert forecasts, weighted by historical prediction accuracy, on both the strategic outcome and near-term trajectory of the 2026 US–Israel–Iran war.</p>
+
+    <p class="dropcap">Four weeks into Operation Epic Fury, the war with Iran has no clear end in sight. President Trump oscillates between threatening to "obliterate" Iran's power plants and floating a wind-down. Iran's regime, now under Mojtaba Khamenei, has survived decapitation, kept the Strait of Hormuz effectively closed, and signalled it intends to fight a war of attrition. Oil prices have risen 45% since the conflict began.</p>
+
+    <p>This report attempts to answer two questions every observer is asking: <em>where does this war end?</em> and <em>what happens along the way?</em> To answer both, we tracked down the recent predictive statements of fourteen geopolitical experts whose forecasting records we have been scoring for accuracy over years. Rather than simply averaging their views, we built a Bayesian model that weights each expert by their demonstrated <em>excess skill above chance</em> — and discards vague or inapplicable statements entirely.</p>
+
+    <p>The result has two parts. First, a probability distribution over five strategic end-states — from decisive Iranian victory to decisive US/Israel victory. Second, probability estimates for four binary questions about the war's near-term trajectory: duration, ground troops, the Strait of Hormuz, and infrastructure strikes. All seven forecasts use the same model, the same expert panel, and the same parameters.</p>
+
+    <div class="callout">
+      <span class="label">Headline findings — Part I: How does the war end?</span>
+      <div class="key-stats">
+        <div class="highlight"><div class="value accent">47%</div><span class="label">Iran-favoured</span></div>
+        <div><div class="value">25%</div><span class="label">Stalemate</span></div>
+        <div><div class="value">28%</div><span class="label">US/Israel-favoured</span></div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">Headline findings — Part II: What happens next?</span>
+      <div class="key-stats">
+        <div><div class="value">24%</div><span class="label">War ends quickly</span><span class="sub">before late May 2026</span></div>
+        <div><div class="value">34%</div><span class="label">Major ground invasion</span><span class="sub">1,000+ US troops in combat</span></div>
+        <div><div class="value">22%</div><span class="label">Hormuz reopened by force</span><span class="sub">≥50% pre-war volume</span></div>
+        <div><div class="value accent">47%</div><span class="label">Major infrastructure strikes</span><span class="sub">power, water, refineries</span></div>
+      </div>
+      <p><em>Model parameters: τ = 0.20, κ = 5.0.</em></p>
+    </div>
+
+    <p>The probability mass tilts toward Iranian-advantaged outcomes. This does not mean Iran "wins" in a conventional military sense — the country is being devastated. But the experts with the strongest track records converge on a shared assessment: the US and Israel lack a coherent strategy for translating tactical success into a durable political outcome. The war is unlikely to end quickly, the Strait of Hormuz is unlikely to be reopened by force alone, and escalation to civilian infrastructure strikes is roughly a coin toss.</p>
+
+    <hr>
+
+    <h2>Part I — How does the war end?</h2>
+
+    <p>We defined five mutually exclusive strategic end-states, each specified by five observable criteria: regime survival, Hormuz status, nuclear program, proxy networks, and international perception. Five bins rather than seven — because the experts' statements rarely distinguish finer gradations, and matching output resolution to input resolution produces more honest probabilities.</p>
+
+    <figure class="chart">
+      <canvas id="outcomeChart" height="300"></canvas>
+      <figcaption>Posterior probability across five strategic end-states. Peak: "Stalemate" at 25.0%. Mean: 2.68 / 5 (left = Iranian victory, right = US/Israel victory).</figcaption>
+    </figure>
+
+    <h3>The five outcomes, defined</h3>
+
+    <div class="callout">
+      <span class="label">1. Iranian Victory — 24%</span>
+      <p>The Islamic Republic survives fully intact with its command structure and institutions preserved. The Strait of Hormuz is reopened only on Tehran's terms — through a non-aggression pact, sanctions relief, or security guarantees that amount to US/Israeli capitulation. Iran's nuclear enrichment program resumes or accelerates, potentially crossing the weapons threshold. Proxy networks (Hezbollah, Houthis, Iraqi militias) are reconstituted. The US is forced into an unconditional or near-unconditional withdrawal, widely perceived internationally as a strategic humiliation comparable to Saigon 1975 or Kabul 2021.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">2. Iranian Advantage — 24%</span>
+      <p>The regime survives but is meaningfully weakened — leadership depleted, economy shattered, military infrastructure degraded. However, a negotiated ceasefire still tilts in Iran's favour: Iran extracts meaningful concessions (partial sanctions relief, recognition of enrichment rights, a non-aggression commitment, or reparations) in exchange for reopening Hormuz. Some nuclear capacity is retained — enough latent knowledge, hidden material, and dispersed centrifuges that Iran remains a threshold state. The US achieves some tactical objectives (damage to missile stocks, leadership kills) but falls clearly short of its strategic goals. The war is broadly interpreted as an overreach by Washington.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">3. Stalemate — 25%</span>
+      <p>Both sides suffer major damage without either achieving decisive strategic objectives. The Iranian regime is badly wounded — economy in ruins, infrastructure destroyed, leadership decimated — but remains in power with its core institutions functional. The US and Israel have degraded Iran's military and nuclear capabilities significantly but have not achieved regime change or permanent nuclear dismantlement. The Strait of Hormuz reopens through mutual de-escalation or international mediation. Both sides publicly claim victory. The fundamental disputes remain unresolved, with a high probability of renewed conflict within 3–5 years.</p>
+    </div>
+
+    <div class="callout green">
+      <span class="label">4. US/Israel Advantage — 17%</span>
+      <p>The US and Israel achieve most of their military objectives: Iran's nuclear program is set back by 5–10 years, missile and drone arsenals severely depleted, proxy networks significantly disrupted. Hormuz is reopened through military pressure or a favourable ceasefire. However, the Iranian regime survives — battered and isolated, but not overthrown. A successor leadership remains hostile and begins rebuilding. No permanent resolution; the conflict enters a frozen phase with periodic flare-ups likely.</p>
+    </div>
+
+    <div class="callout green">
+      <span class="label">5. US/Israel Victory — 11%</span>
+      <p>Iran's nuclear weapons program is effectively destroyed — enrichment facilities, centrifuge manufacturing, and hidden HEU stockpiles all neutralised. The regime is fractured or collapses entirely: IRGC command structure broken, supreme leadership in disarray or replaced by a cooperative government. Hormuz fully reopened. Proxy networks dismantled. In the strongest version, a successor government accepts permanent end to enrichment, dismantlement of missile programs, and normalisation with Israel — analogous to post-WWII Japan or Germany. This outcome almost certainly requires either a ground invasion, a popular revolution installing a cooperative government, or total internal collapse — all historically rare without prolonged occupation.</p>
+    </div>
+
+    <h3>What the experts are saying</h3>
+
+    <p>Ranked by effective weight — a product of historical accuracy, statement applicability, and the dependence discount.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Expert</th>
+          <th>Role</th>
+          <th>Signal</th>
+          <th>Accuracy</th>
+          <th>n</th>
+          <th>Peak outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Jiang Xueqin</th>
+          <td>Educator &amp; YouTuber, 'Predictive History'</td>
+          <td>64%</td>
+          <td>88%</td>
+          <td>13</td>
+          <td>Iranian Victory</td>
+        </tr>
+        <tr>
+          <th>Danny Citrinowicz</th>
+          <td>Fmr. Head Iran Branch, IDF Intelligence</td>
+          <td>56%</td>
+          <td>84%</td>
+          <td>11</td>
+          <td>Iranian Advantage</td>
+        </tr>
+        <tr>
+          <th>David Albright</th>
+          <td>Physicist, Fmr. IAEA Inspector, ISIS President</td>
+          <td>50%</td>
+          <td>82%</td>
+          <td>7</td>
+          <td>US/Israel Advantage</td>
+        </tr>
+        <tr>
+          <th>Vali Nasr</th>
+          <td>Prof. International Affairs, Johns Hopkins SAIS</td>
+          <td>45%</td>
+          <td>79%</td>
+          <td>6</td>
+          <td>Iranian Victory</td>
+        </tr>
+        <tr>
+          <th>Hossein Bastani</th>
+          <td>BBC Persian Journalist &amp; Analyst</td>
+          <td>50%</td>
+          <td>79%</td>
+          <td>14</td>
+          <td>Stalemate</td>
+        </tr>
+        <tr>
+          <th>John Mearsheimer</th>
+          <td>IR Theorist, University of Chicago</td>
+          <td>36%</td>
+          <td>71%</td>
+          <td>6</td>
+          <td>Iranian Victory</td>
+        </tr>
+        <tr>
+          <th>Jennifer Kavanagh</th>
+          <td>Defense Priorities</td>
+          <td>41%</td>
+          <td>75%</td>
+          <td>6</td>
+          <td>Stalemate</td>
+        </tr>
+        <tr>
+          <th>Karim Sadjadpour</th>
+          <td>Senior Fellow, Carnegie Endowment</td>
+          <td>23%</td>
+          <td>58%</td>
+          <td>6</td>
+          <td>Stalemate</td>
+        </tr>
+        <tr>
+          <th>Abdollah Shahbazi</th>
+          <td>Iranian Historian &amp; Analyst</td>
+          <td>19%</td>
+          <td>57%</td>
+          <td>11</td>
+          <td>Iranian Victory</td>
+        </tr>
+        <tr>
+          <th>Scott Ritter</th>
+          <td>Fmr. UN Weapons Inspector</td>
+          <td>10%</td>
+          <td>45%</td>
+          <td>5</td>
+          <td>Iranian Victory</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Why the model tilts toward Iran</h3>
+
+    <p>The structural case for an Iranian-advantaged outcome rests on an asymmetry that multiple high-signal experts identify independently. Mearsheimer (signal 42%) frames it as the Vietnam analogy: for Iran to win, all it has to do is survive. The US, by contrast, needs to achieve regime change <em>and</em> install a compliant successor — a far higher bar that has almost never been met by airpower alone. Iran's regime survived the killing of its supreme leader, appointed a successor within days, and has continued to launch missiles four weeks into the war. The decapitation strategy, which was the original theory of victory, has failed on its own terms.</p>
+
+    <p>Vali Nasr (signal 50%) adds the temporal dimension: Iran has studied this conflict for decades, drawing on the Iran-Iraq War's lesson that endurance beats firepower. The regime believes, as Nasr puts it, that the US and Israel "can dash fast, but they're not long-distance runners." The Hormuz closure operationalises this insight — it converts Iran's geographic position into economic leverage that compounds over time. Every week the strait stays closed, the pressure shifts from Tehran to Washington.</p>
+
+    <p>Jiang Xueqin (signal 77%, the panel's highest) provides the game-theoretic scaffolding: the US military-industrial complex is optimised for Cold War-style power projection, not 21st-century asymmetric attrition. The cost asymmetry — million-dollar interceptors against $50,000 drones — is structurally unsustainable. Israel's interceptor stocks are depleting. And Iran's proxy network, while degraded, means the conflict is simultaneously active across Lebanon, Iraq, the Gulf states, and the Red Sea, stretching coalition resources across a front no air campaign can cover.</p>
+
+    <blockquote>
+      Operational achievements are not accumulating into strategic effect.
+      <cite>Danny Citrinowicz — single most consequential statement in the dataset</cite>
+    </blockquote>
+
+    <p>Citrinowicz (signal 68%), critically, reaches a similar conclusion <em>from inside the Israeli security establishment</em>. His assessment that "operational achievements are not accumulating into strategic effect" is the single most consequential statement in the dataset — because it comes from someone with both high historical accuracy and deep domain expertise, and it directly contradicts the narrative being advanced by both the US and Israeli governments.</p>
+
+    <h3>The case the model could be wrong</h3>
+
+    <p>The strongest counter-case comes from David Albright (signal 57%), who focuses on what the war <em>has</em> achieved rather than what it hasn't. Iran has lost approximately 20,000 centrifuges, its enrichment infrastructure at Natanz and Fordow is severely damaged, and its centrifuge manufacturing capability has been destroyed. This creates a genuine bottleneck: even if the regime survives, reconstituting nuclear capacity will take years, not months. Albright's assessment — nuclear program "set back significantly but not destroyed" — is more favourable to the US than the headline number suggests, because it implies the war's primary stated objective (preventing a nuclear Iran) may actually be partially achieved even in a stalemate.</p>
+
+    <p>Sadjadpour (signal 17%) offers a different structural argument: the Iranian regime is deeply unpopular, inheriting a wrecked economy with no answers for the enormous popular discontent that preceded the war. The protests of January 2026, which brought 5 million Iranians to the streets, were the largest since 1979. Even if the regime survives the war, it may not survive the peace — a battered, impoverished theocracy facing a hostile population and a destroyed economy may be a dead regime walking. In this reading, the US achieves its objectives not through the war itself but through the conditions the war creates.</p>
+
+    <p>There is also a scenario the panel may systematically underweight: that Trump, unconstrained by institutional norms and genuinely willing to escalate beyond any previous US president, does something none of the experts expect — whether that's a ground invasion, an attack on Iranian power infrastructure, or a deal so unorthodox it falls outside the analytical frameworks these experts use. Several experts (notably Mearsheimer and Nasr) build their forecasts on the assumption that rational strategic logic constrains US behaviour. Trump's track record suggests that assumption may be the weakest link in their reasoning.</p>
+
+    <hr>
+
+    <h2>Part II — What happens next?</h2>
+
+    <p>Knowing how a war ends is not the same as knowing how it gets there. This section forecasts four binary questions about the war's near-term trajectory — each independently falsifiable, each with a clear 2-month resolution horizon. The same Bayesian methodology applies: extract each expert's excess skill above chance, filter for applicability, aggregate with a dependence discount. The expert panel overlaps with Part I but is not identical — for each question, we include only experts who have made relevant statements.</p>
+
+    <p>These four questions were chosen because they carve the space of possible trajectories into the smallest number of independent binary events that, taken together, tell you the shape of what's coming.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Prior</th>
+          <th>Posterior</th>
+          <th>Shift</th>
+          <th>Experts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Does the war end quickly? <br><small>(Active hostilities end within 2 months, before late May 2026)</small></th>
+          <td>30%</td>
+          <td><strong>24% Yes</strong></td>
+          <td>−6.0pp</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <th>Major ground invasion? <br><small>(US deploys 1,000+ troops in sustained combat on Iranian soil)</small></th>
+          <td>30%</td>
+          <td><strong>34% Yes</strong></td>
+          <td>+4.3pp</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <th>Hormuz reopened by force? <br><small>(US military reopens strait to ≥50% pre-war shipping volume within 2 months)</small></th>
+          <td>25%</td>
+          <td><strong>22% Yes</strong></td>
+          <td>−3.4pp</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <th>Major infrastructure strikes? <br><small>(US/Israel carry out sustained strikes on Iranian civilian infrastructure within 2 months)</small></th>
+          <td>45%</td>
+          <td><strong>47% Yes</strong></td>
+          <td>+2.2pp</td>
+          <td>6</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Three of the four trajectory forecasts point in the same direction the strategic distribution does: the war is more likely to grind than to resolve. Quick termination is a minority outcome. A US ground invasion is roughly a one-in-three event — higher than most commentary assumes, but still not the modal path. Reopening Hormuz by force is the single least likely of the four: the experts think the strait reopens through bargaining, attrition, or mutual exhaustion rather than through a successful combined-arms campaign. Only one forecast is a coin flip — <strong>sustained strikes on Iranian civilian infrastructure</strong> — and it nudged upward from the prior rather than down.</p>
+
+    <hr>
+
+    <h2>Methodology</h2>
+
+    <p>The core problem in expert aggregation is distinguishing signal from noise. A naïve average gives equal weight to a random guesser and a calibrated forecaster. Worse, it treats a vague or irrelevant statement as a weak 50/50 forecast rather than what it actually is: no evidence at all. This model corrects both errors through a four-step process.</p>
+
+    <h3>Step 1 — estimate historical reliability</h3>
+    <p><em>r<sub>i</sub></em> = (κ · μ₀ + <em>S<sub>i</sub></em>) / (κ + <em>N<sub>i</sub></em>)</p>
+    <p>Each expert's track record is summarised as a reliability score <em>r<sub>i</sub></em>, where <em>S<sub>i</sub></em> is the sum of historical accuracy scores (normalised 0–1) and <em>N<sub>i</sub></em> is the number of resolved predictions. The parameter κ controls shrinkage: it pulls experts with few predictions toward the population mean μ₀ = 0.65. A long, strong track record is trusted at face value; a newcomer with three predictions is treated with scepticism.</p>
+
+    <h3>Step 2 — extract signal above chance</h3>
+    <p><em>s<sub>i</sub></em> = max(0, (<em>r<sub>i</sub></em> − 0.50) / 0.50)</p>
+    <p>This is the key correction. A 50%-accurate expert on binary questions is no better than a coin flip — they carry <strong>zero</strong> useful signal, not half. The formula maps reliability onto a 0–1 signal scale where the null baseline maps to zero. Only demonstrated skill above chance earns influence. A reliability of 0.65 yields signal 0.30; 0.80 yields 0.60; only a perfect record reaches 1.00.</p>
+
+    <h3>Step 3 — filter for applicability</h3>
+    <p><em>a<sub>i</sub></em> ∈ [0, 1]</p>
+    <p>Each expert's current statements are scored for how directly they address the question. A vague or off-topic statement receives applicability near zero, contributing <strong>no evidence at all</strong> — not a weak push toward the middle. "I learned nothing from this" is silence, not a 50/50 forecast. Only clear, specific, falsifiable claims receive high applicability.</p>
+
+    <h3>Step 4 — Bayesian aggregation</h3>
+    <p>For the five-outcome strategic question, the aggregation is log-linear:</p>
+    <p><em>p</em>(<em>y</em>) ∝ π₀(<em>y</em>) · ∏<sub>i</sub> [<em>m<sub>i</sub></em>(<em>y</em>) / π₀(<em>y</em>)]<sup>τ · <em>a<sub>i</sub></em> · <em>s<sub>i</sub></em></sup></p>
+    <p>For the four binary trajectory questions, the same logic operates in log-odds space:</p>
+    <p>log-odds(<em>p</em>) = log-odds(<em>p</em>₀) + Σ<sub>i</sub> τ · <em>a<sub>i</sub></em> · <em>s<sub>i</sub></em> · [log-odds(<em>p<sub>i</sub></em>) − log-odds(<em>p</em>₀)]</p>
+    <p>In both cases, the exponent τ · <em>a<sub>i</sub></em> · <em>s<sub>i</sub></em> controls influence. When any factor is zero — no skill, inapplicable statement, or forecast matching the prior — the expert contributes nothing. The parameter τ discounts for dependence: since many analysts share frameworks and information sources, their opinions are not fully independent. A τ of 0.2 treats the panel as carrying roughly the information of two fully independent sources.</p>
+
+    <h3>Why five strategic outcomes, not seven?</h3>
+    <p>Our original model used seven. We compressed to five because experts' statements rarely distinguish adjacent bins — Mearsheimer doesn't differentiate "Decisive Iranian Victory" from "Strong Iranian Advantage," and Albright doesn't distinguish "Strong US Advantage" from "Decisive US Victory." Forcing that granularity manufactures false precision. Five bins preserve the distinctions experts actually make while giving each category enough probability mass to be meaningful.</p>
+
+    <p><em>Note: the model uses max(0, …) for signal extraction, flooring anti-predictive experts at zero rather than inverting their signal. This is safer when you cannot confidently distinguish systematic wrongness from mere noise.</em></p>
+
+    <div class="ornament">· · ·</div>
+
+    <div class="method">
+      <h3>Data source</h3>
+      <p>Historical accuracy scores come from the <strong>Expert Prediction Tracker V24</strong> — a dataset of 501 predictions across 64 geopolitical experts, each dual-cited with a prediction source and an independent outcome source. The tracker uses Bayesian scoring on a five-tier scale (True, Mostly True, Partially True, Mostly False, False) with shrinkage for small samples. Expert statements sourced from public interviews, articles, and social media posts from February–March 2026.</p>
+      <p>Expert forecasts inferred from public statements, not self-reported. Applicability scores are editorial judgements. This is an analytical exercise, not policy or investment advice.</p>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
 <script>
-(function () {
-  var f = document.querySelector('iframe.artifact');
-  if (!f) return;
-  function fit() {
-    try {
-      var d = f.contentDocument;
-      if (!d || !d.documentElement) return;
-      var h = Math.max(d.body ? d.body.scrollHeight : 0, d.documentElement.scrollHeight);
-      if (h > 0) f.style.height = (h + 24) + 'px';
-    } catch (e) {}
+new Chart(document.getElementById('outcomeChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: ['Iran Victory', 'Iran Advantage', 'Stalemate', 'US/Isr. Advantage', 'US/Isr. Victory'],
+    datasets: [{
+      label: 'Posterior probability',
+      data: [24, 24, 25, 17, 11],
+      backgroundColor: ['#b8342f', '#c47a1e', '#9e988a', '#6b8aa8', '#2a7a4a'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return ctx.parsed.y + '%'; }
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#6b6b6b', font: { size: 11 } }, grid: { color: 'rgba(0,0,0,0.04)' } },
+      y: {
+        beginAtZero: true,
+        max: 30,
+        ticks: { color: '#888', font: { size: 10 }, callback: function(v) { return v + '%'; } },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      }
+    }
   }
-  f.addEventListener('load', function () {
-    fit(); setTimeout(fit, 250); setTimeout(fit, 1200);
-    try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
-  });
-  window.addEventListener('resize', fit);
-})();
+});
 </script>
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Operation Epic Fury — Day 25 Situation Report | Unmitigated Wisdom · Unmitigated Wisdom</title>
-<meta name="description" content="Operation Epic Fury — Day 25 Situation Report | Unmitigated Wisdom — a report from Unmitigated Wisdom, originally posted to Telegram on 24 March 2026.">
+<title>Operation Epic Fury — Day 25 Situation Report · Unmitigated Wisdom</title>
+<meta name="description" content="Twenty-five days of Iranian ordnance, ship attacks, and energy-market impact — 5,193 projectiles, 18 vessels struck, Brent peaking at $113.71, US gasoline crossing $3.95.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -18,40 +19,268 @@
     </ul>
   </nav>
   <header class="post-head">
-    <p class="eyebrow">Report</p>
-    <h1>Operation Epic Fury — Day 25 Situation Report | Unmitigated Wisdom</h1>
+    <p class="eyebrow">Situation Report · Day 25</p>
+    <h1>Operation Epic Fury — Day 25 Situation Report</h1>
     <p class="meta">
       By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
       <time datetime="2026-03-24">24 March 2026</time> &nbsp;·&nbsp;
       <a href="https://t.me/unmitigated_wisdom/122" target="_blank" rel="noopener">View on Telegram →</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="artifact" src="../telegram/reports/a6954639-dc04-4def-a396-b1fd4999d658_files/saved_resource(1).html" loading="lazy" title="Operation Epic Fury — Day 25 Situation Report | Unmitigated Wisdom"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">Twenty-five days of daily tracking — Iranian ordnance expenditure, Strait of Hormuz ship attacks, and energy-market impact — drawn exclusively from target-country defence ministries, JINSA, CTP-ISW, FDD, and verified price feeds. No Iranian state sources.</p>
+
+    <div class="key-stats">
+      <div><div class="value">5,193</div><span class="label">Projectiles</span><span class="sub">Floor · ~20–35% below true total</span></div>
+      <div><div class="value">1,491</div><span class="label">Missiles</span></div>
+      <div><div class="value">3,702</div><span class="label">Drones</span></div>
+      <div><div class="value">18</div><span class="label">Ship attacks</span><span class="sub">Strait of Hormuz · through Mar 11</span></div>
+      <div><div class="value accent">$113.71</div><span class="label">Brent peak</span><span class="sub">Day 20 · Mar 19</span></div>
+      <div><div class="value accent">$3.956</div><span class="label">US gasoline</span><span class="sub">Day 25 · +33% vs pre-war</span></div>
+    </div>
+
+    <h2>What the data can and cannot show</h2>
+
+    <p class="dropcap">This report is built on a strict evidentiary perimeter. Every launch figure derives from an official defence-ministry statement, government social channel, or secondary compilation (JINSA, CTP-ISW, FDD Long War Journal) that itself cites an official source. No Iranian government, IRGC, or state-media figures are used for daily counts. Energy prices come from FRED/EIA closes, Fortune's intraday Brent snapshots, and AAA weekly averages — with gaps marked explicitly rather than interpolated.</p>
+
+    <p>Within those limits, the curves show quite a lot and settle very little.</p>
+
+    <ul>
+      <li><strong>Directly shown:</strong> daily realised launches by weapon type and target country; verified energy prices on reported days.</li>
+      <li><strong>Plausibly indicated:</strong> changing strike tempo, category-specific flexibility (drones vs missiles), targeting shifts, and the correlation between strike activity and energy prices.</li>
+      <li><strong>Cannot be settled:</strong> remaining inventories, hidden reserves, or whether lower firing rates reflect genuine attrition, logistics strain, or deliberate conservation.</li>
+    </ul>
+
+    <p>Five hidden drivers sit behind every tempo inference: surviving inventory, launcher and basing survivability, reload and transport capacity, target-priority decisions, and escalation-management choices. All are opaque.</p>
+
+    <hr>
+
+    <h2>Part I · Ordnance — the four phases</h2>
+
+    <p>Day 1 fired a pre-planned salvo of 1,080 projectiles (503 missiles and 577 drones) that is best treated as distinct from sustained tempo. After Day 1, volume compressed in stages — 300-range through D2–4, 200-range through D5–9, then a 40–100 band from D10 onward with notable surges on Days 14–15, 17, and 19. The data cannot distinguish degradation from rationing; it can only describe the band.</p>
+
+    <table>
+      <thead>
+        <tr><th>Phase</th><th>Days</th><th>Character</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Phase I</strong></td><td>D1–6</td><td>Mass saturation — pre-planned opening salvo, controlled step-down</td></tr>
+        <tr><td><strong>Phase II</strong></td><td>D7–16</td><td>Attrition band — stabilised 40–100/day with punctuated surges</td></tr>
+        <tr><td><strong>Phase III</strong></td><td>D17–19</td><td>Rationed — selective targeting; Khorramshahr-4 debut on D19</td></tr>
+        <tr><td><strong>Phase IV</strong></td><td>D20–25</td><td>Energy targeting — downward drift, concentrated on Saudi and Israel</td></tr>
+      </tbody>
+    </table>
+
+    <figure class="chart">
+      <canvas id="ordnanceChart"></canvas>
+      <figcaption>Combined daily ordnance — missiles plus drones, Days 1–25. Three-day rolling average overlaid. The Day 1 spike of 1,080 is truncated on the axis to keep later structure legible.</figcaption>
+    </figure>
+
+    <h3>Drones — elastic</h3>
+    <p>Drone launches stay more flexible than the missile arm: surges to 156 on D14, 135 on D17, and 132 on D19 alternate with troughs as low as 42 (D12). Saudi Arabia's share of drones climbed from near-zero early on to 47% on Day 17. This divergence suggests greater surviving operational freedom in the drone force, whatever the cause.</p>
+
+    <h3>Missiles — constrained</h3>
+    <p>The post-Day-1 missile band reads as a controlled step-down: 98 on D2, 89 on D3, 87 on D4. The D10–18 mean is roughly 31/day. Day 19 bumps to 56 — the Khorramshahr-4 debut with Qadr accompaniment, including 2 KIA at Ramat Gan. Days 20–25 average ~19 with a clear downward drift.</p>
+
+    <h3>Cumulative by country — 25 days</h3>
+    <table>
+      <thead>
+        <tr><th>Country</th><th>Missiles</th><th>Drones</th><th>Combined</th><th>Share</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>UAE</td><td>367</td><td>1,791</td><td><strong>2,158</strong></td><td>41.6%</td></tr>
+        <tr><td>Kuwait</td><td>245</td><td>603</td><td>848</td><td>16.3%</td></tr>
+        <tr><td>Saudi Arabia</td><td>41</td><td>567</td><td>608</td><td>11.7%</td></tr>
+        <tr><td>Israel</td><td>357</td><td>166</td><td>523</td><td>10.1%</td></tr>
+        <tr><td>Bahrain</td><td>156</td><td>288</td><td>444</td><td>8.5%</td></tr>
+        <tr><td>Qatar</td><td>223</td><td>77</td><td>300</td><td>5.8%</td></tr>
+        <tr><td>Other</td><td>43</td><td>139</td><td>182</td><td>3.5%</td></tr>
+        <tr><td>Jordan</td><td>59</td><td>71</td><td>130</td><td>2.5%</td></tr>
+        <tr><td><strong>Total (floor)</strong></td><td><strong>1,491</strong></td><td><strong>3,702</strong></td><td><strong>5,193</strong></td><td>100%</td></tr>
+      </tbody>
+    </table>
+
+    <p>UAE alone absorbs more than 40% of all projectiles — consistent with Al Jazeera's Day 19 figure of ~3,000 projectiles total with &gt;50% directed at the UAE. Saudi Arabia's share is understated in cumulative because Riyadh publishes no running total; Day 17's 64-drone figure is the most reliably confirmed single-day Saudi number.</p>
+
+    <hr>
+
+    <h2>Part II · Energy</h2>
+
+    <p>The ordnance curves land inside the price curves. Brent opened the war at $70.69 pre-war, jumped to $77.24 on the first trading day, crossed $100 by Day 14, and peaked at <strong>$113.71 on Day 20 (March 19)</strong> before Trump's "productive conversations" remark triggered a ~10% crash on Day 24. It closed Day 25 at $102.47.</p>
+
+    <div class="key-stats">
+      <div><div class="value">$70.69</div><span class="label">Brent · Pre-war</span><span class="sub">Feb 25 close · FRED/EIA</span></div>
+      <div><div class="value">$77.24</div><span class="label">First trading day</span><span class="sub">Mar 2 · +9%</span></div>
+      <div><div class="value">$99.84</div><span class="label">Day 14</span><span class="sub">Mar 13 · crossing $100</span></div>
+      <div class="highlight"><div class="value accent">$113.71</div><span class="label">Day 20 peak</span><span class="sub">Mar 19 · Fortune intraday</span></div>
+      <div><div class="value">$101.44</div><span class="label">Day 24 crash</span><span class="sub">~10% down on Trump remark</span></div>
+      <div><div class="value">$102.47</div><span class="label">Day 25 close</span></div>
+    </div>
+
+    <figure class="chart">
+      <canvas id="brentChart"></canvas>
+      <figcaption>Brent crude, verified daily closes and intraday snapshots. Sources: FRED/EIA for daily settles, Fortune.com for intraday, EIA STEO for Day 10. Weekends and unreported trading days left as gaps rather than interpolated.</figcaption>
+    </figure>
+
+    <h3>US gasoline (AAA)</h3>
+    <p>Pump prices lag crude by roughly 7–14 days, which means the Day 20 Brent peak has not yet fully propagated. The national average moved from <strong>$2.98 pre-war to $3.956 on Day 25</strong> — a 98-cent, 33% gain in twenty-five days. Further increases are likely even without further escalation.</p>
+
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Day</th><th>Gasoline</th><th>Source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Feb 25</td><td>Pre-war</td><td>$2.980</td><td>EIA/AAA</td></tr>
+        <tr><td>Mar 5</td><td>D6</td><td>$3.250</td><td>AAA weekly (+$0.27/wk)</td></tr>
+        <tr><td>Mar 12</td><td>D13</td><td>$3.590</td><td>AAA weekly (+$0.35/wk)</td></tr>
+        <tr><td>Mar 16</td><td>D17</td><td>$3.854</td><td>EIA GASREGW weekly</td></tr>
+        <tr><td>Mar 23</td><td>D24</td><td>$3.950</td><td>Yahoo/AAA</td></tr>
+        <tr><td><strong>Mar 24</strong></td><td><strong>D25</strong></td><td><strong>$3.956</strong></td><td><strong>AAA live</strong></td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Part III · Assessment — interpreting the decline</h2>
+
+    <p>The decline in daily launches is the central analytical question. Two explanations are compatible with the curves, and the data alone cannot pick a winner. The honest approach is to separate what the curves themselves show from external claims about damage.</p>
+
+    <div class="callout">
+      <span class="label">Explanation A · Deliberate rationing</span>
+      <p><em>Curve-based evidence only.</em> The D2–4 missile staircase (98, 89, 87) looks engineered, not collapsed. Drone surge-retreat patterns (42 → 156 → 42) imply reserves held back and released selectively. Saudi retargeting from 0% to 47% of drones by Day 17 is a deliberate reallocation, not attrition. Weapon-environment matching at sea — missiles in the Strait, USVs at range, fast boats in shallows — reads as doctrine. The Khorramshahr-4 debut on Day 19 is innovation inside a stressed envelope.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">Explanation B · Degraded capability</span>
+      <p><em>Curve-based evidence.</em> Missiles fell roughly 80% versus drones 60–70% from early-war levels — but that differential is equally compatible with rational conservation of the scarcer asset.</p>
+      <p><em>External claims (not from counts).</em> IDF: 300+ launchers destroyed. CENTCOM: 80%+ of Israel-range launchers eliminated. Reported shift of firing to central Iran. Cooper: Iran has "lost ability to launch at high rates."</p>
+      <p><strong>Caveat:</strong> official wartime damage assessments are historically prone to overstatement. None of these external figures are derivable from the launch counts themselves.</p>
+    </div>
+
+    <h3>Strait of Hormuz — ship attacks</h3>
+    <p>Eighteen confirmed ship attacks through Day 12 (March 11), per UKMTO and JMIC bulletins. Too sparse for rate analysis, but the weapon-environment matching is legible: missiles in the Strait, USVs at range, fast-boat boardings in shallows. The post-March-11 cessation may reflect achieved closure, reduced traffic, or an operational pause — all three are consistent with the data.</p>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Date</th><th>Vessel</th><th>Weapon</th><th>Outcome</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Mar 1</td><td><strong>Skylight</strong> (Palau)</td><td>Projectile</td><td>2 killed, 3 injured, sinking</td></tr>
+        <tr><td>2</td><td>Mar 1</td><td><strong>MKD VYOM</strong> (Marshall Is.)</td><td>USV</td><td>1 killed; 21 evacuated</td></tr>
+        <tr><td>3</td><td>Mar 1</td><td><strong>Hercules Star</strong> (Gibraltar)</td><td>Projectile</td><td>Fire; crew safe</td></tr>
+        <tr><td>4</td><td>Mar 2</td><td><strong>Stena Imperative</strong> (USA)</td><td>SSM</td><td>1 killed; 2 injured</td></tr>
+        <tr><td>5</td><td>Mar 2</td><td><strong>Athe Nova</strong></td><td>Drone ×2</td><td>Struck</td></tr>
+        <tr><td>8</td><td>Mar 4</td><td><strong>Safeen Prestige</strong> (Malta)</td><td>ASCM</td><td>24 crew evac; adrift</td></tr>
+        <tr><td>9</td><td>Mar 4–5</td><td><strong>Sonangol Namibe</strong> (Angola)</td><td>USV</td><td>1 killed; hull breach</td></tr>
+        <tr><td>10</td><td>Mar 6</td><td><strong>Mussafah 2</strong> (UAE)</td><td>ASCM</td><td>4 killed towing Safeen</td></tr>
+        <tr><td>11</td><td>Mar 3</td><td><strong>Al-Shuwaikh</strong> (Iraq)</td><td>IRGC boats</td><td>Seized; 12 detained</td></tr>
+        <tr><td>12</td><td>Mar 5</td><td><strong>Pacific Voyager</strong> (Panama)</td><td>SSM + drone</td><td>2 injured</td></tr>
+        <tr><td>13</td><td>Mar 7</td><td><strong>Advantage Sweet</strong></td><td>ASCM</td><td>2 injured</td></tr>
+        <tr><td>16</td><td>Mar 9</td><td><strong>Nordic Aquarius</strong> (Bahamas)</td><td>USV</td><td>3 injured</td></tr>
+        <tr><td>17</td><td>Mar 11</td><td><strong>(3 vessels)</strong></td><td>SSM / drone</td><td>3 ships damaged</td></tr>
+        <tr><td>18</td><td>Mar 11</td><td><strong>Marlin Luanda</strong></td><td>ASCM</td><td>Cargo fire; last UKMTO bulletin</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout green">
+      <span class="label">What the curves suggest</span>
+      <p>The strongest signal is the divergence between weapon categories — missile volume has compressed more than drone volume, drone flexibility remains intact, and the maritime arm continues to adapt weapon to environment. The most defensible inference is <strong>selective adaptation within unevenly constrained strike systems</strong>. Missiles are more constrained; drones are more flexible; the maritime arm is still innovating. That is a narrower claim than either "Iran is breaking" or "Iran is pacing itself" — and it is the largest claim the data on its own will support.</p>
+    </div>
+
+    <h2>Data quality notes</h2>
+
+    <p>Confidence varies sharply by country. These are the load-bearing caveats a careful reader should carry out of this report.</p>
+
+    <ul>
+      <li><strong>Saudi Arabia</strong> publishes no running cumulative missile total. Individual day counts are derived from specific MoD intercept announcements; Day 17's 64 drones is the most reliably confirmed single-day figure.</li>
+      <li><strong>Kuwait:</strong> only the first 36-hour figure (97 missiles + 283 drones) is confirmed directly from MoD; subsequent days are inferred from JINSA incident reports.</li>
+      <li><strong>Qatar:</strong> Day 1 = 66 missiles per the MoI head; Day 13 salvo = 14 missiles per Qatar MoD. Cumulative 180 missiles / 69 drones by Day 16.</li>
+      <li><strong>Bahrain:</strong> Day 15 cumulative 125 + 203; Day 21 = 139 + 238; Day 23 = 143 + 242.</li>
+      <li><strong>Israel:</strong> INSS reports ~200 missiles in the early days; IDF Day 21 release puts cumulative at 365 missiles; Israeli military correspondents put Day 25 cumulative at 400+ missiles. Khorramshahr-4 confirmed on Day 19.</li>
+      <li><strong>Jordan:</strong> only the 36-hour figure (13 + 49) is officially confirmed; no systematic subsequent data.</li>
+    </ul>
+
+    <p>Quality tags across the 25 days: <em>Confirmed</em> 17 days, <em>Estimated</em> 7 days (derived from cumulative arithmetic), <em>Partial</em> 1 day (Day 25, reporting window still open at 18:00 GST).</p>
+
+    <div class="method">
+      <h3>Sources &amp; methodology</h3>
+      <p><strong>Ordnance:</strong> UAE MoD · Kuwait MoD · Qatar MoI · Bahrain MoD · Saudi SPA · IDF · Jordan MoD · JINSA Operations Epic Fury &amp; Roaring Lion tracker · CTP-ISW Iran Update · FDD Long War Journal · Janes · Breaking Defense · CNBC · Gulf News · Al Jazeera · Alma Research Center · airforce-technology.com · Arab News · INSS · Times of Israel. No Iranian government, IRGC, or state-media sources used for any daily count.</p>
+      <p><strong>Energy:</strong> FRED DCOILBRENTEU (daily Brent close) · Fortune.com daily oil articles (intraday) · EIA Short-Term Energy Outlook · EIA Daily Prices · AAA Newsroom and live national average · FRED GASREGW weekly gasoline. No interpolation; gaps marked explicitly.</p>
+      <p><strong>Ships:</strong> UKMTO · JMIC · Lloyd's List · USNI News · ABC · France24 · Al-Monitor · The War Zone · CTP-ISW.</p>
+      <p><strong>Caveats:</strong> Floor counts are estimated ~20–35% below true totals, driven primarily by Saudi Arabia publishing no systematic cumulative and by gaps between official statement windows. Official wartime damage assessments (launcher destruction figures in particular) are historically prone to overstatement. This report prepared March 24, 2026 at 18:00 GST; Day 25 figures are partial and likely to be revised upward.</p>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
 <script>
-(function () {
-  var f = document.querySelector('iframe.artifact');
-  if (!f) return;
-  function fit() {
-    try {
-      var d = f.contentDocument;
-      if (!d || !d.documentElement) return;
-      var h = Math.max(d.body ? d.body.scrollHeight : 0, d.documentElement.scrollHeight);
-      if (h > 0) f.style.height = (h + 24) + 'px';
-    } catch (e) {}
+// Combined daily ordnance — missiles + drones, with 3-day rolling average.
+// Day 1 salvo (1,080) truncated on axis to keep later structure legible.
+const ordLabels = ['D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19','D20','D21','D22','D23','D24','D25'];
+const ordMissiles = [503,98,89,87,54,61,74,36,37,53,30,27,40,29,29,23,22,28,56,25,18,23,17,20,12];
+const ordDrones = [577,487,251,211,214,268,150,137,155,48,61,42,67,156,131,88,135,49,132,70,57,67,62,52,35];
+const ordTotal = ordMissiles.map((m,i) => m + ordDrones[i]);
+const roll3 = ordTotal.map((_,i) => {
+  const s = Math.max(0, i-2);
+  const slice = ordTotal.slice(s, i+1);
+  return slice.reduce((a,b)=>a+b,0) / slice.length;
+});
+
+new Chart(document.getElementById('ordnanceChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: ordLabels,
+    datasets: [
+      { type: 'bar', label: 'Missiles', data: ordMissiles, backgroundColor: '#b8342f', stack: 's', borderWidth: 0 },
+      { type: 'bar', label: 'Drones', data: ordDrones, backgroundColor: '#6b8aa8', stack: 's', borderWidth: 0 },
+      { type: 'line', label: '3-day rolling avg (total)', data: roll3, borderColor: '#c47a1e', backgroundColor: 'rgba(0,0,0,0)', tension: 0.3, pointRadius: 2, borderWidth: 2 }
+    ]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#6b6b6b', font: { family: 'ui-sans-serif, system-ui', size: 11 }, boxWidth: 14, padding: 14 } },
+      tooltip: { callbacks: { label: function(ctx) { return '  ' + ctx.dataset.label + ':  ' + Math.round(ctx.parsed.y).toLocaleString(); } } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#888', font: { size: 10 } } },
+      y: { suggestedMax: 400, grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#888', font: { size: 11 } } }
+    }
   }
-  f.addEventListener('load', function () {
-    fit(); setTimeout(fit, 250); setTimeout(fit, 1200);
-    try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
-  });
-  window.addEventListener('resize', fit);
-})();
+});
+
+// Brent crude — verified points only, null for gaps/weekends.
+const brentLabels = ['Feb 25','Feb 26','Feb 27','Feb 28','Mar 1','Mar 2','Mar 3','Mar 4','Mar 5','Mar 6','Mar 7','Mar 8','Mar 9','Mar 10','Mar 11','Mar 12','Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 19','Mar 20','Mar 21','Mar 22','Mar 23','Mar 24'];
+const brentData  = [70.69,71.66,71.32,null,null,77.24,null,null,null,null,null,null,94.00,91.54,90.96,null,99.84,null,null,102.14,102.98,108.78,113.71,107.40,null,null,101.44,102.47];
+
+new Chart(document.getElementById('brentChart').getContext('2d'), {
+  type: 'line',
+  data: {
+    labels: brentLabels,
+    datasets: [
+      { label: 'Brent crude ($/bbl)', data: brentData, borderColor: '#c47a1e', backgroundColor: 'rgba(196,122,30,0.08)', pointBackgroundColor: '#c47a1e', tension: 0.3, pointRadius: 3, borderWidth: 2.5, fill: true, spanGaps: true }
+    ]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#6b6b6b', font: { family: 'ui-sans-serif, system-ui', size: 11 }, boxWidth: 14, padding: 14 } },
+      tooltip: { callbacks: { label: function(ctx) { return '  Brent:  $' + ctx.parsed.y.toFixed(2); } } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#888', font: { size: 9 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 14 } },
+      y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#888', font: { size: 11 }, callback: function(v) { return '$' + v; } } }
+    }
+  }
+});
 </script>
 </body>
 </html>

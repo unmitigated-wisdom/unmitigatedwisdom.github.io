@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Expert Prediction Ledger Bayesian accuracy scoring across 64 analysts and 501 geopolitical forecasts · Unmitigated Wisdom</title>
-<meta name="description" content="Expert Prediction Ledger Bayesian accuracy scoring across 64 analysts and 501 geopolitical forecasts — a report from Unmitigated Wisdom, originally posted to Telegram on 24 March 2026.">
+<title>Expert Prediction Ledger · Unmitigated Wisdom</title>
+<meta name="description" content="Bayesian accuracy scoring across 64 analysts and 501 geopolitical forecasts — a ledger of falsifiable predictions scored against what actually happened.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -18,40 +19,185 @@
     </ul>
   </nav>
   <header class="post-head">
-    <p class="eyebrow">Report</p>
-    <h1>Expert Prediction Ledger Bayesian accuracy scoring across 64 analysts and 501 geopolitical forecasts</h1>
+    <p class="eyebrow">Ledger · Dataset v23</p>
+    <h1>Expert Prediction Ledger</h1>
     <p class="meta">
       By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
       <time datetime="2026-03-24">24 March 2026</time> &nbsp;·&nbsp;
       <a href="https://t.me/unmitigated_wisdom/122" target="_blank" rel="noopener">View on Telegram →</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="artifact" src="../telegram/reports/d27efe1e-be19-470d-bdb8-5e17b91c29c9_files/d27efe1e-be19-470d-bdb8-5e17b91c29c9.html" loading="lazy" title="Expert Prediction Ledger Bayesian accuracy scoring across 64 analysts and 501 geopolitical forecasts"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">Bayesian accuracy scoring across 64 analysts and 501 geopolitical forecasts. Every prediction is falsifiable, dual-cited, and scored against what actually happened — so that when experts disagree about what comes next, the weights on their judgments are empirical rather than rhetorical.</p>
+
+    <div class="key-stats">
+      <div><div class="value">64</div><span class="label">Experts</span></div>
+      <div><div class="value accent">501</div><span class="label">Predictions</span></div>
+      <div><div class="value accent">461</div><span class="label">Resolved</span></div>
+      <div class="highlight"><div class="value">70%</div><span class="label">Aggregate accuracy</span></div>
+      <div><div class="value">12</div><span class="label">Languages</span></div>
+      <div><div class="value">30</div><span class="label">Categories</span></div>
+    </div>
+
+    <p><em>Dataset v23 · 998 dual citations · 30 inference categories · 12 languages.</em></p>
+
+    <h2>What this ledger is</h2>
+
+    <p class="dropcap">This ledger records falsifiable, forward-looking predictions made by geopolitical analysts — then scores them against what actually happened. It exists to answer a practical question: <em>when multiple experts disagree about what will happen next, whose judgment should carry more weight?</em></p>
+
+    <p>Each expert's accuracy score serves as an empirical prior in a Bayesian framework. When a new event arises, the model matches it to the relevant categories, retrieves the experts from the leaderboard, and aggregates their forecasts — weighted by their measured track record. Every entry in the predictions table carries dual citations: the original source where the prediction was made, and an independent confirmation of what occurred.</p>
+
+    <div class="callout">
+      <span class="label">Resolution scale</span>
+      <p>Each resolved prediction is rated on a six-point scale: <strong>TRUE</strong>, <strong>MT</strong> (mostly true), <strong>PT</strong> (partially true), <strong>MF</strong> (mostly false), <strong>FALSE</strong>, and <strong>UNR</strong> (unresolved — event has not yet fully played out or is ambiguous on the evidence). The 70% aggregate is a weighted pool across TRUE and MT at full weight and PT at partial weight, following the dataset's rubric.</p>
+    </div>
+
+    <h2>Model evaluation</h2>
+
+    <p>A validation set of 30 binary events with known outcomes is held aside from the training of expert weights. For each event, the model filters to pre-resolution expert statements in the predictions table, identifies the relevant ones via category matching, weights each contribution by the expert's accuracy score on prior resolutions, and aggregates into a single probability. The pooled forecast is then scored against the observed outcome via Brier score, which penalises both miscalibration and sharpness.</p>
+
+    <div class="method">
+      <h3>Why a Bayesian weighting works here</h3>
+      <p>Geopolitical forecasting is dominated by a small number of structural regularities (balance of power, domestic coalition cohesion, economic capacity to sustain a campaign) and a long tail of idiosyncratic analyst biases (ideology, regional attachment, career incentives). A flat average over pundits inherits the tail. Weighting by a measured Beta-posterior on each analyst's prior track record concentrates mass on those whose biases happen to align with how the world has actually moved — without having to pre-judge whose worldview is "correct." The validation set checks that this weighting generalises: if weights overfit past events, the Brier score on held-out binary resolutions will degrade.</p>
+    </div>
+
+    <h2>Top analysts — by accuracy, minimum five resolved predictions</h2>
+
+    <p>The leaderboard below shows the top 12 of 64 tracked analysts, ordered by accuracy on resolved predictions. The "N" column is the number of scored predictions in the ledger — a confidence proxy. Analysts with fewer than five resolved predictions are excluded from the minimum-bar view to prevent single-call noise from dominating the board.</p>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Analyst</th><th>Accuracy</th><th>N resolved</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>Dmitriy Shapiro</strong></td><td>95%</td><td>5</td></tr>
+        <tr><td>02</td><td><strong>Fawaz Gerges</strong></td><td>93%</td><td>7</td></tr>
+        <tr><td>03</td><td><strong>Ahmad Naghibzadeh</strong></td><td>90%</td><td>5</td></tr>
+        <tr><td>04</td><td><strong>Jiang Xueqin</strong></td><td>88%</td><td>13</td></tr>
+        <tr><td>05</td><td><strong>Ray Takeyh</strong></td><td>88%</td><td>6</td></tr>
+        <tr><td>06</td><td><strong>Barry Posen</strong></td><td>86%</td><td>7</td></tr>
+        <tr><td>07</td><td><strong>Anthony Cordesman</strong></td><td>86%</td><td>7</td></tr>
+        <tr><td>08</td><td><strong>Fyodor Lukyanov</strong></td><td>85%</td><td>5</td></tr>
+        <tr><td>09</td><td><strong>Danny Citrinowicz</strong></td><td>84%</td><td>11</td></tr>
+        <tr><td>10</td><td><strong>Narges Bajoghli</strong></td><td>83%</td><td>6</td></tr>
+        <tr><td>11</td><td><strong>Jason Brodsky</strong></td><td>82%</td><td>7</td></tr>
+        <tr><td>12</td><td><strong>Sidharth Kaushal</strong></td><td>81%</td><td>9</td></tr>
+      </tbody>
+    </table>
+
+    <figure class="chart">
+      <canvas id="leaderboardChart" height="300"></canvas>
+      <figcaption>Top 12 analysts by accuracy on resolved predictions (minimum 5). Bar height is accuracy percentage; the label on each bar is the count of scored predictions behind the score.</figcaption>
+    </figure>
+
+    <div class="callout amber">
+      <span class="label">How to read the leaderboard</span>
+      <p>Accuracy alone overstates confidence in analysts with small samples. Jiang Xueqin's 88% across <strong>13</strong> predictions carries more weight than Dmitriy Shapiro's 95% across <strong>5</strong> — even though Shapiro tops the raw table. The Bayesian posterior used for aggregation folds in this sample-size penalty directly through the Beta prior, so thinly-sampled leaders are shrunk toward the aggregate 70% mean until they accumulate more resolutions.</p>
+    </div>
+
+    <h2>Prediction volume over time</h2>
+
+    <p>The underlying dataset stretches back to 1984 for long-horizon structural forecasts, with the bulk of entries concentrated in the post-2020 period when systematic logging began and geopolitical flux increased. Pre-2020 entries are bucketed by year; 2020 onwards are bucketed by quarter. Volume is not evenly distributed — the 2024 Q3 to 2026 Q1 window, covering the Iran–Israel crisis and its run-up, accounts for a disproportionate share of total predictions and nearly all of the time-sensitive tactical calls.</p>
+
+    <div class="callout green">
+      <span class="label">Composition note</span>
+      <p>Across the full set of 461 resolved predictions, the mix is dominated by TRUE and MT outcomes — consistent with the aggregate 70% score — with a smaller spread of PT, MF, and FALSE calls concentrated in high-stakes, low-prior events (regime change, strait closure, nuclear thresholds). The UNR pool reflects predictions whose resolution conditions are still pending (for example, multi-year thresholds or conditional "if X, then Y" forecasts where X has not yet occurred).</p>
+    </div>
+
+    <h2>How the ledger is used</h2>
+
+    <ol>
+      <li><strong>Logging.</strong> An analyst's falsifiable statement is extracted from its original source — an interview, a podcast, a thread, an op-ed, or a think-tank paper — with the date, the claim, and the resolution condition recorded verbatim. Dual citations link to the source and to the eventual confirmation.</li>
+      <li><strong>Categorisation.</strong> Each prediction is tagged with one or more of 30 inference categories (for example: <em>Iran domestic stability</em>, <em>Strait of Hormuz closure</em>, <em>US troop posture</em>, <em>oil price regime</em>). Categories drive retrieval when a new event arises.</li>
+      <li><strong>Resolution.</strong> When the resolution condition is met, the prediction is scored TRUE / MT / PT / MF / FALSE / UNR against the verbatim claim — not against a charitable reinterpretation.</li>
+      <li><strong>Weighting.</strong> Each expert carries a Beta-posterior on their hit-rate, updated after every resolution. The posterior mean is the weight used in aggregation; the posterior variance governs how much a new prediction shifts the weight.</li>
+      <li><strong>Aggregation.</strong> For a new event, the model retrieves all experts with prior predictions in the matching categories, takes their current forecast, weights by posterior accuracy, and pools into a single probability. This pooled forecast is what gets scored on the validation set.</li>
+    </ol>
+
+    <h2>Dataset characteristics</h2>
+
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Version</td><td>v23</td></tr>
+        <tr><td>Experts tracked</td><td>64</td></tr>
+        <tr><td>Predictions logged</td><td>501</td></tr>
+        <tr><td>Predictions resolved</td><td>461</td></tr>
+        <tr><td>Predictions unresolved</td><td>40</td></tr>
+        <tr><td>Aggregate accuracy</td><td>70%</td></tr>
+        <tr><td>Dual citations</td><td>998</td></tr>
+        <tr><td>Inference categories</td><td>30</td></tr>
+        <tr><td>Languages represented</td><td>12</td></tr>
+        <tr><td>Validation set size</td><td>30 binary events</td></tr>
+        <tr><td>Validation metric</td><td>Brier score</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Caveats</h2>
+
+    <p>The ledger is not a popularity contest, a rating of intellectual quality, or a score of how well-reasoned an argument was. It only measures whether explicit, falsifiable claims came true within their stated horizons. An analyst can be consistently correct on low-stakes calls and catastrophically wrong on the one that mattered — accuracy and impact are different quantities, and this ledger indexes only the first.</p>
+
+    <p>Selection bias in which statements get logged is the largest residual concern. To mitigate it, the logging protocol captures every forward-looking, falsifiable claim in a source at time of publication, not only those that turn out to be interesting in retrospect. The dual citation requirement catches most backfills.</p>
+
+    <p>Finally: accuracy is not stationary. A forecaster who was sharp on the Trump-era Middle East may not be sharp on a post-ceasefire realignment. The Beta-posterior shrinks slowly by design, but users should weigh recent resolutions more heavily than the raw table suggests when the strategic landscape has just shifted.</p>
+
+    <hr>
+
+    <p><em>Prepared March 24, 2026 by Unmitigated Wisdom. Dataset v23 · 501 predictions · 998 citations · 12 languages · 30 categories. Methodology: Bayesian Beta-posterior weighting with Brier-scored validation against a 30-event held-out set.</em></p>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
 <script>
-(function () {
-  var f = document.querySelector('iframe.artifact');
-  if (!f) return;
-  function fit() {
-    try {
-      var d = f.contentDocument;
-      if (!d || !d.documentElement) return;
-      var h = Math.max(d.body ? d.body.scrollHeight : 0, d.documentElement.scrollHeight);
-      if (h > 0) f.style.height = (h + 24) + 'px';
-    } catch (e) {}
+new Chart(document.getElementById('leaderboardChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Shapiro', 'Gerges', 'Naghibzadeh', 'Jiang', 'Takeyh', 'Posen',
+      'Cordesman', 'Lukyanov', 'Citrinowicz', 'Bajoghli', 'Brodsky', 'Kaushal'
+    ],
+    datasets: [{
+      label: 'Accuracy (%)',
+      data: [95, 93, 90, 88, 88, 86, 86, 85, 84, 83, 82, 81],
+      backgroundColor: [
+        '#2a7a4a', '#2a7a4a', '#2a7a4a',
+        '#6b8aa8', '#6b8aa8', '#6b8aa8', '#6b8aa8', '#6b8aa8',
+        '#c47a1e', '#c47a1e', '#c47a1e', '#c47a1e'
+      ],
+      borderWidth: 0
+    }, {
+      label: 'N resolved',
+      data: [5, 7, 5, 13, 6, 7, 7, 5, 11, 6, 7, 9],
+      backgroundColor: '#9e988a',
+      borderWidth: 0,
+      yAxisID: 'y1'
+    }]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#6b6b6b', font: { family: 'ui-sans-serif, system-ui', size: 11 }, boxWidth: 14, padding: 14 } },
+      tooltip: { callbacks: { label: function(ctx) {
+        if (ctx.dataset.label === 'Accuracy (%)') return '  Accuracy: ' + ctx.parsed.y + '%';
+        return '  N resolved: ' + ctx.parsed.y;
+      } } }
+    },
+    scales: {
+      x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#888', font: { size: 10 } } },
+      y: { min: 70, max: 100, grid: { color: 'rgba(0,0,0,0.06)' }, ticks: { color: '#888', font: { size: 11 }, callback: function(v) { return v + '%'; } }, title: { display: true, text: 'Accuracy', color: '#888', font: { size: 11 } } },
+      y1: { position: 'right', min: 0, max: 15, grid: { display: false }, ticks: { color: '#888', font: { size: 11 } }, title: { display: true, text: 'N resolved', color: '#888', font: { size: 11 } } }
+    }
   }
-  f.addEventListener('load', function () {
-    fit(); setTimeout(fit, 250); setTimeout(fit, 1200);
-    try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
-  });
-  window.addEventListener('resize', fit);
-})();
+});
 </script>
 </body>
 </html>

@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Operation Epic Fury — Day 14 Assessment (v2) · Unmitigated Wisdom</title>
-<meta name="description" content="Operation Epic Fury — Day 14 Assessment (v2) — a report from Unmitigated Wisdom, originally posted to Telegram on 13 March 2026.">
+<meta name="description" content="Two weeks in: Iran has not collapsed, oil is above $100, and for the first time Catastrophe is the modal scenario. A 15-expert Bayesian Day 14 assessment.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -26,32 +27,362 @@
       <a href="https://t.me/unmitigated_wisdom/101" target="_blank" rel="noopener">View on Telegram →</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="artifact" src="../telegram/reports/3997258c-bea1-4866-8be4-614c98ba4bb6_files/saved_resource(1).html" loading="lazy" title="Operation Epic Fury — Day 14 Assessment (v2)"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">The war described as a four-week operation has entered its second week with no clear exit. Oil is above $100 a barrel. Iran has a new leader who has explicitly ordered Hormuz kept closed. And the panel of analysts with the best predictive track records on Iran now puts the odds of catastrophic regional escalation roughly equal to those of a prolonged stalemate.</p>
+
+    <div class="key-stats">
+      <div><div class="value">14</div><span class="label">Days of war</span></div>
+      <div><div class="value accent">$97–103</div><span class="label">Brent crude</span><span class="sub">Back above $100 after Mojtaba statement</span></div>
+      <div><div class="value accent">11</div><span class="label">US KIA</span><span class="sub">7 combat + 4 KC-135 crash</span></div>
+      <div><div class="value accent">1,400+</div><span class="label">Iran KIA</span><span class="sub">Including civilians</span></div>
+      <div><div class="value">3.2M</div><span class="label">Iranians displaced</span></div>
+      <div><div class="value accent">14+</div><span class="label">Countries struck</span></div>
+      <div><div class="value accent">18</div><span class="label">Days to Trump-Xi summit</span></div>
+    </div>
+
+    <h2>Two weeks in: Iran has not collapsed</h2>
+
+    <p class="dropcap">The United States and Israel launched Operation Epic Fury on February 28, 2026, with simultaneous strikes on Tehran, Isfahan, Qom, and other sites. In the opening hours, Supreme Leader Ali Khamenei was killed, along with 48 senior officials. The stated objective was regime change.</p>
+
+    <p>Fourteen days later, there has been no regime change. Over 3,000 US strikes and 2,500+ Israeli strikes have destroyed an estimated 80% of Iran's air defenses and significantly degraded its ballistic missile capacity. The initial launch rate of 350 ballistic missiles per day has fallen to approximately 35. But Iran is still firing, still controlling Hormuz, and still governed.</p>
+
+    <p>The conflict has spread beyond Iran's borders. Lebanon has seen 300+ killed and over 500,000 displaced. Iraq's southern oilfields are down 70% after Iranian strikes on tankers forced terminal shutdowns. Qatar halted LNG exports from two of the world's busiest terminals. US bases across all GCC states have been struck.</p>
+
+    <p>On Day 14, a US Air Force KC-135 tanker went down over western Iraq, killing 4 crew members — the single largest loss of American life in the conflict so far. Total US fatalities stand at 11. Also on Day 14, a preliminary Pentagon investigation concluded that a US Tomahawk missile likely struck an Iranian girls' elementary school on the war's first day, killing 165 people.</p>
+
+    <h2>The economic shock</h2>
+
+    <p>Roughly 15–18 million barrels per day of supply are disrupted — about 15–18% of global daily consumption. The Strait of Hormuz is effectively closed to commercial traffic under Iran's new permit regime; Iraq's southern terminals are shut; Qatar's LNG exports are halted from two facilities that together supply about 20% of the global LNG market.</p>
+
+    <blockquote>
+      Energy markets have never seen anything like this. It is a potentially game-changing and unprecedented energy crisis.
+      <cite>Neil Atkinson · Former IEA Head of Oil Industry and Markets</cite>
+    </blockquote>
+
+    <p>US retail gasoline has risen 19% in two weeks, from $2.98 to $3.60 per gallon. The political red line is $4.00. Diesel is already there: $4.51 per gallon nationally. At the current rate, gasoline is approximately 5–7 days from that threshold. A Quinnipiac poll found 53% of Americans now oppose the war.</p>
+
+    <div class="key-stats">
+      <div><div class="value">$73</div><span class="label">Pre-war</span></div>
+      <div><div class="value accent">$92</div><span class="label">Day 7</span></div>
+      <div class="highlight"><div class="value">$119</div><span class="label">Day 10 WTI</span><span class="sub">Intraday panic pricing</span></div>
+      <div><div class="value accent">$101</div><span class="label">Day 14 current</span></div>
+    </div>
+
+    <h2>Iran's new leader — and what he has said</h2>
+
+    <p>On March 9, the Assembly of Experts appointed Mojtaba Khamenei as Iran's third Supreme Leader — driven by IRGC pressure, under active bombardment. His father, mother, wife, and sister were killed in US-Israeli strikes on Day 1. On March 12, he issued his first public statement — read by a state TV anchor, with no video or audio of Mojtaba himself. Reports suggest he may have sustained serious injuries, including a possible leg amputation.</p>
+
+    <blockquote>
+      The lever of blocking the Strait of Hormuz must definitely continue to be used.
+      <cite>Mojtaba Khamenei · March 12, 2026</cite>
+    </blockquote>
+
+    <blockquote>
+      The countries of the region must close down the US military bases; otherwise, we will be forced to attack them.
+      <cite>Mojtaba Khamenei · March 12, 2026</cite>
+    </blockquote>
+
+    <blockquote>
+      Studies have been conducted on opening other fronts in which the enemy has little experience and will be extremely vulnerable.
+      <cite>Mojtaba Khamenei · March 12, 2026</cite>
+    </blockquote>
+
+    <h2>What the expert panel says</h2>
+
+    <p>This report draws on a panel of 15 analysts with assessed track records on Iran and Middle East conflicts, derived from 113 scored historical predictions made between 2015 and 2025. Experts are weighted by accuracy, not by prominence or institutional affiliation. The two most accurate analysts — Mearsheimer (weight 0.861) and Vaez (weight 0.821) — disagree on Iran's long-term trajectory but agree on the short-term conclusion:</p>
+
+    <blockquote>
+      For Iran to win, all it has to do is survive and not end up as a pawn of Israel and the US. Even if its missile inventory is greatly diminished, its nuclear enrichment capability is crippled, and its infrastructure is badly damaged, it matters little — if the regime survives.
+      <cite>John Mearsheimer · U. Chicago · weight 0.861 · March 3</cite>
+    </blockquote>
+
+    <blockquote>
+      For the Islamic Republic, survival is a victory, even if it is a pyrrhic one. Iran as a country that can determine the trajectory of the region is no longer.
+      <cite>Ali Vaez · Crisis Group · weight 0.821 · March 6</cite>
+    </blockquote>
+
+    <blockquote>
+      The nightmare scenario is a surviving North Korea-style Iran — isolated, nuclear-aspiring, militarized, economically hollowed, kept alive by an IRGC parallel economy.
+      <cite>Behnam Ben Taleblu · FDD · weight 0.719 · March 6</cite>
+    </blockquote>
+
+    <div class="callout amber">
+      <span class="label">Cross-ideological consensus</span>
+      <p>This convergence is analytically significant: the highest-accuracy dove and the highest-accuracy hawk are, for the first time in any publicly documented analysis of Iran, saying the same thing about the short-term outcome. The regime is not collapsing. Ray Takeyh (CFR, weight 0.667) — the panel's highest-accuracy hawk — characterised the campaign as "a war of choice guided by improvised military strategy that swings wildly between grand ambitions of regime change and more narrowly framed goals." The cross-ideological consensus on this point is the strongest available signal that the campaign has failed on its own terms.</p>
+    </div>
+
+    <h2>Three things to watch</h2>
+
+    <p><strong>1. US retail gasoline vs. the $4.00 threshold.</strong> Current: $3.60/gal, rising approximately $0.05–0.08 per day. The $4.00 level — the point Trump's political advisers have identified as the trigger for serious domestic pressure — is approximately 5–7 days away. Diesel is already at $4.51. Watch AAA's daily price tracker. <em>Off-Ramp +10pp if crossed.</em></p>
+
+    <p><strong>2. Mojtaba Khamenei's actual decision-making capacity.</strong> His March 12 statement was read by a TV anchor. No video, no audio. Reports of serious injury — possible leg amputation — have not been confirmed or denied. The IRGC runs day-to-day operations, but who is directing strategic decisions matters enormously for the Off-Ramp scenario. <em>Catastrophe +8pp if incapacitated.</em></p>
+
+    <p><strong>3. The Trump-Xi summit scope (18 days away).</strong> Watch whether the summit's public agenda includes an Iran ceasefire framework or is limited to trade. A Wang Yi–Witkoff back-channel producing a draft framework would shift the Off-Ramp probability by roughly 10 percentage points. The summit is the single most important remaining variable in the near-term model. <em>Off-Ramp +10pp if framework agreed.</em></p>
+
+    <hr>
+
+    <h2>War outcome scenarios — Day 14 update</h2>
+
+    <div class="callout">
+      <span class="label">Critical threshold — Day 14</span>
+      <p>For the first time in the conflict, <strong>Catastrophe has overtaken Quagmire as the modal scenario.</strong> Five driving forces: Mojtaba's statement locking Hormuz indefinitely; KC-135 crash killing 4 US personnel; Iraq oil terminal shutdown; Taleghan nuclear site strike; and Mojtaba's "other fronts" threat. The only counterweight: Pezeshkian's three conditions — the first formal diplomatic framework offered by Iran, which exactly offsets the hardline statement in probability terms.</p>
+    </div>
+
+    <div class="key-stats">
+      <div class="highlight"><div class="value">42%</div><span class="label">Catastrophe · ▲ new modal</span><span class="sub">Mojtaba locks Hormuz · Iraq shutdown · Taleghan · KC-135</span></div>
+      <div><div class="value">36%</div><span class="label">Quagmire</span><span class="sub">IRGC cohesion · 35/day stable · Tehran rallies</span></div>
+      <div><div class="value">15%</div><span class="label">Off-Ramp</span><span class="sub">Pezeshkian 3 conditions offset Mojtaba hardline</span></div>
+      <div><div class="value">2%</div><span class="label">Quick Win</span><span class="sub">Effectively eliminated</span></div>
+    </div>
+
+    <figure class="chart">
+      <canvas id="scenarioChart"></canvas>
+      <figcaption>Scenario probability evolution, Days 1 through 14. Catastrophe overtakes Quagmire as modal scenario for the first time on Day 14. Combined worst-case (Catastrophe + Quagmire): 78%.</figcaption>
+    </figure>
+
+    <h2>Four clocks running simultaneously</h2>
+
+    <p>Clock 4 — Mines Clearance — was added on Day 12. It is now assessed as the binding constraint: even if a ceasefire is agreed, Hormuz cannot reopen until mines are cleared. The UK's mine-hunting offer confirms this timeline in weeks, not days.</p>
+
+    <table>
+      <thead>
+        <tr><th>Clock</th><th>Status</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Iran's launch capacity</th>
+          <td>Stressed but functional — ~35/day stable through Wave 38; 70%+ surface TELs destroyed.</td>
+          <td>No degradation signal detected. IRGC has shifted to drone-primary saturation strategy to preserve remaining ballistic assets. No desertion confirmed. Mojtaba's explicit order to continue Hormuz closure guarantees continued IRGC mandate. Underground missile cities partially operational.</td>
+        </tr>
+        <tr>
+          <th>US / Israel interceptors</th>
+          <td>Critical — PAC-3 at 25% vs. requirement.</td>
+          <td>PAC-3 Patriot remains the most constrained system — depleted pre-war, no fast resupply path. Jordan THAAD radar loss widens coverage gaps each day. French Charles de Gaulle CSG (12 ships) heading to Eastern Med / Red Sea / Hormuz. 11 MQ-9 Reapers lost ($175M+ in ISR) suggests Iran's air defense is materially understated.</td>
+        </tr>
+        <tr>
+          <th>Economic &amp; political patience</th>
+          <td>Dominant and accelerating — gasoline $3.63, war approval 47%.</td>
+          <td>Diesel already at $4.51/gal, confirming Kloza's forecast. 53% oppose; 60% independents against. KC-135 crash deaths and school strike probe will likely push approval below 45% this week. All supply-side tools deployed (SPR, IEA, Russian oil authorization). Trump-Xi summit 18 days away is the hard deadline.</td>
+        </tr>
+        <tr>
+          <th>Mines clearance <em>(new)</em></th>
+          <td>Binding constraint — Iran has 6,000+ naval mines; clearance in weeks minimum.</td>
+          <td>UK Defence Secretary Healey offered autonomous mine-hunting systems on March 13 — the first concrete operational offer. Energy Secretary Wright: US "not ready" to escort tankers. Mojtaba's statement explicitly orders Hormuz closure as policy — mines will not be removed voluntarily. Lloyd's/P&amp;I underwriters will not reinstate coverage without mine-free certification.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Political pressure dashboard — Clock 03</h3>
+
+    <table>
+      <thead>
+        <tr><th>Indicator</th><th>Current reading</th><th>Key threshold</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>US gasoline (AAA est.)</td><td><strong>~$3.63/gal</strong></td><td>$4.00 red line est. 5–7 days at current trajectory</td></tr>
+        <tr><td>Diesel (confirmed)</td><td><strong>$4.51/gal</strong></td><td>Already confirms Kloza forecast — trucking / ag pass-through underway</td></tr>
+        <tr><td>Brent crude</td><td><strong>$97–103</strong></td><td>$115+ triggers recession risk; IEA release structurally insufficient</td></tr>
+        <tr><td>War approval (Quinnipiac)</td><td><strong>47%</strong></td><td>53% oppose; 60% independents; KC-135 + school strike likely push below 45%</td></tr>
+        <tr><td>US KIA / wounded</td><td><strong>11 / 140</strong></td><td>KC-135 crash alone = 4 dead, 2 missing; highest single-day US death event</td></tr>
+        <tr><td>Supply-side tools</td><td>All deployed or under consideration</td><td>US SPR 172M bbl + Russian oil 128M bbl authorized + Jones Act waiver pending</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Oil price progression — pre-war to Day 14</h3>
+
+    <div class="key-stats">
+      <div><div class="value">$73</div><span class="label">Pre-war baseline</span><span class="sub">Normal market conditions</span></div>
+      <div><div class="value">$87</div><span class="label">Days 1–7</span><span class="sub">Risk premium · no actual supply loss yet</span></div>
+      <div class="highlight"><div class="value">$119</div><span class="label">Day 10 · intraday WTI</span><span class="sub">Dow −900pts · Iraq −70% · panic pricing</span></div>
+      <div><div class="value accent">$87–92</div><span class="label">Day 13 · Mar 12</span><span class="sub">IEA 400M bbl release dampens temporarily</span></div>
+      <div class="highlight"><div class="value">$97–103</div><span class="label">Day 14 · Mojtaba</span><span class="sub">Above $100 after Hormuz locked + Iraq shutdown</span></div>
+      <div><div class="value">$130+</div><span class="label">Risk if mines + 3 wks</span><span class="sub">Allianz recession trigger · Oxford −2% GDP</span></div>
+    </div>
+
+    <hr>
+
+    <h2>Day 13–14 statements with predictive significance</h2>
+
+    <blockquote>
+      The lever of blocking the Strait of Hormuz must definitely continue to be used. The countries of the region must close down the US military bases; otherwise, we will be forced to attack them. Studies have been conducted on opening other fronts in which the enemy has little experience and will be extremely vulnerable in them.
+      <cite>Mojtaba Khamenei · Iranian State TV · Mar 12 — read by presenter alongside still photo · <em>Catastrophe driver</em></cite>
+    </blockquote>
+
+    <blockquote>
+      The only way to end this war — ignited by the Zionist regime &amp; US — is recognizing Iran's legitimate rights, payment of reparations, and firm international guarantees against future aggression.
+      <cite>Pezeshkian · Iran President · Mar 11–12 on X · first formal ceasefire framework · <em>Off-Ramp signal — fragile</em></cite>
+    </blockquote>
+
+    <blockquote>
+      Rather than what the Trump administration might have been hoping for — a kind of change in rhetoric from the new supreme leader — what we're actually hearing here is more of the same.
+      <cite>Rob Geist Pinfold · King's College London · Al Jazeera · Mar 12 · <em>Accurate independent assessment</em></cite>
+    </blockquote>
+
+    <blockquote>
+      The strait is not completely closed. Iranian tankers are still passing through, bringing oil to China and revenue to Iran.
+      <cite>Ian Bremmer · Eurasia Group · Mar 12 · <em>Critical precision: Iran is monetizing the blockade</em></cite>
+    </blockquote>
+
+    <blockquote>
+      Trump's problem is that he doesn't understand that the Iranian nation is strong, determined, and resilient. The more pressure the United States applies, the stronger the people's resolve becomes.
+      <cite>Ali Larijani · Iran National Security Chief · Fars News · Mar 13 · <em>Hardline signal</em></cite>
+    </blockquote>
+
+    <blockquote>
+      The global energy turmoil unleashed by the US-Israeli war with Iran ranks among the most severe crises the world has faced in decades.
+      <cite>John Kerry · Former US Secretary of State · Newsweek · Mar 12 · <em>Off-Ramp precursor</em></cite>
+    </blockquote>
+
+    <blockquote>
+      Britain's autonomous mine-hunting systems could help clear the Strait of Hormuz.
+      <cite>John Healey · UK Defence Secretary · NBC / Reuters · Mar 13 · <em>Clock 04 validation</em></cite>
+    </blockquote>
+
+    <blockquote>
+      The release has already had a strong impact on markets.
+      <cite>Fatih Birol · IEA Executive Director · Mar 12 · <em>Contradicts market reality — analytically inaccurate</em></cite>
+    </blockquote>
+
+    <hr>
+
+    <h2>Panel rankings — all 15 experts</h2>
+
+    <p>Day 14 panel update: Kinzer (Boston U.) added at 0.781; Sachs (Columbia) elevated. Weights derived from 113 scored predictions using a Bayesian Beta-posterior model. Dovish avg 0.695 · Hawkish avg 0.586 · Other avg 0.350. Gap driven by Iraq War era predictions.</p>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Expert</th><th>Affiliation</th><th>Lean</th><th>N</th><th>Accuracy</th><th>Day 14 signal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>Mearsheimer</strong></td><td>U. Chicago</td><td>Dove</td><td>8</td><td>0.861</td><td>Quagmire · Iran wins by surviving</td></tr>
+        <tr><td>02</td><td><strong>Vaez</strong></td><td>Crisis Group</td><td>Dove</td><td>6</td><td>0.821</td><td>Quagmire · strategic irrelevance</td></tr>
+        <tr><td>03</td><td><strong>Kinzer</strong></td><td>Boston Univ.</td><td>Dove</td><td>7</td><td>0.781</td><td>Catastrophe / quagmire pattern</td></tr>
+        <tr><td>04</td><td><strong>Bajoghli</strong></td><td>Johns Hopkins</td><td>Dove</td><td>5</td><td>0.750</td><td>Catastrophe ↑ · solidarity effect</td></tr>
+        <tr><td>05</td><td><strong>Ben Taleblu</strong></td><td>FDD</td><td>Hawk</td><td>7</td><td>0.719</td><td>Post-war nuclear sprint now primary</td></tr>
+        <tr><td>06</td><td><strong>Sachs</strong></td><td>Columbia</td><td>Dove</td><td>8</td><td>0.667</td><td>Energy crisis "most severe in decades"</td></tr>
+        <tr><td>07</td><td><strong>Takeyh</strong></td><td>CFR</td><td>Hawk</td><td>8</td><td>0.667</td><td>Quagmire · no exit strategy</td></tr>
+        <tr><td>08</td><td><strong>Schanzer</strong></td><td>FDD</td><td>Hawk</td><td>7</td><td>0.656</td><td>Quagmire · axis structurally weakened</td></tr>
+        <tr><td>09</td><td><strong>Dubowitz</strong></td><td>FDD CEO</td><td>Hawk</td><td>8</td><td>0.639</td><td>Quagmire · economic tools exhausted</td></tr>
+        <tr><td>10</td><td><strong>Crooke</strong></td><td>Conflicts Forum</td><td>Dove</td><td>8</td><td>0.611</td><td>Catastrophe · IRGC resilience</td></tr>
+        <tr><td>11</td><td><strong>Friedman</strong></td><td>Geopolitical Futures</td><td>Other</td><td>9</td><td>0.575</td><td>Quagmire / Off-ramp</td></tr>
+        <tr><td>12</td><td><strong>Rubin</strong></td><td>AEI / MEF</td><td>Hawk</td><td>8</td><td>0.500</td><td>Quagmire / continued pressure</td></tr>
+        <tr><td>13</td><td><strong>Ritter</strong></td><td>Ex-UNSCOM</td><td>Dove</td><td>9</td><td>0.375</td><td>Catastrophe / US cannot sustain</td></tr>
+        <tr><td>14</td><td><strong>Gerecht</strong></td><td>FDD / Ex-CIA</td><td>Hawk</td><td>8</td><td>0.333</td><td>Quagmire / Off-ramp</td></tr>
+        <tr><td>15</td><td><strong>Molyneux</strong></td><td>Independent</td><td>Other</td><td>7</td><td>0.125</td><td>Low-credibility source — low weight</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Three variables that determine the outcome</h2>
+
+    <p>The panel consensus has converged on a small set of observable variables that will determine how the conflict resolves. Watch these over the next 7–18 days.</p>
+
+    <h3>US gasoline vs. $4.00 — ~5–7 days to red line</h3>
+    <p>Currently ~$3.63/gal — up $0.63 from pre-war (+21%). Diesel already at $4.51, confirming Kloza's forecast. At ~$0.05–0.08/gal per day, the $4.00 threshold is approximately 5–7 days away. When crossed with Trump approval below 43%, the probability of a sudden Mar-a-Lago call to Xi — bypassing staff — rises sharply. This is the primary mechanism by which Clock 3 terminates the war. <strong>Signal to watch:</strong> AAA daily survey. If $4.00 is breached before the Trump-Xi summit, watch for a unilateral Trump statement framing the war as "won" — the precursor to a ceasefire.</p>
+
+    <h3>Mojtaba's health &amp; condition — no video/audio on Day 14</h3>
+    <p>Four days since Mojtaba's appointment, no confirmed sighting. Statement read by state TV presenter alongside a still photo. New reports: possible coma, leg amputation — significantly more severe than the "fractured foot" CNN confirmed on Day 13. If genuinely incapacitated, the IRGC becomes sole authority, potentially accelerating escalation without any political check — or creating an opportunity for a back-channel that bypasses the stated hardline. <strong>Signal:</strong> first video/audio appearance. Continued absence beyond Day 17 means the incapacity narrative dominates. Catastrophe +8pp if coma confirmed.</p>
+
+    <h3>Trump-Xi summit format — 18 days away</h3>
+    <p>China has 5M bbl/day Hormuz dependency and is the most credible ceasefire broker. Xi can re-engineer Pezeshkian's three conditions as a face-saving formula: "recognized rights" as abstract sovereignty language; "reparations" as a Chinese-led reconstruction fund; "guarantees" as a unilateral Trump "mission accomplished" statement. If the summit is narrowed to trade only, Off-Ramp collapses to 8–10% and Catastrophe becomes 50%+. <strong>Signal:</strong> Witkoff Israel visit outcome; Wang Yi statements. Any Chinese-brokered formula in Days 20–27 would be the earliest plausible ceasefire precursor.</p>
+
+    <h3>Pezeshkian's back-channel — 72-hour diagnostic window</h3>
+    <p>Two interpretations of the Pezeshkian–Mojtaba split: coordinated theater (good cop/bad cop allowing back-channel contacts while Mojtaba holds the public hardline), or a genuine civilian/IRGC fracture. The 2015 JCPOA followed the first pattern. If Pezeshkian's conditions reach the US via Saudi/Chinese intermediaries within 5–7 days, it's coordinated theater. If not, the split is real but operationally irrelevant — the IRGC holds authority. <strong>Signal:</strong> Saudi FM bin Farhan's movements — currently the only actor with active access to all four parties: Iran, US, Russia, China.</p>
+
+    <h3>Mojtaba's "other fronts" — most underpriced tail risk</h3>
+    <p>The "other fronts in which the enemy has little experience" language is the most alarming in 14 days. Possible interpretations: financial-sector attacks (previously hinted), Houthi reactivation, cyberattacks on Western energy infrastructure. Turkey Article 4 is the most underpriced tail risk — two Iranian missiles have already entered Turkish airspace; a third with casualties could force NATO Article 4 consultation, adding Catastrophe +15–20pp. <strong>Signal:</strong> IRGC statements; Houthi posture; Red Sea attack rates; financial anomalies; CISA advisories; Erdogan on Article 4.</p>
+
+    <div class="callout amber">
+      <span class="label">Panel composite — Off-Ramp at 15%</span>
+      <p>Off-Ramp holds at 13–16% because Pezeshkian's conditions exactly offset Mojtaba's hardline statement. Net: Mojtaba −3pp; Pezeshkian conditions +3pp; US ceasefire proposals already sent +1pp; Saudi backchannel +1pp; KC-135 + $100 oil + school probe −2pp. The asymmetry: Pezeshkian's conditions are publicly incompatible with US terms — they cannot move Off-Ramp above 16% without a confirmed secret back-channel. That back-channel is the key diagnostic for the next 72 hours.</p>
+    </div>
+
+    <hr>
+
+    <h2>Top 10 uncertainties — Day 14 rankings</h2>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Uncertainty</th><th>Modal assumption</th><th>Scenario impact if wrong</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>Mojtaba's condition &amp; decision-making capacity</strong></td><td>Written statement confirms authority; IRGC in operational command</td><td>If incapacitated / coma: IRGC may escalate without political check. <strong>Catastrophe +8pp.</strong></td></tr>
+        <tr><td>02</td><td><strong>Pezeshkian 3 conditions: coordinated or genuine split?</strong></td><td>Likely coordinated; back-channel expected within 5–7 days</td><td>Genuine split: Catastrophe +5pp. Back-channel confirmed: <strong>Off-Ramp +8pp.</strong></td></tr>
+        <tr><td>03</td><td><strong>Mines extent + clearance timeline</strong></td><td>Few dozen deployed; UK offer operational; weeks minimum</td><td>Field expands to hundreds: <strong>Catastrophe +15pp.</strong> UK clearance begins: Off-Ramp +6pp.</td></tr>
+        <tr><td>04</td><td><strong>US gasoline crossing $4.00 threshold</strong></td><td>~$3.63 today; ~5–7 days at current trajectory</td><td>Above $4.00 + approval below 43%: <strong>Off-Ramp +10pp.</strong></td></tr>
+        <tr><td>05</td><td><strong>NATO Turkey — third Iranian missile with casualties</strong></td><td>2 missiles intercepted; Erdogan not invoking Article 4</td><td>Third missile + casualties: Article 4 forced. <strong>Catastrophe +15–20pp.</strong> Most underpriced tail risk.</td></tr>
+        <tr><td>06</td><td><strong>KC-135 investigation outcome</strong></td><td>Mechanical failure / mid-air incident; not hostile fire</td><td>Hostile fire confirmed: <strong>Catastrophe +10pp;</strong> domestic political shock wave.</td></tr>
+        <tr><td>07</td><td><strong>School strike: final investigation + Congressional response</strong></td><td>Preliminary confirms US fault; formal finding pending</td><td>US responsibility + Schumer investigation: Off-Ramp +5pp (political pressure); Catastrophe +5pp (Iran rally effect).</td></tr>
+        <tr><td>08</td><td><strong>Mojtaba's "other fronts" threat — identification</strong></td><td>Unspecified; financial, Houthi, or cyber on energy infra</td><td>Financial: +8pp. Houthi: <strong>+10pp.</strong> Major cyber: +6pp. All Catastrophe.</td></tr>
+        <tr><td>09</td><td><strong>Trump-Xi summit scope — ceasefire vs. trade-only</strong></td><td>Summit proceeds; China offers face-saving formula</td><td>Ceasefire framework presented: <strong>Off-Ramp +10pp.</strong> Narrowed to trade: Catastrophe +8pp.</td></tr>
+        <tr><td>10</td><td><strong>Houthi entry into the war (Red Sea)</strong></td><td>Restrained since Oct 2025 Israeli leadership strikes</td><td>First Houthi ballistic strike on Israel or US carrier: <strong>Catastrophe +10pp.</strong></td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Polymarket mispricings vs. Bayesian estimates</h2>
+
+    <div class="callout amber">
+      <span class="label">Priority position — Day 14</span>
+      <p>Ceasefire by March 31 SHORT at +20–24pts edge remains the highest-conviction trade. Mojtaba's statement explicitly locks Hormuz closed and threatens new fronts — the two conditions most incompatible with any ceasefire in 18 days. Pezeshkian's three conditions provide a framework but require months, not days, of negotiation. Bayesian estimate: 8–12%.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Market</th><th>Polymarket</th><th>Bayesian est.</th><th>Edge</th><th>Conviction</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mojtaba as de facto leader, Dec 31 2026</td><td>~55%</td><td>70–75%</td><td><strong>Long +15–20</strong></td><td>Very high — first public statement confirms authority; IRGC operational; Tehran rally cohesion strong. Market corrected from Day 10 (27%) but still underpriced.</td></tr>
+        <tr><td>Iranian regime falls before 2027</td><td>~30%</td><td>10–14%</td><td><strong>Short −16–20</strong></td><td>Very high — NIC assessment; IRGC cohesion; 14 days of strikes have not broken command structure.</td></tr>
+        <tr><td>Ceasefire by March 31, 2026</td><td>~32%</td><td>8–12%</td><td><strong>Short −20–24</strong></td><td>Very high — Mojtaba Hormuz lockdown; IRGC operational; 18 days; no back-channel confirmed. Priority position.</td></tr>
+        <tr><td>Regime fall by March 31, 2026</td><td>~14%</td><td>3–5%</td><td><strong>Short −9–11</strong></td><td>Very high — Mojtaba confirmed; IRGC pledged; armed forces executing complex operations on Day 14.</td></tr>
+        <tr><td>Ceasefire by June 30, 2026</td><td>~55%</td><td>38–46%</td><td><strong>Short −9–17</strong></td><td>Moderate — longer window genuine; Pezeshkian 3 conditions create framework; CI overlaps at upper bound.</td></tr>
+        <tr><td>US ground forces in Iran before 2027</td><td>~12%</td><td>8–15%</td><td>Skip — within CI</td><td>SOF commando option for nuclear material actively debated. CI too wide for confident edge.</td></tr>
+        <tr><td>Iran NPT withdrawal before 2027</td><td>~17%</td><td>8–13%</td><td><strong>Short −6</strong></td><td>Moderate — Iran prefers covert nuclear sprint over formal NPT exit; formal withdrawal = invitation to re-strike.</td></tr>
+        <tr><td>Barzani out as KRG President</td><td>~8%</td><td>5–10%</td><td>Skip — within CI</td><td>PJAK insecurity + PMF pressure on Kurdistan; insufficient edge for a confident position.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="method">
+      <h3>Sources &amp; methodology</h3>
+      <p><strong>Sources:</strong> Al Jazeera · SOF News · NPR · CNBC · NBC News · CBS News · AP · Reuters · CNN · Newsweek · Fox News · The Hill · Iran International · SCMP · WaPo · IEA · CENTCOM · ACLED · Polymarket · Rapidan Energy · Eurasia Group · CFR · ISW · CATO · The War Zone · Air &amp; Space Forces Magazine · Flashpoint · PBS NewsHour · UK MoD · UNHCR · Quinnipiac.</p>
+      <p><strong>Methodology:</strong> Bayesian 15-expert model · Satopaa et al. (2014) extremizing method · Random seed 42 · N=100,000 Monte Carlo draws · 113 scored predictions across 15 experts.</p>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
 <script>
-(function () {
-  var f = document.querySelector('iframe.artifact');
-  if (!f) return;
-  function fit() {
-    try {
-      var d = f.contentDocument;
-      if (!d || !d.documentElement) return;
-      var h = Math.max(d.body ? d.body.scrollHeight : 0, d.documentElement.scrollHeight);
-      if (h > 0) f.style.height = (h + 24) + 'px';
-    } catch (e) {}
+new Chart(document.getElementById('scenarioChart').getContext('2d'), {
+  type: 'line',
+  data: {
+    labels: ['Day 1 · Feb 28', 'Day 7 · Mar 6', 'Day 10 · Mar 9', 'Day 14 · Mar 13'],
+    datasets: [
+      { label: 'Catastrophe', data: [16.6, 27, 37, 42], borderColor: '#b8342f', pointBackgroundColor: '#b8342f', tension: 0.35, pointRadius: 4, borderWidth: 2.5, fill: false },
+      { label: 'Quagmire',    data: [52.3, 46, 44, 36], borderColor: '#c47a1e', pointBackgroundColor: '#c47a1e', tension: 0.35, pointRadius: 4, borderWidth: 2.5, fill: false },
+      { label: 'Off-Ramp',    data: [21.9, 18, 11, 15], borderColor: '#2a7a4a', pointBackgroundColor: '#2a7a4a', borderDash: [5, 3], tension: 0.35, pointRadius: 4, borderWidth: 2, fill: false },
+      { label: 'Quick Win',   data: [9.2, 11, 4, 2],    borderColor: '#9e988a', pointBackgroundColor: '#9e988a', tension: 0.35, pointRadius: 3, borderWidth: 1.5, fill: false }
+    ]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#6b6b6b', font: { family: "ui-sans-serif, system-ui", size: 11 }, boxWidth: 14, padding: 14 } },
+      tooltip: { callbacks: { label: function(ctx) { return '  ' + ctx.dataset.label + ':  ' + ctx.parsed.y.toFixed(1) + '%'; } } }
+    },
+    scales: {
+      x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#888', font: { size: 11 } } },
+      y: { min: 0, max: 58, grid: { color: 'rgba(0,0,0,0.06)' }, ticks: { color: '#888', font: { size: 11 }, callback: function(v) { return v + '%'; } } }
+    }
   }
-  f.addEventListener('load', function () {
-    fit(); setTimeout(fit, 250); setTimeout(fit, 1200);
-    try { new ResizeObserver(fit).observe(f.contentDocument.documentElement); } catch (e) {}
-  });
-  window.addEventListener('resize', fit);
-})();
+});
 </script>
 </body>
 </html>
