@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Iran Succession Bayesian Expert Report (v2) · Unmitigated Wisdom</title>
-<meta name="description" content="Iran Succession Bayesian Expert Report (v2) — a PDF report from Unmitigated Wisdom, originally posted to Telegram on 3 March 2026.">
+<title>Iran Supreme Leader Succession — Bayesian Expert Aggregation (v2) · Unmitigated Wisdom</title>
+<meta name="description" content="A 14-expert Bayesian aggregation of who succeeds Khamenei after the February 2026 strike — Mohseni-Ejei 20.3%, Arafi 18.5%, Leadership Council 14.0%, Mojtaba 12.3%.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -18,8 +19,8 @@
     </ul>
   </nav>
   <header class="post-head">
-    <p class="eyebrow">Report · PDF</p>
-    <h1>Iran Succession Bayesian Expert Report (v2)</h1>
+    <p class="eyebrow">Bayesian Succession Analysis</p>
+    <h1>Iran Supreme Leader Succession — Bayesian Expert Aggregation (v2)</h1>
     <p class="meta">
       By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
       <time datetime="2026-03-03">3 March 2026</time> &nbsp;·&nbsp;
@@ -27,13 +28,384 @@
       <a href="../telegram/files/Iran_Succession_Bayesian_Expert_Report_v2.pdf" download>Download PDF ↓</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="pdf" src="../telegram/files/Iran_Succession_Bayesian_Expert_Report_v2.pdf#view=FitH" title="Iran Succession Bayesian Expert Report (v2)"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">Fourteen Iran specialists. Seventy-six scored predictions stretching back to 2006. One hundred thousand Monte Carlo draws. A precise mapping from each expert's verbatim statement on succession to a probability vector over ten candidate outcomes — and an accuracy-weighted, correlation-corrected consensus on who follows Khamenei.</p>
+
+    <p class="dropcap">On February 28, 2026, Ayatollah Ali Khamenei was killed in joint US–Israeli airstrikes. Three days later, under Article 111 of the Iranian constitution, an Interim Leadership Council took the reins of the Islamic Republic. The question every Iran watcher is now asking — <em>who becomes the next Supreme Leader?</em> — has no clean answer. Fourteen expert analyses give fourteen overlapping but distinct pictures, and a simple average of their views throws away the thing that matters most: some of these experts have been right about Iran for two decades, others have been conspicuously wrong.</p>
+
+    <p>This report builds a Bayesian aggregation over the panel. Each expert is weighted by their demonstrated accuracy on a scored history of Iran predictions. Each expert's most recent verbatim statement on succession is read carefully, mapped onto ten candidate outcomes via explicit <em>ruled-out</em> / <em>ruled-in</em> reasoning, and converted into a Dirichlet probability vector. The vectors are aggregated with an accuracy-weighted linear pool, then extremized to correct for shared information across the DC think-tank and IRGC-specialist clusters. The result is a posterior distribution with 80% and 95% credibility intervals over every named successor.</p>
+
+    <div class="callout">
+      <span class="label">Consensus forecast — mean posterior probability</span>
+      <div class="key-stats">
+        <div class="highlight"><div class="value accent">20.3%</div><span class="label">Mohseni-Ejei</span><span class="sub">Chief Justice, ex-Intelligence</span></div>
+        <div class="highlight"><div class="value accent">18.5%</div><span class="label">Arafi</span><span class="sub">Qom seminary director</span></div>
+        <div><div class="value">14.0%</div><span class="label">Leadership Council</span><span class="sub">structural transformation</span></div>
+        <div><div class="value">12.3%</div><span class="label">Mojtaba Khamenei</span><span class="sub">son of the late leader</span></div>
+        <div><div class="value">7.6%</div><span class="label">Bushehri</span></div>
+        <div><div class="value">7.3%</div><span class="label">Mirbagheri</span></div>
+        <div><div class="value">5.8%</div><span class="label">H. Khomeini</span></div>
+        <div><div class="value">5.2%</div><span class="label">Larijani</span></div>
+        <div><div class="value">4.9%</div><span class="label">Other / Unknown</span></div>
+        <div><div class="value">4.0%</div><span class="label">Elderly placeholder</span></div>
+      </div>
+    </div>
+
+    <p>Two security-credentialed clerics — <strong>Mohseni-Ejei</strong> and <strong>Arafi</strong> — lead the field, together absorbing roughly 39% of the posterior mass. The highly-discussed heir-apparent Mojtaba Khamenei is only fourth, at 12.3%: the highest-accuracy experts systematically discount him as either too independently powerful for the IRGC to control, or too weak theologically to carry the mantle. The largest tail-risk outcome is not any individual but the <strong>Leadership Council</strong> scenario — an IRGC-dominated collective or de-facto abolition of the office — at 14.0% with the widest posterior of any category.</p>
+
+    <figure class="chart">
+      <canvas id="consensusChart" height="340"></canvas>
+      <figcaption>Posterior mean probability by candidate / outcome, from the accuracy-weighted, correlation-adjusted aggregation across 100,000 Monte Carlo draws. Mohseni-Ejei leads at 20.3%, Arafi at 18.5%. The Leadership Council outcome (14.0%) is the highest-variance category.</figcaption>
+    </figure>
+
+    <hr>
+
+    <h2>How the model works</h2>
+
+    <p>The aggregation rests on four ingredients: a historical accuracy score for each expert, a precise reading of what each expert has actually said about succession, a Dirichlet distribution capturing their uncertainty, and a correlation-aware Monte Carlo pool.</p>
+
+    <h3>Step 1 — expert reliability as a Beta posterior</h3>
+
+    <p>Each expert's track record is scored on a five-point scale: TRUE (1.0), MOSTLY TRUE (0.75), PARTIAL (0.5), MOSTLY FALSE (0.25), FALSE (0.0). These feed a Beta posterior built on a Jeffreys prior:</p>
+
+    <p><em>α = (Σ scores) + 0.5  ;  β = (N − Σ scores) + 0.5  ;  E[p] = α / (α + β)</em></p>
+
+    <p>The posterior mean E[p] is each expert's expected accuracy. The Beta posterior preserves uncertainty: an expert with many predictions has a narrow posterior; one with few predictions, a wide one. A newcomer with three correct calls is not trusted like a veteran with twenty.</p>
+
+    <h3>Step 2 — prediction-to-candidate mapping</h3>
+
+    <p>This is the step that distinguishes v2 from the earlier report. Each expert's most recent verbatim statement on succession is analyzed to produce three things: (a) which candidates the statement explicitly or implicitly <strong>rules out</strong>, with reasoning traced directly to the text; (b) which candidates are <strong>ruled in</strong> as plausible; and (c) a probability weight assignment. When the expert expresses no preference among plausible candidates, they receive equal weight. When language implies relative likelihood — <em>"sole frontrunner"</em>, <em>"most likely"</em>, <em>"mediocrity rewarded"</em> — weights are adjusted accordingly, and the inferential chain is documented.</p>
+
+    <h3>Step 3 — Dirichlet concentration</h3>
+
+    <p>Each expert's weight vector is modelled as a Dirichlet distribution with concentration parameter κ. Higher κ (12–16) is assigned to experts who name specific candidates with confidence; lower κ (6–10) to structural or generic predictions. The Dirichlet preserves uncertainty around the point estimate when Monte Carlo sampling the consensus.</p>
+
+    <h3>Step 4 — Monte Carlo aggregation with correlation discount</h3>
+
+    <p>For each of 100,000 draws the model (1) samples expert reliability from the Beta posterior, (2) samples candidate weights from the Dirichlet, and (3) computes an accuracy-weighted linear pool. A 14×14 correlation matrix discounts shared information — DC think-tank cluster at 0.35–0.50, IRGC specialists at 0.30–0.45, hawkish analysts at 0.35–0.45. Eigenvalue decomposition yields <strong>10.4 effective independent experts</strong> out of 14 and an extremizing factor <em>d</em> = 0.69 (Satopää et al. 2014).</p>
+
+    <hr>
+
+    <h2>The expert panel</h2>
+
+    <p>Fourteen specialists, ranked by posterior mean accuracy. N is the number of scored historical predictions in the tracker; Σ is the sum of scores; α and β parameterise the Beta posterior.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Expert</th>
+          <th>Affiliation</th>
+          <th>N</th>
+          <th>Σ</th>
+          <th>E[p]</th>
+          <th>Domain</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Karim Sadjadpour</th><td>Carnegie Endowment</td><td>8</td><td>7.25</td><td>91.2%</td><td>Iran specialist / succession</td></tr>
+        <tr><th>Alex Vatanka</th><td>Middle East Institute</td><td>5</td><td>4.50</td><td>85.0%</td><td>Iran / IRGC regional</td></tr>
+        <tr><th>Ali Vaez</th><td>Intl. Crisis Group</td><td>8</td><td>7.25</td><td>84.4%</td><td>Iran diplomacy / nuclear</td></tr>
+        <tr><th>Suzanne Maloney</th><td>Brookings / CFR</td><td>8</td><td>6.75</td><td>84.0%</td><td>Iran policy / economics</td></tr>
+        <tr><th>Barbara Slavin</th><td>Atlantic Council</td><td>6</td><td>5.25</td><td>83.3%</td><td>Iran diplomacy / media</td></tr>
+        <tr><th>Abbas Milani</th><td>Stanford / Hoover</td><td>4</td><td>3.50</td><td>81.3%</td><td>Iranian history</td></tr>
+        <tr><th>Afshon Ostovar</th><td>Naval Postgraduate School</td><td>4</td><td>3.50</td><td>81.3%</td><td>IRGC / military</td></tr>
+        <tr><th>Mehdi Khalaji</th><td>Washington Institute (WINEP)</td><td>8</td><td>6.25</td><td>78.1%</td><td>Succession / clerical</td></tr>
+        <tr><th>Vali Nasr</th><td>Johns Hopkins SAIS</td><td>6</td><td>4.75</td><td>77.8%</td><td>Geopolitics / Shia</td></tr>
+        <tr><th>Ali Alfoneh</th><td>Arab Gulf States Institute</td><td>5</td><td>4.00</td><td>77.5%</td><td>IRGC / succession</td></tr>
+        <tr><th>Kasra Aarabi</th><td>UANI / Tony Blair Institute</td><td>8</td><td>6.00</td><td>75.0%</td><td>IRGC / Mojtaba</td></tr>
+        <tr><th>Robin Wright</th><td>Wilson Center / New Yorker</td><td>5</td><td>3.50</td><td>65.0%</td><td>Iran / ME journalism</td></tr>
+        <tr><th>Ray Takeyh</th><td>CFR Senior Fellow</td><td>7</td><td>5.00</td><td>64.3%</td><td>Iran regime / hawkish</td></tr>
+        <tr><th>Michael Rubin</th><td>AEI</td><td>5</td><td>3.00</td><td>60.0%</td><td>Iran hawk</td></tr>
+      </tbody>
+    </table>
+
+    <p>The panel spans every major analytical camp — Carnegie-Brookings-CFR (Sadjadpour, Maloney, Vaez, Slavin), the IRGC specialists (Ostovar, Alfoneh, Aarabi), the diaspora intellectual network (Nasr, Khalaji, Milani), and the hawkish camp (Takeyh, Rubin). Within-camp correlations are 0.30–0.50; cross-camp correlations 0.05–0.20.</p>
+
+    <hr>
+
+    <h2>What each expert actually said</h2>
+
+    <p>The core of the v2 methodology is the verbatim-to-weights mapping. Below, for each of the fourteen experts: the quote, which candidates their statement rules out and why, which are ruled in, and the resulting weights. This is where the analytical work is — the rest is arithmetic.</p>
+
+    <div class="callout">
+      <span class="label">Karim Sadjadpour — Carnegie · Oct 2025 Foreign Affairs essay · E[p] 91.2%</span>
+      <p><em>"Regime would rush to close ranks behind a new leader, whether a cleric or a Revolutionary Guards commander."</em> Laid out five scenarios — Iran-as-Russia, China, N. Korea, Pakistan, Turkey. <em>"Mediocrity is rewarded, obscurity promoted, loyalty prized over competence."</em> Warned Mojtaba's anointment <em>"could trigger popular unrest."</em></p>
+      <p><strong>Ruled out:</strong> H. Khomeini (moderate/reformist contradicts "loyalty prized"); Noori Hamedani (not discussed in any scenario). <strong>Ruled in:</strong> Mohseni-Ejei fits "loyalty prized" plus security credentials; Arafi fits "obscurity promoted"; Mirbagheri (hardliner, loyal); Council (one of five scenarios, Pakistan model).</p>
+      <p><strong>Weights (κ=10):</strong> Mohseni-Ejei 20% · Arafi 25% · Council 15% · Mojtaba 10% · Mirbagheri 12% · Bushehri 8% · Larijani 5% · Other 5%.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">Ali Vaez — Intl. Crisis Group · Jul 2025 NPR · E[p] 84.4%</span>
+      <p><em>"It is quite possible that Ayatollah Khamenei is the last supreme leader of Iran. It is hard to imagine that the military, the Revolutionary Guards, which has paid the highest price for Ayatollah Khamenei's strategic mistakes, would continue seeing the clerical establishment as an asset and not as a liability."</em></p>
+      <p><strong>Ruled out:</strong> any traditional single supreme leader as primary outcome — Mojtaba, H. Khomeini, Mirbagheri, Bushehri all downweighted heavily since the IRGC would view clerics as liability. Not fully zero: Vaez hedges with "quite possible," not "certain." <strong>Ruled in:</strong> Leadership Council / structural transformation (dominant); Larijani-type IRGC broker. Any cleric only as figurehead under IRGC control.</p>
+      <p><strong>Weights (κ=12):</strong> Mohseni-Ejei 10% · Arafi 8% · <strong>Council 50%</strong> · Mojtaba 3% · H. Khomeini 2% · Mirbagheri 2% · Bushehri 1% · Larijani 12% · Other 12%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Vali Nasr — Johns Hopkins SAIS · Jul 2025 interview · E[p] 77.8%</span>
+      <p><em>"If he dies naturally, a moderate could be supreme leader. If Khamenei is assassinated, most likely a hard-line cleric will take control."</em> Khamenei was assassinated Feb 28, 2026 — this conditional prediction applies directly. Also: <em>"everything in Iran in the past four or five years has really been about succession"</em> and Khamenei likely <em>"created contingency plans."</em></p>
+      <p><strong>Ruled out:</strong> H. Khomeini (moderate — contradicted by the conditional); Council / structural change (Nasr predicts a single hardline cleric, not collective); elderly placeholder (incompatible with "take control"). <strong>Ruled in:</strong> Mohseni-Ejei (hardline cleric, security credentials, on interim council); Mirbagheri (ultra-hardliner, Paydari Front); Arafi (hardline but less overtly so).</p>
+      <p><strong>Weights (κ=14):</strong> <strong>Mohseni-Ejei 35%</strong> · Arafi 15% · Council 3% · Mojtaba 5% · H. Khomeini 2% · Mirbagheri 22% · Bushehri 10% · Larijani 5% · Other 3%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Mehdi Khalaji — Washington Institute · May 2024 · E[p] 78.1%</span>
+      <p>IRGC would push for <em>"a Supreme Leader who is too weak to reject its authority, such as an older, respected, ailing ayatollah who lacks the years and energy needed to shape the Islamic Republic as he wishes."</em> Next leader: <em>"someone who has a weapon in one hand and the key to a prison in the other."</em></p>
+      <p><strong>Ruled out:</strong> Mojtaba (too independently powerful via father's network — contradicts "too weak to reject IRGC"); H. Khomeini (moderate, no security credentials — contradicts "weapon + prison key"); Council (Khalaji predicts single leader controlled by IRGC, not collective). <strong>Ruled in:</strong> Mohseni-Ejei perfectly fits "weapon + prison key" (Chief Justice, ex-Intelligence Minister); Arafi (bureaucratic, controllable); Bushehri (elderly, low-profile); Mirbagheri; Noori Hamedani (fits "older, ailing ayatollah" literally).</p>
+      <p><strong>Weights (κ=14):</strong> <strong>Mohseni-Ejei 35%</strong> · Arafi 22% · Council 3% · Mojtaba 3% · Mirbagheri 10% · Bushehri 12% · Larijani 5% · Other 5% · Placeholder 5%.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">Kasra Aarabi — UANI / Tony Blair Institute · 2024–25 UANI report · E[p] 75.0%</span>
+      <p><em>"Raisi's death means Khamenei's son, Mojtaba, is now the sole frontrunner for supreme leader succession."</em> The 2025 UANI report (with Golkar) describes Mojtaba operating as <em>"mini-Supreme Leader"</em> with deep IRGC and Basij ties, controlling access to Khamenei's office.</p>
+      <p><strong>Ruled out:</strong> none explicitly — but "sole frontrunner" language strongly concentrates probability on Mojtaba; all others implicitly secondary. <strong>Ruled in:</strong> Mojtaba dominant. Note: Aarabi's track record includes the Raisi prediction overtaken by events, suggesting he may overweight the current frontrunner.</p>
+      <p><strong>Weights (κ=14):</strong> Mohseni-Ejei 12% · Arafi 10% · Council 8% · <strong>Mojtaba 50%</strong> · H. Khomeini 5% · Mirbagheri 5% · Bushehri 3% · Larijani 3% · Other 2% · Placeholder 2%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Ali Alfoneh — Arab Gulf States Institute · 2024 · E[p] 77.5%</span>
+      <p><em>"The IRGC will use its economic, political, and military power to mobilize public support, marginalize opponents among Iran's civilian technocratic elites, and emerge as kingmaker."</em> Successor <em>"will, for all practical purposes, be beholden to the IRGC."</em> After Raisi's death: IRGC must find someone <em>"as artless as the late President Raisi."</em></p>
+      <p><strong>Ruled out:</strong> Mojtaba (independent power base contradicts "beholden to IRGC"); H. Khomeini (reformist, marginalized); strong independent leaders of any kind. <strong>Ruled in:</strong> Arafi (best fit for "artless" — bureaucratic, no independent base); Mohseni-Ejei (IRGC-compatible); Bushehri (low-profile, controllable); Council (IRGC may prefer collective they dominate); Mirbagheri.</p>
+      <p><strong>Weights (κ=12):</strong> Mohseni-Ejei 18% · <strong>Arafi 30%</strong> · Council 12% · Mojtaba 3% · H. Khomeini 2% · Mirbagheri 8% · Bushehri 15% · Larijani 5% · Other 5% · Placeholder 2%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Afshon Ostovar — Naval Postgraduate School · Jul 2025 NPR · E[p] 81.3%</span>
+      <p>Successor <em>"inherently weaker than his predecessor."</em> <em>"If you didn't have a cleric succeeding Khamenei, you would no longer have an Islamic revolution."</em> IRGC sees succession <em>"as opportunity for advancement."</em></p>
+      <p><strong>Ruled out:</strong> Council / abolition (Ostovar insists cleric is constitutionally necessary); Larijani (not a cleric in the traditional sense); any non-cleric IRGC commander. <strong>Ruled in:</strong> weak cleric who gives IRGC "opportunity" — Arafi, Mohseni-Ejei, Bushehri. Mojtaba at reduced weight (mid-level cleric, but "weaker than predecessor" fits his lack of Khamenei's stature).</p>
+      <p><strong>Weights (κ=10):</strong> Mohseni-Ejei 25% · Arafi 25% · Council 3% · Mojtaba 10% · H. Khomeini 5% · Mirbagheri 12% · Bushehri 13% · Larijani 2% · Other 3% · Placeholder 2%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Suzanne Maloney — Brookings / CFR · Feb 2026 CFR memo · E[p] 84.0%</span>
+      <p>Three trajectories: Managed Continuity, Hard Right / Military Takeover, Regime Collapse. Named seven candidates: Arafi, Qomi, Araki, Mohseni-Ejei, Bushehri, Mojtaba, H. Khomeini. Mojtaba <em>"contentious, given lack of formal administrative experience, modest theological credentials, and aversion to hereditary rule."</em> H. Khomeini: Feb 2026 substituted for Khamenei at commemoration, <em>"could suggest candidacy remains viable."</em></p>
+      <p><strong>Ruled out:</strong> Noori Hamedani (not in her seven); Mirbagheri (not named); Larijani (not named as successor). <strong>Ruled in:</strong> all seven explicitly plausible; Mojtaba discounted; H. Khomeini given positive signal via Feb 2026 event; Arafi and Mohseni-Ejei both on interim council.</p>
+      <p><strong>Weights (κ=8):</strong> Mohseni-Ejei 18% · Arafi 18% · Council 10% · Mojtaba 8% · H. Khomeini 15% · Bushehri 12% · Other 9% · Placeholder 10%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Alex Vatanka — Middle East Institute · Mar 2026 commentary · E[p] 85.0%</span>
+      <p>Highlighted Arafi as a serious contender: Khamenei had <em>"a great deal of confidence in his bureaucratic abilities."</em> Cautioned Arafi <em>"isn't known to be a political heavyweight."</em> Warned succession <em>"could result in internal infighting unlike anything we have seen since the early 1980s."</em></p>
+      <p><strong>Ruled out:</strong> none explicitly; "infighting" language suggests outcome is highly uncertain. <strong>Ruled in:</strong> Arafi (named with positive credential); Mohseni-Ejei (interim council); Council (infighting could produce collective compromise); H. Khomeini (moderates could participate in factional scramble); Mojtaba (always in discussion).</p>
+      <p><strong>Weights (κ=8):</strong> Mohseni-Ejei 15% · <strong>Arafi 30%</strong> · Council 15% · Mojtaba 10% · H. Khomeini 10% · Mirbagheri 5% · Bushehri 5% · Larijani 5% · Other 3% · Placeholder 2%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Barbara Slavin — Atlantic Council · 2022 · E[p] 83.3%</span>
+      <p>Real decision <em>"determined in advance and in secret."</em> IRGC <em>"likely has an even bigger say in who becomes Supreme Leader than the Assembly of Experts."</em> As Raisi <em>"stumbled, the prospects of Mojtaba have advanced."</em></p>
+      <p><strong>Ruled out:</strong> none explicitly. <strong>Ruled in:</strong> Mojtaba (prospects "advanced"); Mohseni-Ejei and Arafi (IRGC-compatible, pre-arranged); Council possible if IRGC prefers it.</p>
+      <p><strong>Weights (κ=8):</strong> Mohseni-Ejei 20% · Arafi 15% · Council 10% · <strong>Mojtaba 25%</strong> · H. Khomeini 8% · Mirbagheri 5% · Bushehri 8% · Larijani 5% · Other 2% · Placeholder 2%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Ray Takeyh — CFR · Mar 1, 2026 NPR · E[p] 64.3%</span>
+      <p><em>"I suspect that the regime already has succession in place… I think the regime already knows how it's going to manage the succession."</em></p>
+      <p><strong>Ruled out:</strong> Council / structural transformation ("already in place" implies pre-arranged single leader); Other / Unknown (pre-arranged means known). <strong>Ruled in:</strong> Mohseni-Ejei (on Khamenei's nominee list, interim council); H. Khomeini (on nominee list); Arafi (interim council, Assembly deputy chair); Mojtaba (often discussed as pre-arranged). Hejazi was on nominee list but reportedly killed.</p>
+      <p><strong>Weights (κ=10):</strong> <strong>Mohseni-Ejei 30%</strong> · Arafi 15% · Council 3% · Mojtaba 10% · H. Khomeini 22% · Mirbagheri 5% · Bushehri 5% · Larijani 5% · Other 3% · Placeholder 2%.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">Michael Rubin — AEI · Post-Feb 2026 · E[p] 60.0%</span>
+      <p>Suggested elderly interim successor (Grand Ayatollah Noori Hamedani ~100, or Ahmad Jannati, 97) as placeholder; Brezhnev → Andropov → Chernenko → Gorbachev parallel. Post-assassination warned of possible <em>"military junta"</em> rather than traditional clerical succession.</p>
+      <p><strong>Ruled out:</strong> H. Khomeini (moderate — Rubin predicts hardline continuity or junta); Arafi (not part of his analysis). <strong>Ruled in:</strong> Noori Hamedani / Jannati placeholder (explicitly named); Mojtaba (eventual successor after placeholder); Council / military junta (explicitly warned); Mohseni-Ejei (security figure compatible with junta).</p>
+      <p><strong>Weights (κ=10):</strong> Mohseni-Ejei 10% · Arafi 5% · Council 22% · Mojtaba 18% · H. Khomeini 2% · Mirbagheri 5% · Bushehri 3% · Larijani 5% · Other 5% · <strong>Placeholder 25%</strong>.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Abbas Milani — Stanford / Hoover · May 2024 Project Syndicate · E[p] 81.3%</span>
+      <p>Succession is a <em>"legitimacy crisis"</em> not a personnel question. IRGC centrality to any transition is the defining structural feature.</p>
+      <p><strong>Ruled out:</strong> none explicitly — structural prediction, not personnel. However, "legitimacy crisis" implies outcome will not be a figure who resolves legitimacy (H. Khomeini modestly benefits from revolutionary lineage). <strong>Ruled in:</strong> all IRGC-compatible outcomes roughly equally; Council elevated slightly because "legitimacy crisis" suggests single-leader model itself is the problem.</p>
+      <p><strong>Weights (κ=6):</strong> Mohseni-Ejei 18% · Arafi 18% · Council 22% · Mojtaba 10% · H. Khomeini 5% · Mirbagheri 5% · Bushehri 5% · Larijani 7% · Other 5% · Placeholder 5%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Robin Wright — Wilson Center / New Yorker · E[p] 65.0%</span>
+      <p>IRGC exercises power behind the scenes; <em>"real center of power has always been the revolutionary apparatus."</em> Post-Khamenei Iran will be shaped by security establishment dynamics.</p>
+      <p><strong>Ruled out:</strong> none explicitly. <strong>Ruled in:</strong> all IRGC-compatible outcomes — generic prediction with no individual preferences. Slight emphasis on Council (IRGC "behind scenes" = collective front).</p>
+      <p><strong>Weights (κ=6):</strong> Mohseni-Ejei 18% · Arafi 18% · Council 18% · Mojtaba 10% · H. Khomeini 5% · Mirbagheri 5% · Bushehri 5% · Larijani 10% · Other 6% · Placeholder 5%.</p>
+    </div>
+
+    <hr>
+
+    <h2>The consensus forecast</h2>
+
+    <p>The consensus is computed as the accuracy-weighted linear pool of the 14 expert vectors, each weighted by its Beta posterior mean E[p]. The correlation adjustment then extremizes the result using factor <em>d</em> = 0.69 (Satopää et al. 2014), correcting for shared information across the four analytical camps. Highest Density Intervals are computed from the Monte Carlo posterior across 100,000 draws.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Candidate / outcome</th>
+          <th>Mean</th>
+          <th>Std dev</th>
+          <th>80% HDI</th>
+          <th>95% HDI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Mohseni-Ejei</th><td><strong>20.3%</strong></td><td>7.8%</td><td>[10.3%, 30.3%]</td><td>[5.0%, 35.5%]</td></tr>
+        <tr><th>Arafi</th><td><strong>18.5%</strong></td><td>7.3%</td><td>[9.2%, 27.9%]</td><td>[4.2%, 32.9%]</td></tr>
+        <tr><th>Leadership Council</th><td><strong>14.0%</strong></td><td>12.2%</td><td>[0.5%, 29.6%]</td><td>[0.2%, 37.9%]</td></tr>
+        <tr><th>Mojtaba Khamenei</th><td><strong>12.3%</strong></td><td>11.8%</td><td>[0.5%, 27.4%]</td><td>[0.2%, 35.4%]</td></tr>
+        <tr><th>Bushehri</th><td>7.6%</td><td>4.2%</td><td>[2.3%, 12.9%]</td><td>[0.2%, 15.8%]</td></tr>
+        <tr><th>Mirbagheri</th><td>7.3%</td><td>5.3%</td><td>[0.5%, 14.1%]</td><td>[0.2%, 17.7%]</td></tr>
+        <tr><th>H. Khomeini</th><td>5.8%</td><td>5.8%</td><td>[0.5%, 13.2%]</td><td>[0.2%, 17.1%]</td></tr>
+        <tr><th>Larijani</th><td>5.2%</td><td>2.9%</td><td>[1.5%, 9.0%]</td><td>[0.2%, 10.9%]</td></tr>
+        <tr><th>Other / Unknown</th><td>4.9%</td><td>2.7%</td><td>[1.4%, 8.4%]</td><td>[0.2%, 10.3%]</td></tr>
+        <tr><th>Placeholder (Noori Hamedani / Jannati)</th><td>4.0%</td><td>5.7%</td><td>[0.5%, 11.4%]</td><td>[0.2%, 15.3%]</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Why these numbers</h3>
+
+    <p><strong>Mohseni-Ejei at 20.3% is the panel's plurality pick.</strong> Six experts give him ≥20% weight: Sadjadpour (20%), Ostovar (25%), Khalaji (35%), Nasr (35%), Takeyh (30%), Slavin (20%). He fits two distinct archetypes — Khalaji's "weapon + prison key" (Chief Justice, ex-Intelligence Minister) and Nasr's "hardline cleric after assassination." Only Aarabi, Rubin, and Vaez give him as low as 10–12%.</p>
+
+    <p><strong>Arafi at 18.5%</strong> draws his strongest support from Vatanka (30%), Alfoneh (30%), Sadjadpour (25%), Ostovar (25%), Khalaji (22%). He is the canonical "obscurity promoted" candidate (Sadjadpour), the "artless" controllable cleric (Alfoneh), the bureaucrat with Khamenei's confidence (Vatanka). Nasr, Rubin, and Vaez give him less weight — they are looking for either a hard-line cleric or a structural break, and Arafi is neither.</p>
+
+    <p><strong>Leadership Council at 14.0%</strong> is driven almost entirely by Vaez (50%) and Milani (22%), with Rubin's 22% for "military junta" as a third contributor. Vaez's "last supreme leader" prediction, anchored at 84.4% accuracy, is the single statement doing most of the work here. But ten of fourteen experts give Council ≤12%, which keeps it from dominating — while also making it the highest-variance outcome in the whole forecast (95% HDI runs from 0.2% to 37.9%).</p>
+
+    <p><strong>Mojtaba at 12.3%</strong> is the most important story in the model. Aarabi gives him 50% — the single strongest candidate endorsement in the panel — and Slavin gives 25%, Rubin 18%. But the seven highest-accuracy experts all independently discount him: Sadjadpour (trigger unrest), Khalaji (too powerful for IRGC to control), Alfoneh (not artless), Nasr (hardline cleric, not mid-level), Vaez (3%), Ostovar (10%), Milani (10%). The conventional-wisdom frontrunner is systematically downweighted by everyone except his primary advocates.</p>
+
+    <p><strong>H. Khomeini at 5.8%</strong> — only Takeyh (22%) and Maloney (15%) give him significant weight, both citing his appearance on Khamenei's nominee list. Nasr's assassination-conditional rules directly against him, Khalaji rules him out on credentials, and eight experts give him ≤5%.</p>
+
+    <p><strong>Mirbagheri at 7.3%</strong> picks up weight primarily from Nasr (22%) via the "assassination → ultra-hardliner" conditional, with meaningful support from Sadjadpour, Khalaji, and Ostovar. He fits the hardline-cleric archetype but his public profile beyond the Paydari Front is thin.</p>
+
+    <p><strong>Bushehri at 7.6%</strong> accumulates across multiple experts as the second-tier "weak, controllable cleric": Alfoneh (15%), Ostovar (13%), Khalaji (12%), Maloney (12%). No expert gives him the lead, but he absorbs consistent secondary weight.</p>
+
+    <p>The remaining mass — <strong>Larijani at 5.2%</strong> (kingmaker/broker in Vaez and Wright's frameworks), <strong>Placeholder at 4.0%</strong> (almost entirely Rubin's Brezhnev–Andropov parallel, from the panel's lowest-accuracy expert), and <strong>Other / Unknown at 4.9%</strong> — captures residual tail risk across scenarios no single expert emphasises.</p>
+
+    <blockquote>
+      It is quite possible that Ayatollah Khamenei is the last supreme leader of Iran.
+      <cite>Ali Vaez · International Crisis Group · NPR, July 2025</cite>
+    </blockquote>
+
+    <p>The single most provocative statement in the panel belongs to Vaez, and it is the reason Leadership Council sits at 14% rather than at 4% where the seven other structural-pessimists collectively place it. Vaez is not a contrarian outlier — he is an 84% accuracy forecaster whose 2025 call on US–Israeli strikes already resolved TRUE. When a top-tier expert says the office itself may be ending, the posterior has to take it seriously.</p>
+
+    <hr>
+
+    <h2>Model parameters</h2>
+
+    <table>
+      <thead>
+        <tr><th>Parameter</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>Monte Carlo draws</th><td>N = 100,000</td></tr>
+        <tr><th>Prior</th><td>Jeffreys Beta(0.5, 0.5)</td></tr>
+        <tr><th>Total experts</th><td>14</td></tr>
+        <tr><th>Total scored predictions</th><td>76</td></tr>
+        <tr><th>Correlation matrix</th><td>14×14; DC cluster 0.35–0.50, IRGC cluster 0.30–0.45</td></tr>
+        <tr><th>Effective independent experts</th><td>10.4 / 14 (eigenvalue method)</td></tr>
+        <tr><th>Extremizing factor d</th><td>0.69 (Satopää et al. 2014)</td></tr>
+        <tr><th>Dirichlet κ range</th><td>6–16</td></tr>
+        <tr><th>Aggregation</th><td>Accuracy-weighted linear pool, extremized</td></tr>
+        <tr><th>HDI levels</th><td>80% and 95%</td></tr>
+        <tr><th>Scoring scale</th><td>TRUE = 1.0, MOSTLY TRUE = 0.75, PARTIAL = 0.5, MOSTLY FALSE = 0.25, FALSE = 0.0</td></tr>
+        <tr><th>Random seed</th><td>42</td></tr>
+        <tr><th>Successor categories</th><td>10: Mohseni-Ejei, Arafi, Council, Mojtaba, H. Khomeini, Mirbagheri, Bushehri, Larijani, Other, Placeholder</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber">
+      <span class="label">Limitations</span>
+      <ul>
+        <li>Prediction scoring is inherently subjective. The five-point scale mitigates but does not eliminate this.</li>
+        <li>Probability vectors are inferred from public statements, not elicited directly from experts.</li>
+        <li>The ruled-out / ruled-in mapping involves interpretive judgement. Different analysts could construct different mappings from the same statements.</li>
+        <li>The correlation matrix is constructed qualitatively from affiliation and methodological clustering.</li>
+        <li>All historical predictions are weighted equally regardless of temporal proximity or difficulty.</li>
+        <li>Living-crisis analysis; ground truth undetermined as of March 3, 2026.</li>
+        <li>Mojtaba's survival status is uncertain; if confirmed deceased, his ~12.5% redistributes primarily to Mohseni-Ejei, Arafi, and Council.</li>
+        <li>Kappa assignment is subjective. Higher κ for specific-candidate experts concentrates their distribution more tightly, amplifying their influence on the consensus for those candidates.</li>
+      </ul>
+    </div>
+
+    <div class="ornament">· · ·</div>
+
+    <div class="method">
+      <h3>Methodology note</h3>
+      <p>Historical accuracy scores come from a running Iran-specialist prediction tracker — 76 dual-cited predictions across 14 experts, scored on a five-tier Bayesian scale with a Jeffreys prior. Expert statements were sourced from public interviews, essays, and reports dated 2022–March 2026, with each expert's most recent succession statement used for the candidate mapping. Correlation discount applied via 14×14 qualitative matrix across four analytical clusters. This is an analytical exercise, not policy or investment advice.</p>
+    </div>
+
+    <div class="sources">
+      <h3>Key references</h3>
+      <ol>
+        <li>Sadjadpour, K. (2008). <em>Reading Khamenei</em>. Carnegie Endowment.</li>
+        <li>Sadjadpour, K. (Oct 2025). "The Autumn of the Ayatollahs." <em>Foreign Affairs</em>.</li>
+        <li>Maloney, S. (Feb 2026). <em>After Khamenei</em>. CFR. <a href="https://www.cfr.org/reports/leadership-transition-in-iran" target="_blank" rel="noopener">cfr.org/reports/leadership-transition-in-iran</a></li>
+        <li>Aarabi, K. &amp; Golkar, S. (2025). <em>Mojtaba Khamenei: Mini-Supreme Leader</em>. UANI.</li>
+        <li>Alfoneh, A. (2020). <em>Iran's Succession Crisis</em>. Arab Gulf States Institute.</li>
+        <li>Khalaji, M. (2011–2024). Succession analyses. Washington Institute (WINEP).</li>
+        <li>Vaez, A. (Jul 2025). NPR interview. International Crisis Group.</li>
+        <li>Nasr, V. (2006). <em>The Shia Revival</em>. W. W. Norton. / Succession interview, July 2025.</li>
+        <li>Vakil, S. (Mar 2026). Chatham House.</li>
+        <li>Takeyh, R. (Mar 1, 2026). NPR.</li>
+        <li>Vatanka, A. (Mar 2026). Middle East Institute.</li>
+        <li>PBS (Mar 1, 2026). <a href="https://www.pbs.org/newshour/world/here-are-some-of-the-contenders-to-be-irans-supreme-leader-after-the-killing-of-khamenei" target="_blank" rel="noopener">pbs.org — contenders to succeed Khamenei</a></li>
+        <li>TIME (Mar 2026). <a href="https://time.com/7382040/iran-ayatollah-ali-khamenei-successor-next-supreme-leader/" target="_blank" rel="noopener">time.com — Khamenei successor</a></li>
+        <li>CNN (Feb 28, 2026). <a href="https://www.cnn.com/2026/02/28/middleeast/iran-supreme-leader-ali-khamenei-replacement-intl-hnk" target="_blank" rel="noopener">cnn.com — replacement</a></li>
+        <li>Al Jazeera (Mar 1, 2026). <a href="https://www.aljazeera.com/news/2026/3/1/who-could-succeed-ayatollah-ali-khamenei-to-lead-iran" target="_blank" rel="noopener">aljazeera.com — who could succeed</a></li>
+        <li>Wikipedia. <a href="https://en.wikipedia.org/wiki/Next_Supreme_Leader_of_Iran_election" target="_blank" rel="noopener">Next Supreme Leader of Iran election</a></li>
+        <li>CNBC (Mar 2, 2026). <a href="https://www.cnbc.com/2026/03/02/iran-ayatollah-trump-supreme-leader.html" target="_blank" rel="noopener">cnbc.com — ayatollah / Trump</a></li>
+        <li>Fox News (Mar 2026). <a href="https://www.foxnews.com/world/khameneis-death-opens-uncertain-chapter-irans-entrenched-theocracy" target="_blank" rel="noopener">foxnews.com — uncertain chapter</a></li>
+        <li>CFR. <a href="https://www.cfr.org/articles/gauging-the-impact-of-massive-u-s-israeli-strikes-on-iran" target="_blank" rel="noopener">cfr.org — gauging the impact</a></li>
+        <li>Foreign Affairs. <a href="https://www.foreignaffairs.com/iran/trump-iran-gamble-vaez" target="_blank" rel="noopener">foreignaffairs.com — Trump's Iran gamble</a></li>
+        <li>Satopää, V. A. et al. (2014). <em>International Journal of Forecasting</em>, 30(2), 344–356.</li>
+      </ol>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
+<script>
+new Chart(document.getElementById('consensusChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Mohseni-Ejei', 'Arafi', 'Council', 'Mojtaba',
+      'Bushehri', 'Mirbagheri', 'H. Khomeini', 'Larijani',
+      'Other', 'Placeholder'
+    ],
+    datasets: [{
+      label: 'Posterior mean',
+      data: [20.3, 18.5, 14.0, 12.3, 7.6, 7.3, 5.8, 5.2, 4.9, 4.0],
+      backgroundColor: [
+        '#b8342f', '#b8342f', '#c47a1e', '#c47a1e',
+        '#9e988a', '#9e988a', '#9e988a', '#6b8aa8',
+        '#6b8aa8', '#6b8aa8'
+      ],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 1.9,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return ctx.parsed.y + '%'; }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#6b6b6b', font: { size: 11 }, maxRotation: 35, minRotation: 0 },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      y: {
+        beginAtZero: true,
+        max: 25,
+        ticks: { color: '#888', font: { size: 10 }, callback: function(v) { return v + '%'; } },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      }
+    }
+  }
+});
+</script>
 </body>
 </html>

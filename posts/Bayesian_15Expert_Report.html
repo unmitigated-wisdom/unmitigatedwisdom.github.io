@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bayesian 15 Expert Report · Unmitigated Wisdom</title>
-<meta name="description" content="Bayesian 15 Expert Report — a PDF report from Unmitigated Wisdom, originally posted to Telegram on 3 March 2026.">
+<title>Bayesian Expert Aggregation · 15-Expert Panel on US–Israel vs Iran · Unmitigated Wisdom</title>
+<meta name="description" content="A 15-expert Bayesian panel, 113 scored predictions, and 100,000 Monte Carlo draws forecasting the US–Israel vs Iran conflict: quagmire 52.3%, stalemate 21.9%, catastrophe 16.6%, quick win 9.2%.">
 <link rel="stylesheet" href="post.css">
 </head>
 <body>
@@ -18,8 +18,8 @@
     </ul>
   </nav>
   <header class="post-head">
-    <p class="eyebrow">Report · PDF</p>
-    <h1>Bayesian 15 Expert Report</h1>
+    <p class="eyebrow">Bayesian Panel · 15 Experts · 113 Predictions</p>
+    <h1>Bayesian Expert Aggregation on US–Israel vs Iran</h1>
     <p class="meta">
       By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
       <time datetime="2026-03-03">3 March 2026</time> &nbsp;·&nbsp;
@@ -27,8 +27,229 @@
       <a href="../telegram/files/Bayesian_15Expert_Report.pdf" download>Download PDF ↓</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="pdf" src="../telegram/files/Bayesian_15Expert_Report.pdf#view=FitH" title="Bayesian 15 Expert Report"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">An expanded 15-expert panel — dovish, hawkish, and independent — scored across 113 past predictions and aggregated with 100,000 Monte Carlo draws. The consensus still points to prolonged quagmire: quick-win regime change is under 10%, and catastrophic spread, while real, is not the modal outcome.</p>
+
+    <div class="key-stats">
+      <div><div class="value">15</div><span class="label">Experts scored</span><span class="sub">7 dovish · 6 hawkish · 2 independent</span></div>
+      <div><div class="value accent">113</div><span class="label">Scored predictions</span></div>
+      <div><div class="value accent">100k</div><span class="label">Monte Carlo draws</span></div>
+      <div class="highlight"><div class="value">52.3%</div><span class="label">Prolonged quagmire</span><span class="sub">Modal scenario · 80% HDI [45.1, 59.7]</span></div>
+      <div><div class="value">21.9%</div><span class="label">Stalemate / de-escalation</span></div>
+      <div><div class="value">16.6%</div><span class="label">Catastrophic spread</span></div>
+      <div><div class="value">9.2%</div><span class="label">Quick win · regime change</span></div>
+      <div><div class="value">10.13</div><span class="label">Effective independent experts</span><span class="sub">out of 15 · after correlation adjustment</span></div>
+    </div>
+
+    <p><em>Panel includes dovish, hawkish, and independent analysts to ensure ideological balance. Weighting is purely empirical: past accuracy determines influence on consensus.</em></p>
+
+    <h2>Methodology at a glance</h2>
+
+    <p class="dropcap">Each expert's track record is scored on a 5-point scale — TRUE (1.0), MOSTLY TRUE (0.75), PARTIAL (0.5), MOSTLY FALSE (0.25), FALSE (0.0) — and fed into a Beta-distributed posterior with a Jeffreys prior of Beta(0.5, 0.5). The posterior mean E[p] = α/(α+β) gives each expert's expected accuracy while preserving uncertainty: an analyst with five calls at 0.75 has a wider posterior than one with twenty calls at the same rate.</p>
+
+    <p>Scenario predictions are modelled as Dirichlet distributions over the four outcomes. The concentration parameter κ (range 6–16 across the panel) captures how confident and specific each expert's stated position is — higher κ for analysts with sharper public views, lower κ where their writings allow more variation. The probability vectors themselves are inferred from published writings, testimonies, and public statements, not elicited directly.</p>
+
+    <div class="method">
+      <h3>Monte Carlo aggregation (N = 100,000)</h3>
+      <p>Each draw samples every expert's reliability from their Beta posterior, then samples their scenario prediction from their Dirichlet, and computes three aggregations: a <strong>linear pool</strong> (reliability-weighted average), a <strong>logarithmic pool</strong> (geometric weighted average), and an <strong>extremized</strong> correlation-adjusted estimate. All reported intervals are Highest Density Intervals at 80% and 95% — proper Bayesian intervals from the MC posterior, not normal approximations.</p>
+    </div>
+
+    <p>A 15×15 correlation matrix captures shared information between experts. The FDD cluster (Dubowitz, Gerecht, Ben Taleblu, Schanzer) shares institutional overlap at 0.45–0.60; the realist cluster (Mearsheimer, Sachs, Kinzer) shares framework overlap at 0.40–0.50; cross-ideology correlations sit at 0.05–0.25. Eigenvalue decomposition yields an effective number of independent experts of 10.13 out of 15, producing an extremizing factor <em>d</em> = 0.675 following Satopaa et al. (2014).</p>
+
+    <div class="callout">
+      <span class="label">Ideological balance by design</span>
+      <p>The 15-expert panel is deliberately balanced: seven dovish / anti-interventionist analysts (Mearsheimer, Sachs, Kinzer, Bajoghli, Vaez, Ritter, Crooke), six hawkish / interventionist analysts (Dubowitz, Gerecht, Rubin, Takeyh, Ben Taleblu, Schanzer), and two independents (Molyneux, Friedman). The model assigns no ideological weights — accuracy alone determines influence. If hawks had better track records, they would naturally dominate the consensus.</p>
+    </div>
+
+    <h2>Expert reliability scores</h2>
+
+    <p>The posterior mean E[p] is the weight each expert carries in aggregation. The ordering below is by accuracy, not ideology; realists and Iran-specialists cluster near the top, Iraq-era advocates near the bottom.</p>
+
+    <table>
+      <thead>
+        <tr><th>Expert</th><th>Affiliation</th><th>Camp</th><th>N</th><th>Beta posterior</th><th>E[p]</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Mearsheimer</strong></td><td>U. Chicago (Realist)</td><td>Dovish</td><td>8</td><td>Beta(7.75, 1.25)</td><td><strong>0.861</strong></td></tr>
+        <tr><td><strong>Vaez</strong></td><td>Intl Crisis Group (ICG)</td><td>Dovish</td><td>6</td><td>Beta(5.75, 1.25)</td><td><strong>0.821</strong></td></tr>
+        <tr><td><strong>Kinzer</strong></td><td>Boston Univ / Author</td><td>Dovish</td><td>7</td><td>Beta(6.25, 1.75)</td><td><strong>0.781</strong></td></tr>
+        <tr><td><strong>Bajoghli</strong></td><td>Johns Hopkins (Ethnographer)</td><td>Dovish</td><td>5</td><td>Beta(4.50, 1.50)</td><td><strong>0.750</strong></td></tr>
+        <tr><td><strong>Ben Taleblu</strong></td><td>FDD Iran Program Dir.</td><td>Hawkish</td><td>7</td><td>Beta(5.75, 2.25)</td><td><strong>0.719</strong></td></tr>
+        <tr><td><strong>Sachs</strong></td><td>Columbia / UN Advisor</td><td>Dovish</td><td>8</td><td>Beta(6.00, 3.00)</td><td><strong>0.667</strong></td></tr>
+        <tr><td><strong>Takeyh</strong></td><td>CFR Sr Fellow</td><td>Hawkish</td><td>8</td><td>Beta(6.00, 3.00)</td><td><strong>0.667</strong></td></tr>
+        <tr><td><strong>Schanzer</strong></td><td>FDD Exec Director</td><td>Hawkish</td><td>7</td><td>Beta(5.25, 2.75)</td><td><strong>0.656</strong></td></tr>
+        <tr><td><strong>Dubowitz</strong></td><td>FDD (CEO)</td><td>Hawkish</td><td>8</td><td>Beta(5.75, 3.25)</td><td><strong>0.639</strong></td></tr>
+        <tr><td><strong>Crooke</strong></td><td>Conflicts Forum / Ex-MI6</td><td>Dovish</td><td>8</td><td>Beta(5.50, 3.50)</td><td><strong>0.611</strong></td></tr>
+        <tr><td><strong>Friedman</strong></td><td>Geopolitical Futures</td><td>Other</td><td>9</td><td>Beta(5.75, 4.25)</td><td><strong>0.575</strong></td></tr>
+        <tr><td><strong>Rubin</strong></td><td>AEI / Middle East Forum</td><td>Hawkish</td><td>8</td><td>Beta(4.50, 4.50)</td><td><strong>0.500</strong></td></tr>
+        <tr><td><strong>Ritter</strong></td><td>Ex-UNSCOM Inspector</td><td>Dovish</td><td>9</td><td>Beta(3.75, 6.25)</td><td><strong>0.375</strong></td></tr>
+        <tr><td><strong>Gerecht</strong></td><td>FDD / Ex-CIA</td><td>Hawkish</td><td>8</td><td>Beta(3.00, 6.00)</td><td><strong>0.333</strong></td></tr>
+        <tr><td><strong>Molyneux</strong></td><td>Independent / YouTube</td><td>Other</td><td>7</td><td>Beta(1.00, 7.00)</td><td><strong>0.125</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Ideological balance check</h2>
+
+    <p>The accuracy gap between camps is moderate, not extreme, and it is driven primarily by two outliers: Gerecht (0.333) pulling hawks down, and Ritter (0.375) pulling doves down. The highest-accuracy hawk — Ben Taleblu at 0.719 — is comparable to mid-tier doves. The data, not the ideology, drives the weighting.</p>
+
+    <table>
+      <thead>
+        <tr><th>Group</th><th>Count</th><th>Avg accuracy</th><th>Key observation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dovish / Anti-Interventionist</td><td>7</td><td><strong>0.695</strong></td><td>Strong on intervention blowback</td></tr>
+        <tr><td>Hawkish / Interventionist</td><td>6</td><td><strong>0.586</strong></td><td>Strong on Iran technical threats</td></tr>
+        <tr><td>Other / Independent</td><td>2</td><td><strong>0.350</strong></td><td>Molyneux pulls the average down</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Selected prediction track record</h2>
+
+    <p>The full ledger runs to 113 scored predictions. The table below highlights the calls that most strongly anchor each expert's posterior — the structural calls, the Iraq-era stress tests, and the Iran-specific technical forecasts that separate the panel's top and bottom tiers.</p>
+
+    <table>
+      <thead>
+        <tr><th>Expert</th><th>Prediction</th><th>Year</th><th>Score</th><th>Verdict</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Mearsheimer</strong></td><td>NATO expansion would provoke Russian aggression vs Ukraine</td><td>2014</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Mearsheimer</strong></td><td>Iraq War would be a strategic disaster / quagmire</td><td>2003</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Mearsheimer</strong></td><td>Libya intervention would create a failed state / chaos</td><td>2011</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Mearsheimer</strong></td><td>Ukraine conflict would become a prolonged war of attrition</td><td>2022</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Vaez</strong></td><td>US withdrawal from JCPOA would accelerate enrichment</td><td>2018</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Vaez</strong></td><td>Maximum pressure sanctions fail to change regime behavior</td><td>2019</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Vaez</strong></td><td>Iran would accelerate nuclear program after JCPOA collapse</td><td>2019</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Kinzer</strong></td><td>1953 coup blowback pattern repeats in future interventions</td><td>2003</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Kinzer</strong></td><td>Libya intervention would create chaos</td><td>2011</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Bajoghli</strong></td><td>Sanctions hurt Iranian civilians more than regime elites</td><td>2022</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Bajoghli</strong></td><td>Mahsa Amini protests = deep structural legitimacy crisis</td><td>2022</td><td>0.75</td><td>MOSTLY TRUE</td></tr>
+        <tr><td><strong>Ben Taleblu</strong></td><td>Iran would transfer drones / missiles to Russia after embargo</td><td>2020</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Ben Taleblu</strong></td><td>Houthi missile capabilities pose a genuine regional threat</td><td>2018</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Sachs</strong></td><td>Iraq sanctions cause humanitarian catastrophe w/o regime change</td><td>1990s</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Sachs</strong></td><td>Iraq War would destabilize the Middle East broadly</td><td>2003</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Takeyh</strong></td><td>Regime multi-layered; bombing alone won't topple it</td><td>2026</td><td>0.75</td><td>MOSTLY TRUE</td></tr>
+        <tr><td><strong>Takeyh</strong></td><td>Air power can destroy nuclear / missile programs but Iran rebuilds</td><td>2026</td><td>0.75</td><td>MOSTLY TRUE</td></tr>
+        <tr><td><strong>Dubowitz</strong></td><td>Biden admin lax enforcement enabled Iran oil revenue surge</td><td>2021–24</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Dubowitz</strong></td><td>Maximum pressure would bring Iran to the negotiating table</td><td>2018</td><td>0.25</td><td>MOSTLY FALSE</td></tr>
+        <tr><td><strong>Rubin</strong></td><td>Iraq regime change would benefit regional stability</td><td>2002–03</td><td>0.00</td><td>FALSE</td></tr>
+        <tr><td><strong>Rubin</strong></td><td>Chalabi as reliable US partner in post-Saddam Iraq</td><td>2003</td><td>0.00</td><td>FALSE</td></tr>
+        <tr><td><strong>Rubin</strong></td><td>Turkey under Erdogan increasingly hostile to US interests</td><td>2015</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Ritter</strong></td><td>Iraq had no significant WMD stockpiles (pre-2003)</td><td>2002</td><td>1.00</td><td>TRUE</td></tr>
+        <tr><td><strong>Ritter</strong></td><td>Decisive Russian military victory in Ukraine in 2023</td><td>2023</td><td>0.25</td><td>MOSTLY FALSE</td></tr>
+        <tr><td><strong>Gerecht</strong></td><td>Iraq War won't destabilize the Mideast</td><td>2002</td><td>0.00</td><td>FALSE</td></tr>
+        <tr><td><strong>Gerecht</strong></td><td>US invasion of Iraq would provoke democratic revolution in Iran</td><td>2002</td><td>0.00</td><td>FALSE</td></tr>
+        <tr><td><strong>Molyneux</strong></td><td>Western civilization collapse imminent due to immigration</td><td>2015–19</td><td>0.00</td><td>FALSE</td></tr>
+        <tr><td><strong>Molyneux</strong></td><td>Brexit would trigger EU collapse within years</td><td>2016</td><td>0.00</td><td>FALSE</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>Selected excerpts; the complete ledger of 113 predictions is in the source report. Categories span Geopolitical, Military, Economic, Nuclear, and Regime outcomes.</em></p>
+
+    <h2>Final scenario forecasts</h2>
+
+    <p>The consensus forecast below is the extremized, correlation-adjusted posterior across 100,000 Monte Carlo draws. HDIs are Highest Density Intervals from the posterior sample.</p>
+
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>Mean</th><th>Median</th><th>80% HDI</th><th>95% HDI</th><th>Std Dev</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Quick Win / Regime Change</strong></td><td><strong>9.2%</strong></td><td>8.9%</td><td>[5.4%, 12.2%]</td><td>[4.3%, 14.8%]</td><td>2.8%</td></tr>
+        <tr><td><strong>Prolonged Quagmire</strong></td><td><strong>52.3%</strong></td><td>52.4%</td><td>[45.1%, 59.7%]</td><td>[41.2%, 63.4%]</td><td>5.7%</td></tr>
+        <tr><td><strong>Stalemate / De-escalation</strong></td><td><strong>21.9%</strong></td><td>21.7%</td><td>[15.7%, 27.2%]</td><td>[13.5%, 31.1%]</td><td>4.5%</td></tr>
+        <tr><td><strong>Catastrophic Spread</strong></td><td><strong>16.6%</strong></td><td>16.2%</td><td>[11.2%, 21.2%]</td><td>[9.2%, 24.5%]</td><td>4.0%</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Model evolution: 4 → 10 → 15 experts</h2>
+
+    <p>The panel has grown across three iterations. The 15-expert run re-balances the earlier, dove-heavy aggregations by explicitly adding hawkish voices — and the shifts, while real, are smaller than the rhetoric around them would suggest.</p>
+
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>Original (4-Expert)</th><th>10-Expert</th><th>15-Expert</th><th>Δ (15 vs 10)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Quick Win / Regime Change</strong></td><td>25.0%</td><td>5.2%</td><td><strong>9.2%</strong></td><td>+4.0 pp</td></tr>
+        <tr><td><strong>Prolonged Quagmire</strong></td><td>53.0%</td><td>56.9%</td><td><strong>52.3%</strong></td><td>−4.6 pp</td></tr>
+        <tr><td><strong>Stalemate / De-escalation</strong></td><td>14.0%</td><td>18.8%</td><td><strong>21.9%</strong></td><td>+3.1 pp</td></tr>
+        <tr><td><strong>Catastrophic Spread</strong></td><td>8.0%</td><td>19.1%</td><td><strong>16.6%</strong></td><td>−2.5 pp</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Key structural findings</h2>
+
+    <div class="callout green">
+      <span class="label">1. Quagmire remains dominant</span>
+      <p>At 52.3%, prolonged attrition is the strong modal outcome. Adding hawkish experts pulled it down only ~4.6 percentage points from the 10-expert model. Even the highest-accuracy hawks — Takeyh and Ben Taleblu — explicitly argue that air power alone cannot topple the Iranian regime.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">2. Quick Win recovers modestly</span>
+      <p>From 5.2% in the 10-expert model to 9.2% here. Hawks like Dubowitz (30%) and Gerecht (25%) boost this, but their lower track-record accuracy limits their influence. The consensus probability is still under 10%.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">3. Stalemate rises</span>
+      <p>From 18.8% to 21.9%. Several hawks — Rubin at 30%, Takeyh at 28% — assign meaningful probability to a negotiated off-ramp, reflecting policy sophistication even within interventionist frameworks.</p>
+    </div>
+
+    <div class="callout amber">
+      <span class="label">4. Catastrophe moderates</span>
+      <p>Down from 19.1% to 16.6%. Hawks generally assign lower catastrophe probability (15–18%) than doves (20–30%), reflecting their assessment that Iranian conventional capabilities are degraded. The data partially validates this — but 16.6% is still the fourth-largest tail in a four-outcome partition.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">5. The FDD cluster gets discounted</span>
+      <p>Four FDD experts — Dubowitz, Gerecht, Ben Taleblu, Schanzer — share institutional correlations of 0.45–0.60. The correlation adjustment prevents their shared analytical framework from being counted four times. Effective independent experts: 10.13 out of 15.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">6. The accuracy gap is real but nuanced</span>
+      <p>Dovish experts average 0.695 accuracy versus hawkish 0.586. The gap is driven largely by the Iraq War era: hawkish analysts who predicted Iraq would stabilize or catalyze Iranian democracy were systematically wrong. On Iran-specific technical assessments — JCPOA flaws, missile threats, proxy networks — hawks have strong records.</p>
+    </div>
+
+    <h2>Model parameters</h2>
+
+    <table>
+      <thead>
+        <tr><th>Parameter</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Monte Carlo draws</td><td>N = 100,000</td></tr>
+        <tr><td>Prior</td><td>Jeffreys Beta(0.5, 0.5)</td></tr>
+        <tr><td>Total experts</td><td>15 (7 dovish, 6 hawkish, 2 other)</td></tr>
+        <tr><td>Total scored predictions</td><td>113</td></tr>
+        <tr><td>Correlation matrix</td><td>15×15 with FDD cluster (0.45–0.60), realist cluster (0.40–0.50)</td></tr>
+        <tr><td>Effective independent experts</td><td>10.13 out of 15 (eigenvalue method)</td></tr>
+        <tr><td>Extremizing factor <em>d</em></td><td>0.675 (Satopaa et al. 2014)</td></tr>
+        <tr><td>Dirichlet κ range</td><td>6–16 (confidence parameter per expert)</td></tr>
+        <tr><td>Aggregation methods</td><td>Linear Pool, Logarithmic Pool, Extremized (corr-adj)</td></tr>
+        <tr><td>HDI credibility levels</td><td>80% and 95%</td></tr>
+        <tr><td>Scoring scale</td><td>TRUE = 1.0, MOSTLY TRUE = 0.75, PARTIAL = 0.5, MOSTLY FALSE = 0.25, FALSE = 0.0</td></tr>
+        <tr><td>Random seed</td><td>42 (for reproducibility)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Limitations</h2>
+
+    <div class="method">
+      <h3>What the model does not capture</h3>
+      <ol>
+        <li><strong>Subjective scoring.</strong> Different analysts could reasonably assign different verdict scores to the same prediction. The 5-point scale mitigates this versus binary scoring, but does not eliminate it.</li>
+        <li><strong>Inferred, not elicited.</strong> Scenario probability vectors are inferred from public statements; experts have not been surveyed to confirm the distributions attributed to them.</li>
+        <li><strong>Qualitative correlation matrix.</strong> The 15×15 matrix is constructed from assessment of shared sources and institutional affiliations, not estimated from data.</li>
+        <li><strong>Iraq-era shadow.</strong> Several hawkish experts — Gerecht, Rubin — have track records heavily shaped by 2002–03 calls. Whether their post-Iraq analytical evolution is captured in the static scoring is debatable.</li>
+        <li><strong>No temporal discount.</strong> All past predictions are equally weighted regardless of recency or difficulty. A more sophisticated model might discount older or easier calls.</li>
+        <li><strong>Living-conflict caveat.</strong> Ground truth for the four scenarios has not yet been determined. The consensus reflects expert-aggregated probabilities as of March 1, 2026, not certainty about outcomes.</li>
+      </ol>
+    </div>
+
+    <div class="sources">
+      <p><strong>Source:</strong> <em>Bayesian Expert Aggregation — US–Israel vs Iran Conflict Scenario Forecasting</em>, Unmitigated Wisdom, report dated March 1, 2026. Expanded 15-Expert Panel · 113 Scored Predictions · 100,000 Monte Carlo Draws. The full PDF is available via the Download link in the header.</p>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;

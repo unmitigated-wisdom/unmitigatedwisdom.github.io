@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Iran Daily Count By Country (v8) · Unmitigated Wisdom</title>
-<meta name="description" content="Iran Daily Count By Country (v8) — a PDF report from Unmitigated Wisdom, originally posted to Telegram on 21 March 2026.">
+<title>Iran Daily Ordnance Tracker — Days 1–22 by Country · Unmitigated Wisdom</title>
+<meta name="description" content="Twenty-two days of Iranian missile and drone launches broken down by target country — 1,466 missiles, 3,522 drones, 18 ship attacks, all from open-source official statements. No Iranian government sources.">
 <link rel="stylesheet" href="post.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -18,8 +19,8 @@
     </ul>
   </nav>
   <header class="post-head">
-    <p class="eyebrow">Report · PDF</p>
-    <h1>Iran Daily Count By Country (v8)</h1>
+    <p class="eyebrow">Ordnance Tracker · Days 1–22</p>
+    <h1>Iran Daily Ordnance Tracker — by Country</h1>
     <p class="meta">
       By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
       <time datetime="2026-03-21">21 March 2026</time> &nbsp;·&nbsp;
@@ -27,13 +28,267 @@
       <a href="../telegram/files/Iran_DailyCount_ByCountry_v8.pdf" download>Download PDF ↓</a>
     </p>
   </header>
-  <article class="post-body">
-    <iframe class="pdf" src="../telegram/files/Iran_DailyCount_ByCountry_v8.pdf#view=FitH" title="Iran Daily Count By Country (v8)"></iframe>
+  <article class="post-body prose">
+
+    <p class="deck">Every confirmed official count of Iranian missiles and drones launched at each target country, for each day of the conflict. All figures from Ministry of Defence statements, government social posts, and secondary compilations (JINSA, CTP-ISW, FDD Long War Journal) that cite official sources. No Iranian government, IRGC, or Iranian state-media sources used at any point.</p>
+
+    <div class="key-stats">
+      <div><div class="value">4,988</div><span class="label">Total projectiles</span><span class="sub">Floor · D1–D22 confirmed</span></div>
+      <div><div class="value">1,466</div><span class="label">Missiles</span><span class="sub">Ballistic + cruise</span></div>
+      <div><div class="value">3,702</div><span class="label">Drones</span><span class="sub">One-way attack UAVs · 3,522 floor</span></div>
+      <div><div class="value accent">1,080</div><span class="label">Day 1 barrage</span><span class="sub">503 BM + 577 drones</span></div>
+      <div class="highlight"><div class="value accent">~90%</div><span class="label">Decline from peak</span><span class="sub">Per CENTCOM Adm. Cooper, Mar 21</span></div>
+      <div><div class="value">18</div><span class="label">Ship attacks</span><span class="sub">Strait of Hormuz · through Mar 11</span></div>
+    </div>
+
+    <p class="dropcap">This report compiles every confirmed official count of Iranian missiles and drones launched at each target country, for each day of the conflict, spanning Days 1–22 (28 February through 21 March 2026). Where a country's MoD published a cumulative figure at two timestamps, the daily increment is derived by subtraction and marked <em>Estimated</em> in the data-quality column. True totals are estimated 20–35% higher than the floor, driven primarily by Saudi Arabia publishing no systematic cumulative total and gaps between official statement windows.</p>
+
+    <h2>Section 1 · Overall launch volume</h2>
+
+    <p>Iran launched its largest single-day barrage on Day 1 (February 28), firing an estimated 1,080 projectiles in total — 503 missiles and 577 drones — across all target countries simultaneously. Volume dropped sharply over the following week as US and Israeli airstrikes systematically destroyed Iranian missile launchers and drone production infrastructure. By Day 10 (March 9), daily totals had fallen to around 100 projectiles — a 90% decline from the opening salvo.</p>
+
+    <p>The plateau from Days 10–22 averages roughly 30–55 projectiles per day, consistent with CENTCOM Adm. Cooper's March 21 assessment that Iranian missile and drone attacks are <em>"down 90% from the high rates seen at the beginning of the conflict."</em> Days 20–21 (March 19–20) saw Iran pivot sharply toward energy infrastructure: Ras Laffan (Qatar), Yanbu port (Saudi Arabia), and Mina Al-Ahmadi (Kuwait) were all struck. Day 22 (March 21, partial) includes a notable Saudi spike of 47 drones — one of the largest single-day Gulf drone totals since Day 16.</p>
+
+    <figure class="chart">
+      <canvas id="dailyChart"></canvas>
+      <figcaption>Combined daily ordnance — missiles plus drones, Days 1–19 (the granular confirmed series). The Day 1 pre-planned salvo of 1,080 projectiles is truncated on the axis to keep later structure legible. Three-day rolling average overlaid.</figcaption>
+    </figure>
+
+    <blockquote>
+      Combined floor totals D1–D22: <strong>1,466 missiles + 3,522 drones = 4,988 projectiles</strong>. True totals estimated 20–35% higher due to Saudi Arabia underreporting and gaps between official statement windows.
+      <cite>Report summary, 21 March 2026</cite>
+    </blockquote>
+
+    <h2>Section 2 · Drone launches by target country</h2>
+
+    <p>Drones outnumbered missiles throughout the conflict. The UAE absorbed the largest single share — approximately 1,743 drones, around 48% of the confirmed total — because of its proximity to Iran, the presence of US military bases, and its role as a global financial and logistics hub that Iran sought to disrupt. Saudi Arabia saw sharp spikes on Days 13–14 and 17, with its Ministry of Defence confirming 51, 51, and 64 drones intercepted on those days respectively — the largest single-day totals outside the UAE.</p>
+
+    <p>The per-day per-country drone counts below are drawn from UAE MoD (Janes per-day series), the Kuwait, Qatar, Bahrain, Saudi, Israel, Jordan, and Turkey defence ministry statements, JINSA daily updates, CTP-ISW reports, and FDD Long War Journal. <em>Confirmed</em> = directly from official statement; <em>Estimated</em> = derived from cumulative-snapshot arithmetic.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th><th>Date</th><th>UAE</th><th>KW</th><th>QA</th><th>BH</th><th>SA</th><th>IL</th><th>JO</th><th>TR</th><th>Oth</th><th>Total</th><th>Quality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>D1</strong></td><td>Feb 28</td><td>209</td><td>200</td><td>12</td><td>7</td><td>30</td><td>50</td><td>49</td><td>—</td><td>20</td><td><strong>577</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D2</strong></td><td>Mar 1</td><td>332</td><td>83</td><td>5</td><td>2</td><td>20</td><td>30</td><td>—</td><td>—</td><td>15</td><td><strong>487</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D3</strong></td><td>Mar 2</td><td>148</td><td>28</td><td>5</td><td>25</td><td>15</td><td>15</td><td>3</td><td>—</td><td>12</td><td><strong>251</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D4</strong></td><td>Mar 3</td><td>123</td><td>25</td><td>17</td><td>25</td><td>1</td><td>8</td><td>2</td><td>—</td><td>10</td><td><strong>211</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D5</strong></td><td>Mar 4</td><td>129</td><td>25</td><td>10</td><td>28</td><td>7</td><td>5</td><td>2</td><td>—</td><td>8</td><td><strong>214</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D6</strong></td><td>Mar 5</td><td>131</td><td>23</td><td>4</td><td>88</td><td>7</td><td>5</td><td>2</td><td>—</td><td>8</td><td><strong>268</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D7</strong></td><td>Mar 6</td><td>120</td><td>10</td><td>10</td><td>—</td><td>—</td><td>4</td><td>1</td><td>—</td><td>5</td><td><strong>150</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D8</strong></td><td>Mar 7</td><td>110</td><td>7</td><td>—</td><td>8</td><td>4</td><td>3</td><td>—</td><td>—</td><td>5</td><td><strong>137</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D9</strong></td><td>Mar 8</td><td>100</td><td>5</td><td>—</td><td>9</td><td>33</td><td>3</td><td>—</td><td>—</td><td>5</td><td><strong>155</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D10</strong></td><td>Mar 9</td><td>18</td><td>1</td><td>2</td><td>6</td><td>15</td><td>2</td><td>—</td><td>—</td><td>4</td><td><strong>48</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D11</strong></td><td>Mar 10</td><td>35</td><td>—</td><td>2</td><td>6</td><td>12</td><td>2</td><td>—</td><td>—</td><td>4</td><td><strong>61</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D12</strong></td><td>Mar 11</td><td>13</td><td>4</td><td>2</td><td>7</td><td>10</td><td>2</td><td>—</td><td>—</td><td>4</td><td><strong>42</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D13</strong></td><td>Mar 12</td><td>26</td><td>3</td><td>1</td><td>7</td><td>24</td><td>2</td><td>—</td><td>—</td><td>4</td><td><strong>67</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D14</strong></td><td>Mar 13</td><td>65</td><td>25</td><td>—</td><td>7</td><td>51</td><td>2</td><td>3</td><td>—</td><td>3</td><td><strong>156</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D15</strong></td><td>Mar 14</td><td>66</td><td>30</td><td>—</td><td>7</td><td>20</td><td>2</td><td>3</td><td>—</td><td>3</td><td><strong>131</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D16</strong></td><td>Mar 15</td><td>6</td><td>35</td><td>—</td><td>7</td><td>32</td><td>2</td><td>3</td><td>—</td><td>3</td><td><strong>88</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D17</strong></td><td>Mar 16</td><td>21</td><td>35</td><td>—</td><td>7</td><td>64</td><td>2</td><td>3</td><td>—</td><td>3</td><td><strong>135</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D18</strong></td><td>Mar 17</td><td>11</td><td>13</td><td>—</td><td>12</td><td>8</td><td>2</td><td>—</td><td>—</td><td>3</td><td><strong>49</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D19</strong></td><td>Mar 18</td><td>42</td><td>20</td><td>5</td><td>12</td><td>47</td><td>3</td><td>—</td><td>—</td><td>3</td><td><strong>132</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td colspan="2"><strong>D1–D22 Total</strong></td><td><strong>1,743</strong></td><td><strong>592</strong></td><td><strong>78</strong></td><td><strong>284</strong></td><td><strong>476</strong></td><td><strong>150</strong></td><td><strong>71</strong></td><td><strong>0</strong></td><td><strong>128</strong></td><td colspan="2"><strong>3,522 (floor)</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Section 3 · Missile launches by target country</h2>
+
+    <p>Ballistic and cruise missile launches were heaviest on Day 1, when Iran fired an estimated 503 missiles across all countries in a single opening barrage. Israel absorbed the largest share on Day 1 — 162 missiles, or 39% of the total, per IDF data cited by JINSA. The UAE MoD provided the most detailed per-day series, confirmed by Janes.com's daily analysis: a high of 17 BMs on Day 9 (March 8) and lows of 3–4 BMs on Days 5 and 16. Saudi Arabia published no running cumulative total, making its BM counts the largest single data gap; the Arab News compilation of Saudi Press Agency statements confirmed at least 36 missiles and 439 drones absorbed by Saudi Arabia across the full 3-week period.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th><th>Date</th><th>UAE</th><th>KW</th><th>QA</th><th>BH</th><th>SA</th><th>IL</th><th>JO</th><th>TR</th><th>Oth</th><th>Total</th><th>Quality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>D1</strong></td><td>Feb 28</td><td>137</td><td>80</td><td>66</td><td>35</td><td>5</td><td>162</td><td>13</td><td>—</td><td>5</td><td><strong>503</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D2</strong></td><td>Mar 1</td><td>16</td><td>17</td><td>5</td><td>10</td><td>5</td><td>40</td><td>—</td><td>—</td><td>5</td><td><strong>98</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D3</strong></td><td>Mar 2</td><td>9</td><td>22</td><td>9</td><td>16</td><td>5</td><td>20</td><td>5</td><td>—</td><td>3</td><td><strong>89</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D4</strong></td><td>Mar 3</td><td>12</td><td>21</td><td>21</td><td>12</td><td>3</td><td>10</td><td>5</td><td>—</td><td>3</td><td><strong>87</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D5</strong></td><td>Mar 4</td><td>3</td><td>20</td><td>14</td><td>3</td><td>2</td><td>5</td><td>5</td><td>1</td><td>2</td><td><strong>55</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D6</strong></td><td>Mar 5</td><td>7</td><td>18</td><td>14</td><td>8</td><td>2</td><td>5</td><td>5</td><td>—</td><td>2</td><td><strong>61</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D7</strong></td><td>Mar 6</td><td>13</td><td>34</td><td>8</td><td>11</td><td>—</td><td>5</td><td>1</td><td>—</td><td>2</td><td><strong>74</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D8</strong></td><td>Mar 7</td><td>12</td><td>4</td><td>1</td><td>5</td><td>2</td><td>5</td><td>5</td><td>—</td><td>2</td><td><strong>36</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D9</strong></td><td>Mar 8</td><td>17</td><td>3</td><td>—</td><td>6</td><td>1</td><td>4</td><td>4</td><td>—</td><td>2</td><td><strong>37</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D10</strong></td><td>Mar 9</td><td>15</td><td>1</td><td>22</td><td>5</td><td>—</td><td>4</td><td>4</td><td>1</td><td>2</td><td><strong>54</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D11</strong></td><td>Mar 10</td><td>9</td><td>1</td><td>5</td><td>6</td><td>—</td><td>4</td><td>4</td><td>—</td><td>1</td><td><strong>30</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D12</strong></td><td>Mar 11</td><td>6</td><td>2</td><td>5</td><td>5</td><td>—</td><td>4</td><td>4</td><td>—</td><td>1</td><td><strong>27</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D13</strong></td><td>Mar 12</td><td>10</td><td>3</td><td>14</td><td>4</td><td>—</td><td>4</td><td>4</td><td>—</td><td>1</td><td><strong>40</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D14</strong></td><td>Mar 13</td><td>16</td><td>—</td><td>4</td><td>4</td><td>—</td><td>4</td><td>—</td><td>1</td><td>1</td><td><strong>30</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D15</strong></td><td>Mar 14</td><td>16</td><td>—</td><td>5</td><td>3</td><td>—</td><td>4</td><td>—</td><td>—</td><td>1</td><td><strong>29</strong></td><td><em>Estimated</em></td></tr>
+        <tr><td><strong>D16</strong></td><td>Mar 15</td><td>4</td><td>—</td><td>4</td><td>3</td><td>6</td><td>5</td><td>—</td><td>—</td><td>1</td><td><strong>23</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D17</strong></td><td>Mar 16</td><td>6</td><td>1</td><td>5</td><td>4</td><td>—</td><td>5</td><td>—</td><td>—</td><td>1</td><td><strong>22</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D18</strong></td><td>Mar 17</td><td>10</td><td>2</td><td>2</td><td>5</td><td>—</td><td>8</td><td>—</td><td>—</td><td>1</td><td><strong>28</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td><strong>D19</strong></td><td>Mar 18</td><td>20</td><td>4</td><td>9</td><td>2</td><td>8</td><td>12</td><td>—</td><td>—</td><td>1</td><td><strong>56</strong></td><td><em>Confirmed</em></td></tr>
+        <tr><td colspan="2"><strong>D1–D22 Total</strong></td><td><strong>352</strong></td><td><strong>244</strong></td><td><strong>220</strong></td><td><strong>159</strong></td><td><strong>41</strong></td><td><strong>348</strong></td><td><strong>59</strong></td><td><strong>3</strong></td><td><strong>40</strong></td><td colspan="2"><strong>1,466 (floor)</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p><em>Column key:</em> UAE = United Arab Emirates · KW = Kuwait · QA = Qatar · BH = Bahrain · SA = Saudi Arabia · IL = Israel · JO = Jordan · TR = Turkey · Oth = Other (Iraq, transiting airspace, etc.). Per-day rows cover D1–D19 at granular confidence; D20–D22 are captured only in the D1–D22 Total row because those days rely on cumulative snapshots rather than daily MoD statements.</p>
+
+    <h3>Cumulative totals — D1–D22 confirmed floor</h3>
+
+    <table>
+      <thead>
+        <tr><th>Country</th><th>Missiles</th><th>Drones</th><th>Combined</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>UAE</strong></td><td>352</td><td>1,743</td><td><strong>2,095</strong></td></tr>
+        <tr><td>Kuwait</td><td>244</td><td>592</td><td>836</td></tr>
+        <tr><td>Saudi Arabia</td><td>41</td><td>476</td><td>517</td></tr>
+        <tr><td>Israel</td><td>348</td><td>150</td><td>498</td></tr>
+        <tr><td>Bahrain</td><td>159</td><td>284</td><td>443</td></tr>
+        <tr><td>Qatar</td><td>220</td><td>78</td><td>298</td></tr>
+        <tr><td>Other</td><td>40</td><td>128</td><td>168</td></tr>
+        <tr><td>Jordan</td><td>59</td><td>71</td><td>130</td></tr>
+        <tr><td>Turkey</td><td>3</td><td>0</td><td>3</td></tr>
+        <tr><td><strong>Total (floor)</strong></td><td><strong>1,466</strong></td><td><strong>3,522</strong></td><td><strong>4,988</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber">
+      <span class="label">Underreporting caveat</span>
+      <p>Prepared March 21, 2026; Day 22 figures are partial, based on reporting as of 18:00 GST. True totals estimated 20–35% higher than the confirmed floor, driven primarily by Saudi Arabia publishing no systematic cumulative total and by the inevitable gaps between official statement windows. UAE cumulative MoD figures rose to <strong>334 BMs + 1,714 drones</strong> as of March 19; Bahrain cumulative hit <strong>139 BMs + 238 drones</strong> by Day 21; Israel reached <strong>365 BMs</strong> cumulative by Day 21 per IDF data release (>90% interception rate).</p>
+    </div>
+
+    <h2>Section 4 · Iran's ship attacks — Strait of Hormuz and Persian Gulf</h2>
+
+    <p>Alongside the land-targeted missile and drone campaign tracked in Sections 1–3, Iran simultaneously ran a separate maritime interdiction campaign to enforce its closure of the Strait of Hormuz. By March 12, at least 21 attacks on commercial vessels had been confirmed by UKMTO, with 13 attack reports and 4 suspicious-activity reports received in the first two weeks alone. The weapon mix is distinct from the land campaign: Iran chose surface-to-surface and anti-ship cruise missiles for vessels transiting the Strait itself — where precision matters and collateral damage to Iranian shipping must be avoided — while deploying drone boats (USVs) for extended-range strikes up to 800 km from the Strait, and IRGC fast-attack armed boats for targets in shallow Iraqi waters. Gen. Dan Caine (CJCS) confirmed on March 13 that missiles, not sea mines or USVs, were the primary threat to shipping in the northern Strait specifically.</p>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Date</th><th>Vessel</th><th>Flag</th><th>Weapon</th><th>Outcome</th><th>Conf.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Mar 1</td><td><strong>Skylight</strong></td><td>Palau</td><td>Projectile (unk.)</td><td>2 killed, 3 injured; sinking</td><td>U</td></tr>
+        <tr><td>2</td><td>Mar 1</td><td><strong>MKD VYOM</strong></td><td>Marshall Is.</td><td>USV drone boat</td><td>1 killed; 21 evac — first USV strike</td><td>C</td></tr>
+        <tr><td>3</td><td>Mar 1</td><td><strong>Hercules Star</strong></td><td>Gibraltar</td><td>Projectile (unk.)</td><td>Fire; crew safe</td><td>U</td></tr>
+        <tr><td>4</td><td>Mar 2</td><td><strong>Stena Imperative</strong></td><td>USA</td><td>SSM (×2)</td><td>1 port worker killed; 2 injured</td><td>P</td></tr>
+        <tr><td>5</td><td>Mar 2</td><td><strong>Athe Nova</strong></td><td>—</td><td>Drone (×2)</td><td>Struck; IRGC claimed</td><td>C</td></tr>
+        <tr><td>6</td><td>Mar 1</td><td><strong>MSP vessel</strong></td><td>—</td><td>Drone (×4)</td><td>Rendered inoperable; Jebel Ali</td><td>P</td></tr>
+        <tr><td>7</td><td>Mar 1</td><td><strong>US Navy supply</strong></td><td>USA</td><td>Qadr-380 + drones</td><td>Unconfirmed; IRGC claim</td><td>P</td></tr>
+        <tr><td>8</td><td>Mar 4</td><td><strong>Safeen Prestige</strong></td><td>Malta</td><td>ASCM</td><td>24 crew evac; adrift and abandoned</td><td>C</td></tr>
+        <tr><td>9</td><td>Mar 4–5</td><td><strong>Sonangol Namibe</strong></td><td>Bahamas</td><td>USV drone boat</td><td>Large explosion; oil spill off Kuwait (~800 km from Strait)</td><td>C</td></tr>
+        <tr><td>10</td><td>Mar 6</td><td><strong>Mussafah 2</strong></td><td>UAE</td><td>ASCM (×2)</td><td>Tug sank; 4 seafarers killed</td><td>C</td></tr>
+        <tr><td>11</td><td>Mar 7</td><td><strong>Prima</strong></td><td>—</td><td>Drone</td><td>IRGC-claimed strike; details limited</td><td>P</td></tr>
+        <tr><td>12</td><td>Mar 7</td><td><strong>Louis P</strong></td><td>USA</td><td>Drone</td><td>IRGC-claimed; details limited</td><td>P</td></tr>
+        <tr><td>13</td><td>Mar 11</td><td><strong>Mayuree Naree</strong></td><td>Thailand</td><td>Projectile (×2)</td><td>Abandoned; 20 rescued, 3 missing</td><td>P</td></tr>
+        <tr><td>14</td><td>Mar 11</td><td><strong>Express Room</strong></td><td>Liberia</td><td>Projectile</td><td>Struck; IRGC-confirmed</td><td>P</td></tr>
+        <tr><td>15</td><td>Mar 11</td><td><strong>ONE Majesty</strong></td><td>Japan</td><td>Projectile</td><td>Minor hull damage; continued</td><td>U</td></tr>
+        <tr><td>16</td><td>Mar 11</td><td><strong>Star Gwyneth</strong></td><td>Marshall Is.</td><td>Projectile</td><td>Hull damage; crew safe</td><td>U</td></tr>
+        <tr><td>17</td><td>Mar 12</td><td><strong>Safesea Vishnu</strong></td><td>Marshall Is.</td><td>IRGC armed boat</td><td>Ablaze; Iraqi waters, 1 killed</td><td>C</td></tr>
+        <tr><td>18</td><td>Mar 12</td><td><strong>Zefyros</strong></td><td>Malta</td><td>IRGC armed boat</td><td>Ablaze; 23 crew</td><td>C</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>Confidence key:</em> C = Confirmed by UKMTO, JMIC, maritime security firm, or vessel operator. P = Probable, consistent across multiple reports. U = Unknown, only UKMTO "unknown projectile" characterisation. Eighteen rows; Attacks #1–#18 are the confirmed tranche. UKMTO separately tallied additional advisory reports bringing the two-week total to ~21 including suspicious-activity reports.</p>
+
+    <h3>Weapon-type summary — maritime attacks</h3>
+
+    <table>
+      <thead>
+        <tr><th>Weapon category</th><th>Confirmed</th><th>Probable</th><th>Representative vessels</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Missile (ASCM / SSM)</td><td>2</td><td>3</td><td>Safeen Prestige, Mussafah 2 (C); Stena Imperative, Mayuree cluster, Qadr-380 vs. US supply (P)</td></tr>
+        <tr><td>Drone (one-way / air)</td><td>1</td><td>3</td><td>Athe Nova (C); Prima, Louis P, Jebel Ali MSP (P)</td></tr>
+        <tr><td>USV / sea drone</td><td>2</td><td>0</td><td>MKD VYOM, Sonangol Namibe</td></tr>
+        <tr><td>IRGC fast-attack craft</td><td>2</td><td>0</td><td>Safesea Vishnu, Zefyros</td></tr>
+        <tr><td>Projectile (type unconfirmed)</td><td>0</td><td>0</td><td>Skylight, Hercules Star, ONE Majesty, Star Gwyneth, Express Room</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout green">
+      <span class="label">Key finding — weapon-environment matching</span>
+      <p>Iran is using deliberately different weapons for different operational contexts. Anti-ship cruise missiles dominate in the Strait of Hormuz shipping lanes, where precision targeting allows Iran to selectively permit or deny passage. Drone boats have been deployed for strikes far beyond the Strait — most notably the MKD VYOM (52 nm off Muscat) and Sonangol Namibe (near Kuwait, ~800 km away) — demonstrating that Iran's maritime interdiction campaign extends well into the broader Persian Gulf. IRGC fast-attack armed boats were reserved for the Iraqi territorial-water strikes on Safesea Vishnu and Zefyros.</p>
+    </div>
+
+    <h2>Data quality — load-bearing caveats</h2>
+
+    <ul>
+      <li><strong>UAE</strong> is the strongest data stream: UAE MoD publishes per-day ballistic-missile detail via Janes, with multiple cumulative benchmarks (174 BMs by Mar 2, 186 by Mar 3, 262 by Mar 10, 268 by Mar 12, 304 by Mar 15, 314 by Mar 17, 334 by Mar 19; drones 689 by Mar 2, 1,422 by Mar 7, 1,514 by Mar 12, 1,672 by Mar 17, 1,714 by Mar 19). UAE alone absorbed ~40% of the confirmed total.</li>
+      <li><strong>Kuwait:</strong> first 36-hour figure (97 BMs + 283 drones) is confirmed directly from MoD; D4 cumulative 384 drones via CTP-ISW; D17 cumulative 227 BMs + 539 drones via FDD. Daily increments between those are inferred.</li>
+      <li><strong>Qatar:</strong> D1 = 66 BMs (MoI head) + 12 drones (MoD); D4 cumulative = 101 BMs + 39 drones; D13 salvo = 14 BMs; D17 cumulative = 180 BMs + 69 drones (FDD). D18 included a ballistic-missile strike on Ras Laffan Industrial City that triggered Qatar ordering Iran's military attaches out within 24 hours.</li>
+      <li><strong>Bahrain:</strong> 36-hr 45 BMs + 9 drones; D4 cumulative 73 + 91; D15 cumulative 125 + 211; D21 cumulative 139 + 238.</li>
+      <li><strong>Saudi Arabia</strong> is the largest single data gap — publishes no running cumulative. Individual confirmed days: 3 + 1 (D4), 2 + 7 (D5), 2 + 6 (D7), 51 drones (D13), 6 + 32 (D16), 64 drones (D17), 8 BMs at Riyadh in two salvoes on D19. Arab News compilation gives ~36 missiles + 439 drones cumulative for the three-week period.</li>
+      <li><strong>Israel:</strong> INSS cites ~200 BMs in first days; CTP-ISW D6 confirms 13 ground impacts total since D1; IDF D21 release puts cumulative at 365 BMs launched, ~285 entering airspace, ~270 intercepted (>90% rate), ~15 reaching ground. Khorramshahr-4 MRBM debut on D19 (Times of Israel / IRGC) with 2 killed at Ramat Gan.</li>
+      <li><strong>Jordan:</strong> only the 36-hr figure (13 BMs + 49 drones, plus 73 debris incidents) is officially confirmed; Aqaba intercept on D7 confirmed. No systematic subsequent data.</li>
+      <li><strong>Turkey:</strong> small number of BMs transiting; three confirmed.</li>
+    </ul>
+
+    <p>Quality tags across the 22 days: <em>Confirmed</em> days rely on directly-quoted official statements; <em>Estimated</em> days are subtracted from cumulative snapshots. Where the cumulative series jumps between non-adjacent snapshots, the intermediate day's share is a best-evidence inference rather than a hard figure.</p>
+
+    <div class="method">
+      <h3>Methodology</h3>
+      <p>This report compiles every confirmed official count of Iranian missiles and drones launched at each target country, for each day of the conflict. All figures derive from Ministry of Defence statements, government social-media posts, or secondary compilations by JINSA, CTP-ISW, and the FDD Long War Journal that explicitly cite official sources. <strong>No Iranian government, IRGC, or Iranian state-media figures are used for any daily count.</strong> Where a country's MoD published a cumulative figure at two timestamps, the daily increment is derived by subtraction and marked <em>Estimated</em>. Where no cumulative was published on a given day, cells are left blank rather than interpolated.</p>
+      <p>Weapon confidence for the maritime table follows: <strong>Confirmed</strong> = established by UKMTO, JMIC, a maritime security firm, or the vessel operator from first-hand evidence; <strong>Probable</strong> = consistent across multiple independent reports but not independently confirmed at source; <strong>Unknown</strong> = UKMTO "unknown projectile" only. Weapons classed "Projectile (type unconfirmed)" are excluded from missile / drone / USV counts pending verification.</p>
+      <p>Floor counts are estimated <strong>20–35% below true totals</strong>, driven primarily by Saudi Arabia publishing no systematic cumulative and by gaps between official statement windows. Day 22 (March 21) figures are partial, based on reporting as of 18:00 GST.</p>
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ol>
+        <li><strong>Ordnance — UAE:</strong> UAE MoD press briefings; Janes.com per-day BM series; Breaking Defense; Gulf News Day-4 cumulative; CNBC UAE cumulative D13; The National (Mar 19); airforce-technology.com.</li>
+        <li><strong>Ordnance — Kuwait:</strong> Kuwait MoD via Gulf Times; Breaking Defense; CTP-ISW Mar 3; JINSA Operations Epic Fury &amp; Roaring Lion (Mar 11); FDD Long War Journal (Mar 13–16, 17–19).</li>
+        <li><strong>Ordnance — Qatar:</strong> Anadolu Agency citing Qatar MoD; Qatar MoI head statement; CTP-ISW Mar 3; Al Jazeera (Mar 7); JINSA (Mar 11); airforce-technology.com (Mar 13); FDD LWJ (Mar 13–16, 17–19); Wikipedia — 2026 Iranian strikes on Qatar.</li>
+        <li><strong>Ordnance — Bahrain:</strong> Bahrain MoD via Breaking Defense; CTP-ISW (Mar 3, Mar 5); Alwast News D15 briefing; FDD LWJ (Mar 17–19); Al Jazeera death-toll tracker (Mar 20).</li>
+        <li><strong>Ordnance — Saudi Arabia:</strong> Saudi MoD via SPA; CTP-ISW (Mar 5, Mar 15); Al Jazeera (Mar 7); The National (Mar 13); JINSA (Mar 16); Alma Research Center (Mar 16); Arab News (Mar 19) three-week compilation.</li>
+        <li><strong>Ordnance — Israel:</strong> IDF via JINSA Mar 1; INSS Operation Roaring Lion Initial Insights; CTP-ISW (Mar 5); Times of Israel liveblog (Mar 18); Haaretz citing IDF data release (Mar 20).</li>
+        <li><strong>Ordnance — Jordan:</strong> Jordan Armed Forces via Breaking Defense; Al Jazeera (Mar 7).</li>
+        <li><strong>Maritime:</strong> UKMTO advisories; JMIC Advisory Notes; Lloyd's List; USNI News; ABC News; France24/AFP; Al-Monitor; The War Zone; Marine Insight; Times of Israel; Jerusalem Post; CTP-ISW; Oman MSC via TRT World; Wikipedia — 2026 Strait of Hormuz crisis.</li>
+        <li><strong>Prepared March 21, 2026</strong>, from publicly available open-source reporting; Day 22 figures are partial. True totals estimated 20–35% higher than the confirmed floor.</li>
+      </ol>
+    </div>
+
   </article>
   <footer class="site">
     © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
     <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
   </footer>
 </div>
+
+<script>
+// Combined daily ordnance (missiles + drones) for Days 1-19, stacked bar + 3-day rolling avg.
+// Day 1 total of 1,080 truncated on axis to keep later structure legible.
+const dayLabels = ['D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19'];
+const missiles  = [503, 98, 89, 87, 55, 61, 74, 36, 37, 54, 30, 27, 40, 30, 29, 23, 22, 28, 56];
+const drones    = [577,487,251,211,214,268,150,137,155, 48, 61, 42, 67,156,131, 88,135, 49,132];
+const combined  = missiles.map((m,i) => m + drones[i]);
+const roll3 = combined.map((_,i) => {
+  const s = Math.max(0, i-2);
+  const slice = combined.slice(s, i+1);
+  return slice.reduce((a,b)=>a+b,0) / slice.length;
+});
+
+new Chart(document.getElementById('dailyChart').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: dayLabels,
+    datasets: [
+      { type: 'bar', label: 'Missiles', data: missiles, backgroundColor: '#b8342f', stack: 's', borderWidth: 0 },
+      { type: 'bar', label: 'Drones', data: drones, backgroundColor: '#6b8aa8', stack: 's', borderWidth: 0 },
+      { type: 'line', label: '3-day rolling avg (total)', data: roll3, borderColor: '#c47a1e', backgroundColor: 'rgba(0,0,0,0)', tension: 0.3, pointRadius: 2, borderWidth: 2 }
+    ]
+  },
+  options: {
+    responsive: true,
+    aspectRatio: 2,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#6b6b6b', font: { family: 'ui-sans-serif, system-ui', size: 11 }, boxWidth: 14, padding: 14 } },
+      tooltip: { callbacks: { label: function(ctx) { return '  ' + ctx.dataset.label + ':  ' + Math.round(ctx.parsed.y).toLocaleString(); } } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#888', font: { size: 10 } } },
+      y: { suggestedMax: 400, grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#888', font: { size: 11 } } }
+    }
+  }
+});
+</script>
 </body>
 </html>
