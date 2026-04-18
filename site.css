@@ -338,49 +338,57 @@ section .section-sub {
   font-weight: 600;
 }
 
-/* Reports list */
-.reports-list {
+/* Reports feed — news-archive layout, one article per entry */
+.reports-feed {
   list-style: none;
   margin: 0;
   padding: 0;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
 }
-.reports-list li {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px 20px;
+.reports-feed li {
+  padding: 26px 0 28px;
   border-bottom: 1px solid var(--border);
 }
-.reports-list li:last-child { border-bottom: none; }
-.reports-list li a {
-  color: var(--fg);
-  font-weight: 500;
-  flex: 1;
+.reports-feed li:first-child { padding-top: 4px; }
+.reports-feed li:last-child { border-bottom: none; }
+.reports-feed a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
-.reports-list li a:hover { color: var(--accent); text-decoration: none; }
-.reports-list li time {
+.reports-feed .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--muted);
-  white-space: nowrap;
+  margin-bottom: 10px;
 }
-.reports-list .kind {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 1px 7px;
-  border-radius: 3px;
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
+.reports-feed .meta time { color: var(--fg); font-weight: 600; }
+.reports-feed .meta .kicker { color: var(--accent); }
+.reports-feed .meta .kicker::before {
+  content: '·';
+  margin-right: 10px;
+  color: var(--border);
+}
+.reports-feed h2 {
+  font-size: 1.45rem;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  color: var(--fg);
+}
+.reports-feed a:hover h2 { color: var(--accent); }
+.reports-feed .deck {
+  margin: 0;
   color: var(--muted);
-  background: var(--soft);
-  vertical-align: middle;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 70ch;
 }
 
 /* Homepage feed (ledger preview) */
