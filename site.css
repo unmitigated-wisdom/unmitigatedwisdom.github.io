@@ -792,6 +792,22 @@ article.post-body iframe.pdf { height: 90vh; min-height: 600px; }
   color: var(--fg);
 }
 .pred-item .prediction strong { font-weight: 600; }
+.pred-item .resolution {
+  margin: 8px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.pred-item .resolution::before {
+  content: 'Resolves · ';
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  margin-right: 2px;
+}
 .pred-item .audits {
   margin-top: 12px;
   padding-left: 16px;
