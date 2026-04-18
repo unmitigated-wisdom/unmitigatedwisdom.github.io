@@ -5,47 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unmitigated Wisdom — Threaded Prediction Ledger</title>
 <link rel="stylesheet" href="site.css">
-<style>
-:root { --bg:#fafaf7;--fg:#1a1a1a;--muted:#6b6b6b;--accent:#b8342f;--border:#e5e2d9;--card:#ffffff;--photo-bg:#f4f1e8;--thread-line:#d6d0bf; }
-*{box-sizing:border-box;}
-body{margin:0;font-family:ui-serif,Georgia,'Iowan Old Style','Palatino Linotype',serif;background:var(--bg);color:var(--fg);line-height:1.65;font-size:17px;}
-.wrap{max-width:860px;margin:0 auto;padding:60px 24px 120px;}
-header.site{border-bottom:2px solid var(--fg);padding-bottom:24px;margin-bottom:40px;}
-h1{font-size:2.4rem;margin:0 0 8px;letter-spacing:-0.01em;}
-.tagline{color:var(--muted);font-style:italic;margin:0 0 12px;}
-.channel-link{display:inline-block;color:var(--accent);text-decoration:none;font-family:ui-sans-serif,system-ui,sans-serif;font-size:0.9rem;font-weight:600;}
-.channel-link:hover{text-decoration:underline;}
-.intro{background:var(--card);border:1px solid var(--border);padding:18px 22px;margin-bottom:40px;border-radius:4px;font-size:0.95rem;color:var(--muted);}
-.intro .legend{display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;font-size:0.85rem;}
-.intro .legend-item{display:flex;align-items:center;gap:6px;}
-.intro .legend .badge{display:inline-block;background:#fbeceb;color:var(--accent);padding:1px 7px;border-radius:3px;font-weight:700;font-family:ui-sans-serif,system-ui,sans-serif;}
-h2.year{font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.15em;font-size:0.85rem;color:var(--muted);border-top:1px solid var(--border);padding-top:32px;margin:48px 0 20px;}
-h2.year:first-of-type{border-top:none;padding-top:0;margin-top:0;}
-.post{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:22px 26px;margin-bottom:14px;box-shadow:0 1px 2px rgba(0,0,0,0.02);}
-.post.depth-0{margin-bottom:18px;}
-.post-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;font-family:ui-sans-serif,system-ui,sans-serif;font-size:0.8rem;color:var(--muted);margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed var(--border);}
-.reply-arrow{color:var(--accent);font-size:1.05rem;margin-right:-6px;}
-.msgnum{font-weight:700;color:var(--accent);text-decoration:none;background:#fbeceb;padding:2px 8px;border-radius:3px;}
-.msgnum:hover{background:var(--accent);color:white;}
-.post-head time{font-variant-numeric:tabular-nums;}
-.permalink{margin-left:auto;color:var(--muted);text-decoration:none;}
-.permalink:hover{color:var(--accent);}
-.text{white-space:normal;}
-.text a{color:var(--accent);word-break:break-all;}
-.photo{margin-top:16px;background:var(--photo-bg);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 4px 4px 0;font-size:0.93rem;}
-.photo-label{font-family:ui-sans-serif,system-ui,sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px;font-weight:600;}
-.photo-body table{border-collapse:collapse;width:100%;margin:8px 0;font-size:0.85rem;font-family:ui-sans-serif,system-ui,sans-serif;}
-.photo-body th,.photo-body td{border:1px solid var(--border);padding:5px 9px;text-align:left;}
-.photo-body th{background:#e9e4d4;font-weight:600;}
-.photo-body ul{margin:6px 0;padding-left:20px;}
-.photo-body li{margin:3px 0;}
-.thread-children{position:relative;margin-left:28px;padding-left:22px;border-left:2px solid var(--thread-line);margin-top:0;margin-bottom:14px;}
-.thread-children .post{background:#fdfcf8;font-size:0.96rem;}
-.thread-children .thread-children .post{background:#fbf9f3;}
-.thread-children .thread-children .thread-children .post{background:#faf7ee;}
-footer.site{margin-top:60px;padding-top:24px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:0.85rem;font-family:ui-sans-serif,system-ui,sans-serif;}
-@media (max-width:680px){.wrap{padding:30px 14px 80px;}h1{font-size:1.8rem;}.post{padding:16px 16px;}.thread-children{margin-left:12px;padding-left:14px;}.permalink{margin-left:0;width:100%;}}
-</style>
 </head>
 <body>
 <div class="wrap">
@@ -61,12 +20,12 @@ footer.site{margin-top:60px;padding-top:24px;border-top:1px solid var(--border);
     <li><a href="reports.html">Reports</a></li>
   </ul>
 </nav>
-<header class="site">
+<header class="masthead">
 <h1>Unmitigated Wisdom</h1>
 <p class="tagline">A prediction ledger — geopolitics, markets, and whatever the model says next.</p>
 <a class="channel-link" href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">t.me/unmitigated_wisdom →</a>
 </header>
-<div class="intro">
+<div class="ledger-intro">
 Every substantive post from the channel, March 2020 to April 2026, threaded so that follow-ups, validations, and related updates appear as replies under the original prediction. Each entry links back to its source Telegram post via the message number (<span class="badge">#N</span>).
 <div class="legend">
 <div class="legend-item"><span class="badge">#N</span> click to open original post</div>
