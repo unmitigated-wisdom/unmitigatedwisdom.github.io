@@ -1148,16 +1148,8 @@ def _bucket_stats(items_outcomes):
                 total=sum(counts.values()))
 
 def compute_stats():
-    overall = _bucket_stats(it.get("outcome", "unres")
-                            for g in groups for it in g["items"])
-    by_year = {}
-    for g in groups:
-        by_year.setdefault(g["year"], []).extend(
-            it.get("outcome", "unres") for it in g["items"])
-    overall["per_year"] = [
-        dict(year=y, **_bucket_stats(by_year[y])) for y in sorted(by_year)
-    ]
-    return overall
+    return _bucket_stats(it.get("outcome", "unres")
+                         for g in groups for it in g["items"])
 
 def render_stats(s):
     counts = s["counts"]
@@ -1169,24 +1161,6 @@ def render_stats(s):
                      f'<span class="rating r-{cls}">{label}</span>'
                      f'</div>')
     cells_html = "".join(cells)
-
-    year_cells = []
-    for y in s["per_year"]:
-        if y["resolved"]:
-            pct = f'{y["pct"]:.1f}%'
-            detail = f'{y["earned"]:.2f} / {y["resolved"]}'
-        else:
-            pct = '—'
-            detail = f'0 / 0 resolved'
-        suffix = (f' &middot; {y["counts"]["unres"]} unresolved'
-                  if y["counts"]["unres"] else '')
-        year_cells.append(f'<div class="year-cell">'
-                          f'<span class="year-pct">{pct}</span>'
-                          f'<span class="year-label">{y["year"]}</span>'
-                          f'<span class="year-detail">{detail}{suffix}</span>'
-                          f'</div>')
-    year_html = "".join(year_cells)
-
     return (f'<section class="ledger-score">'
             f'<div class="score-headline">'
             f'<span class="score-num">{s["pct"]:.1f}%</span>'
@@ -1195,7 +1169,6 @@ def render_stats(s):
             f'(of {s["total"]} total)</span>'
             f'</div>'
             f'<div class="score-breakdown">{cells_html}</div>'
-            f'<div class="score-yearly">{year_html}</div>'
             f'<p class="score-method">'
             f'Scoring weights: True 1.00 &middot; Partially true 0.75 &middot; '
             f'Mixed 0.50 &middot; Partially false 0.25 &middot; False 0.00. '
