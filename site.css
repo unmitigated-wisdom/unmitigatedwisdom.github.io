@@ -809,6 +809,19 @@ article.post-body iframe.pdf { height: 90vh; min-height: 600px; }
   font-size: 0.7rem;
   margin-right: 2px;
 }
+.pred-item .outcome {
+  margin: 10px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--fg);
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.pred-item .outcome .rating { flex: 0 0 auto; align-self: center; }
+.pred-item .outcome .outcome-note { flex: 1 1 240px; min-width: 0; }
 .pred-item .audits {
   margin-top: 12px;
   padding-left: 16px;
