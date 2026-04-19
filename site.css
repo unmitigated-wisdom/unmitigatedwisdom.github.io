@@ -809,6 +809,48 @@ article.post-body iframe.pdf { height: 90vh; min-height: 600px; }
   font-size: 0.7rem;
   margin-right: 2px;
 }
+/* Landing-page track-record callout */
+.track-record {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 0 0 36px;
+  padding: 16px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+}
+.track-record .record-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  flex: 0 0 auto;
+}
+.track-record .record-body {
+  margin: 0;
+  flex: 1 1 240px;
+  min-width: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+.track-record .record-body strong {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.track-record .record-link {
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.track-record .record-link:hover { text-decoration: underline; }
+
 /* Ledger accuracy score panel (top of ledger.html) */
 .ledger-score {
   margin: 0 0 28px;

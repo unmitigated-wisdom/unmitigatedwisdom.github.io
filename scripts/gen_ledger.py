@@ -1255,13 +1255,11 @@ FOOT = """
 """
 
 INDEX_STATS_TEMPLATE = """  <!-- LEDGER-STATS-AUTO -->
-  <div class="stats">
-    <div class="stat"><span class="num">{pct:.1f}%</span><span class="label">Track-record accuracy</span></div>
-    <div class="stat"><span class="num">{resolved}</span><span class="label">Resolved predictions</span></div>
-    <div class="stat"><span class="num">{unres}</span><span class="label">Live (unresolved)</span></div>
-    <div class="stat"><span class="num">2020</span><span class="label">Ledger since</span></div>
-  </div>
-  <p class="stats-note"><a href="ledger.html">See the full ledger with per-year accuracy and per-prediction verdicts →</a></p>
+  <aside class="track-record">
+    <span class="record-num">{pct:.1f}%</span>
+    <p class="record-body">accuracy across <strong>{resolved}</strong> resolved predictions since 2020 &mdash; <strong>{unres}</strong> still live.</p>
+    <a class="record-link" href="ledger.html">See the full ledger &rarr;</a>
+  </aside>
   <!-- /LEDGER-STATS-AUTO -->"""
 
 def update_index_stats(stats, index_path):
