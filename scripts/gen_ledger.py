@@ -1004,6 +1004,80 @@ groups.append(dict(
     ],
 ))
 
+# 11 April 2026 — Islamabad US–Iran talks (Telegram #135 + posts/a5a2b2e0... &ldquo;Bargaining
+# in the Shadow of a Ceasefire&rdquo;) split into three headline predictions.
+
+ISLAMABAD_SOURCES = [
+    ("Telegram #135", tg(135)),
+    ("Bargaining in the Shadow of a Ceasefire", "posts/a5a2b2e0-787c-43d3-878b-554cf509ac1c.html"),
+]
+
+groups.append(dict(
+    year="2026", date="11 April 2026", datetime="2026-04-11",
+    subhead="Islamabad talks — no grand bargain; interim, ambiguous, reversible at best",
+    sources=ISLAMABAD_SOURCES,
+    items=[
+        dict(
+            prediction="The Islamabad US–Iran talks will not produce a grand bargain. They are far more likely to yield an interim, ambiguous, reversible process than a full settlement.",
+            resolution="Text and scope of any joint statement or agreement emerging from the Islamabad track — full settlement vs. interim/ambiguous/reversible arrangement.",
+            audits=[],
+        ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="11 April 2026", datetime="2026-04-11",
+    subhead="Iran rejects zero enrichment, full dismantlement, or missile surrender at Islamabad",
+    sources=ISLAMABAD_SOURCES,
+    items=[
+        dict(
+            prediction="Iran will not accept zero enrichment, full dismantlement, or a missile surrender. If Washington insists publicly on those endpoints, diplomacy will narrow into a managed holding pattern or drift back toward confrontation.",
+            resolution="Any signed Iranian commitment to zero enrichment, full nuclear dismantlement, or missile surrender during the Islamabad track; alternatively, observable shift to a holding pattern or renewed confrontation if the US insists publicly on those endpoints.",
+            audits=[],
+        ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="11 April 2026", datetime="2026-04-11",
+    subhead="Lebanon and Hormuz are the real near-term test for the Islamabad track",
+    sources=ISLAMABAD_SOURCES,
+    items=[
+        dict(
+            prediction="The real near-term test of the Islamabad track is not the nuclear issue alone — it is whether Washington can keep Lebanon and the Strait of Hormuz from blowing up the negotiation before any serious technical deal can even begin.",
+            resolution="Whether a Lebanon or Hormuz incident derails the Islamabad track before substantive nuclear-deal text emerges.",
+            audits=[],
+        ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="13 April 2026", datetime="2026-04-13",
+    subhead="A complete US Hormuz blockade self-defeats — accelerates the price surge",
+    sources=[("Telegram #136", tg(136))],
+    items=[
+        dict(
+            prediction="A complete US blockade of the Strait of Hormuz, if fully enforced, will make the surging oil and gas prices surge even faster — strategically self-defeating, the same problem flagged for Kharg-island seizure. Furthermore, if Iranian oil is moved by Chinese tankers, US willingness to sink or confiscate it is highly questionable.",
+            resolution="If a complete US Hormuz blockade is mounted, compare oil/gas prices before vs. after, and observe US enforcement record against Chinese-flagged tankers carrying Iranian oil.",
+            audits=[],
+        ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="16 April 2026", datetime="2026-04-16",
+    subhead="Ceasefire is not peace — permanent US–Iran settlement remains unlikely",
+    sources=[("Telegram #137", tg(137)),
+             ("Ceasefire Is Not Peace", "posts/ceasefire_is_not_peace.html")],
+    items=[
+        dict(
+            prediction="Ceasefire is not peace — while ceasefire talks may continue, a permanent US–Iran peace settlement remains unlikely. Synthesising Danny Citrinowicz, John Mearsheimer, and Behnam Ben Taleblu: temporary pauses, extensions, and deconfliction arrangements are plausible, but the core disputes (enrichment, sanctions, missiles, proxies, regional leverage) remain unresolved, so a full resolution path stays unlikely.",
+            resolution="Status of any permanent US–Iran peace settlement — vs. mere ceasefire / pause / deconfliction — by 31 December 2026.",
+            audits=[],
+        ),
+    ],
+))
+
 # ============================================================
 # HTML generator
 # ============================================================
