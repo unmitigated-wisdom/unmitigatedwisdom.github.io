@@ -179,6 +179,7 @@ header.hero.centered .tagline {
   font-size: 1.05rem;
 }
 header.hero.centered .cta { justify-content: center; margin-top: 20px; }
+header.hero.centered .social-list { justify-content: center; margin-top: 18px; }
 
 /* Post-style header (eyebrow + h1 + meta). Scoped to direct children of
    .wrap so it doesn't bleed into the ledger's inline .post-head bar.
