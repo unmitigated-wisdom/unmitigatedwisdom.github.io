@@ -570,7 +570,8 @@ groups.append(dict(
         dict(
             prediction="The war will drag into prolonged attrition (lasting &gt; 90 days without decisive military or diplomatic resolution) — modal outcome at ~52% initial probability, driven by IRGC cohesion and Mojtaba continuity.",
             resolution="War still active on Day 90 without a formal ceasefire or a decisive military outcome.",
-            outcome="unres",
+            outcome="false",
+            outcome_note="A formal ceasefire (Pakistan-mediated, 8 April) did materialise within the first 90 days — so the Quagmire criterion (war active on Day 90 <em>without</em> a formal ceasefire) cannot be met regardless of how Day 90 itself looks. The conflict took the Off-Ramp branch, even though the truce later broke down.",
             audits=[
                 dict(meta="9 Mar 2026 · #92", url=tg(92), text="Day 10 — Quagmire 42–46%, still modal."),
                 dict(meta="13 Mar 2026 · #103", url=tg(103), text="Day 14 — Quagmire falls to 36%, overtaken by Catastrophe."),
@@ -607,7 +608,8 @@ groups.append(dict(
         dict(
             prediction="A formal ceasefire or de-escalation agreement will be reached within the first 90 days of the war. Initial probability ~22%.",
             resolution="Formal ceasefire or equivalent de-escalation agreement signed or announced by Day 90 of the war.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="A two-week US–Iran ceasefire was announced on 7 April and took effect on 8 April (Day ~40, well inside the 90-day window) under Pakistani mediation — the Off-Ramp scenario realised on schedule, even though the truce later collapsed after the 12 April Islamabad-talks failure and 13 April US blockade.",
             audits=[
                 dict(meta="9 Mar 2026 · #92", url=tg(92), text="Day 10 — Off-Ramp falls to 10–13% (Larijani: &ldquo;no talks&rdquo;)."),
                 dict(meta="11 Mar 2026 · #96", url=tg(96), text="Day 13 — Off-Ramp rises to 13–17% (US asks Israel to halt energy strikes; China/Russia/France contact Tehran)."),
@@ -660,20 +662,6 @@ groups.append(dict(
                 dict(meta="9 Mar 2026 · #92", url=tg(92),
                      text="Mojtaba confirmed as Supreme Leader — IRGC-backed continuity."),
             ],
-        ),
-    ],
-))
-
-groups.append(dict(
-    year="2026", date="3 March 2026", datetime="2026-03-03",
-    subhead="Polymarket Iran regime-fall mispricing",
-    sources=[("Telegram #84", tg(84))],
-    items=[
-        dict(
-            prediction="The Polymarket contract &ldquo;Iranian regime falls by June 30 2026&rdquo; is mispriced at 54% — the expert-panel probability is below 10%. Buying &ldquo;no&rdquo; (shorting regime fall) has positive expected value.",
-            resolution="Whether the Islamic Republic's central government is overthrown or dissolved by 30 June 2026.",
-            outcome="unres",
-            audits=[],
         ),
     ],
 ))
@@ -762,60 +750,17 @@ groups.append(dict(
     ],
 ))
 
-# 19 March 2026 — Oil-prices special report (Telegram #115 + posts/Iran_Oil_Special_Report)
-# split into two signals: divergent reading + four-scenario war-end framing.
-
-OIL_RED_LINES_SOURCES = [
-    ("Telegram #115", tg(115)),
-    ("Iran Oil Special Report", "posts/Iran_Oil_Special_Report.html"),
-]
-
-groups.append(dict(
-    year="2026", date="19 March 2026", datetime="2026-03-19",
-    subhead="Three belligerents read energy prices divergently — drives near-term behaviour",
-    sources=OIL_RED_LINES_SOURCES,
-    items=[
-        dict(
-            prediction="At current energy prices (US gas $3.84/gal, diesel $5.04, Brent $109) the three belligerents read the signal differently: the US as an unsustainable political-economic drain, Iran as its most effective weapon, Israel as a countdown clock on American political will. This divergence will drive near-term strategic behaviour more than any other single variable.",
-            resolution="Public statements and operational behaviour from the three sides over the 2–6 weeks following 19 Mar 2026.",
-            outcome="unres",
-            audits=[
-                dict(meta="20 Mar 2026 · #117", url=tg(117),
-                     text="Gas was $2.927 on Feb 28 and is $3.884 today — 96¢ / 33% in 20 days, the sharpest rise in over two decades. &gt;$4.00 makes gas prices politically unsustainable."),
-            ],
-        ),
-    ],
-))
-
 groups.append(dict(
     year="2026", date="19 March 2026", datetime="2026-03-19",
     subhead="Iran war ends via one of four oil-price-driven scenarios",
-    sources=OIL_RED_LINES_SOURCES,
+    sources=[("Telegram #115", tg(115)),
+             ("Iran Oil Special Report", "posts/Iran_Oil_Special_Report.html")],
     items=[
         dict(
             prediction="The war will end via one of four oil-price-driven scenarios (full analysis in the linked report). As of 19 March, the trajectory sits between the first two. Brent will determine which scenario realises.",
             resolution="Identify which of the four linked scenarios the war actually resolves into, with Brent trajectory as the primary driver.",
             outcome="unres",
             audits=[],
-        ),
-    ],
-))
-
-groups.append(dict(
-    year="2026", date="21 March 2026", datetime="2026-03-21",
-    subhead="Iran's ordnance firing rate — rationing, not destruction",
-    sources=[("Telegram #118–119", tg(118)),
-             ("Iran Daily Ordnance Tracker", "posts/Iran_DailyCount_ByCountry_v8.html")],
-    items=[
-        dict(
-            prediction="Iran's missile-and-drone firing trajectory over days 1–22 (1,466 missiles + 3,522 drones; declining from ~540/day to ~80/day) is consistent with <strong>strategic rationing</strong> of a still-intact stockpile, not with the &ldquo;&gt;80% of launchers destroyed&rdquo; Western narrative. Prediction: Iran will continue to fire a sustained floor of &gt; 20 ballistic missiles per day for at least the next 30 days.",
-            resolution="Daily ballistic-missile count from target-country MoDs vs. 20/day floor, March–April 2026.",
-            outcome="true",
-            outcome_note="Audit #134 confirms 1,725+ ballistic missiles fired over 38 days with a sustained floor above 20 BMs/day — the rationing thesis was fully validated within the 30-day window.",
-            audits=[
-                dict(meta="6 Apr 2026 · #134", url=tg(134),
-                     text="Fully validated over 38 days — 1,725+ ballistic missiles fired, sustained floor of 20+ BMs/day, 7-day average consistent with rationing. Iran's SRBM fleet (5,000–8,000 rounds pre-war) remained largely intact."),
-            ],
         ),
     ],
 ))
@@ -864,7 +809,8 @@ groups.append(dict(
         dict(
             prediction="Despite Trump's rhetoric, there are <strong>no serious US–Iran negotiations</strong> underway as of 25 March 2026. Iran views talks as giving Trump re-arm time; its strategic bet is that sustained high oil/gas prices force US withdrawal. The US, meanwhile, has quietly amassed ~50,000 troops including paratroopers in the region — signalling digging in, not diplomacy.",
             resolution="Any formal or back-channel US–Iran negotiating track during 25 March – 30 April 2026 (media reports, Swiss/Qatari/Omani intermediaries, official readouts).",
-            outcome="unres",
+            outcome="false",
+            outcome_note="A formal Pakistani-mediated negotiating track did open within the window: Vice President Vance, envoy Witkoff, and Kushner met Iranian officials in Islamabad over 11–12 April for 21 hours of three-round talks following the 7 April ceasefire — the headline factual claim &ldquo;no serious negotiations&rdquo; missed even though the deeper thesis (Iran rejected the substance and reverted to confrontation) was vindicated.",
             audits=[],
         ),
     ],
@@ -878,7 +824,8 @@ groups.append(dict(
         dict(
             prediction="The 2026 Iran war will last <strong>more than two months</strong> from its start (i.e. still active past end-April 2026), and plausibly much longer — neither side can deliver a quick decisive victory, Iran's maximalist demands preclude early settlement, and even unilateral US cessation would not reopen Hormuz without humiliating US/GCC concessions. Israel would likely continue independently.",
             resolution="Status of the war on 30 April 2026.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="The war remains active 11 days short of the 30 April mark, with the US blockade in force, Iran having reclosed Hormuz on 18 April, and Trump publicly stating he &ldquo;no longer cared about negotiations&rdquo; — the brief 8 April truce was a pause, not a settlement, and the conflict is past the two-month threshold.",
             audits=[],
         ),
     ],
@@ -900,7 +847,8 @@ groups.append(dict(
         dict(
             prediction="Probability that a formal ceasefire or equivalent agreement between the US/Israel and Iran is in place by 30 June 2026: <strong>15% Yes</strong> (64-expert structural panel). The panel resolves No.",
             resolution="Formal ceasefire or equivalent agreement by 30 June 2026.",
-            outcome="unres",
+            outcome="false",
+            outcome_note="The structural panel's 15% Yes / &ldquo;resolves No&rdquo; call missed: a formal US–Iran ceasefire was signed on 7 April 2026 (effective 8 April) — well before 30 June. Even with the truce's later collapse, the underlying event (a formal ceasefire by 30 June) had occurred, so the Yes branch resolves.",
             audits=[],
         ),
     ],
