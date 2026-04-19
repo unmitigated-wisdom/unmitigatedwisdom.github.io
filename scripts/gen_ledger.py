@@ -1200,10 +1200,10 @@ HEAD = """<!DOCTYPE html>
     </a>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="ledger.html" aria-current="page">Ledger</a></li>
-      <li><a href="mixture-of-experts.html">Experts</a></li>
       <li><a href="reports.html">Reports</a></li>
+      <li><a href="mixture-of-experts.html">Experts</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
   </nav>
 
