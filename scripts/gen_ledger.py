@@ -1012,78 +1012,19 @@ groups.append(dict(
     ],
 ))
 
-# 6 April 2026 — April 7 escalation window (Telegram #133 + Labyrinth of Bad Options)
-# split into five signals: Rungs A–D, plus the combined back-down vs. follow-through framing.
-
-ESCALATION_WINDOW_SOURCES = [
-    ("Telegram #133", tg(133)),
-    ("The Labyrinth of Bad Options", "posts/976fb517-fc7c-4449-afe0-014eb0533899.html"),
-]
+# 6 April 2026 — April 7 escalation window (Telegram #133 + Labyrinth of Bad Options).
+# The four rungs are mutually exclusive scenarios over a single event window; treated
+# here as one prediction whose modal outcome is Rung D (postponement / stand-down, 48%).
 
 groups.append(dict(
     year="2026", date="6 April 2026", datetime="2026-04-06",
-    subhead="April 7–14 window — Rung D postponement / stand-down (48%)",
-    sources=ESCALATION_WINDOW_SOURCES,
+    subhead="April 7–14 escalation window — modal call: Rung D postponement / stand-down (48%)",
+    sources=[("Telegram #133", tg(133)),
+             ("The Labyrinth of Bad Options", "posts/976fb517-fc7c-4449-afe0-014eb0533899.html")],
     items=[
         dict(
-            prediction="Probability that, in the April 7–14 window, no new deliberate strikes on Iranian civilian infrastructure occur and strikes are confined to military combatants (air defences, missile launchers, radars, bases): <strong>48%</strong>.",
-            resolution="Target type of any US/coalition strikes during 7–14 April 2026.",
-            outcome="unres",
-            audits=[],
-        ),
-    ],
-))
-
-groups.append(dict(
-    year="2026", date="6 April 2026", datetime="2026-04-06",
-    subhead="April 7–14 window — Rung C transport-only escalation (30%)",
-    sources=ESCALATION_WINDOW_SOURCES,
-    items=[
-        dict(
-            prediction="Probability that, in the April 7–14 window, deliberate strikes hit Iranian civilian transport (bridges, highways, rail) — the lowest civilian rung that still reads as follow-through: <strong>30%</strong>.",
-            resolution="Any confirmed US/coalition strike on Iranian transport infrastructure during 7–14 April 2026.",
-            outcome="unres",
-            audits=[],
-        ),
-    ],
-))
-
-groups.append(dict(
-    year="2026", date="6 April 2026", datetime="2026-04-06",
-    subhead="April 7–14 window — Rung B domestic-grid escalation (14%)",
-    sources=ESCALATION_WINDOW_SOURCES,
-    items=[
-        dict(
-            prediction="Probability that, in the April 7–14 window, deliberate strikes hit Iranian power generation or municipal water infrastructure (the rung Trump's rhetoric explicitly points toward): <strong>14%</strong>.",
-            resolution="Any confirmed US/coalition strike on Iranian power or water infrastructure during 7–14 April 2026.",
-            outcome="unres",
-            audits=[],
-        ),
-    ],
-))
-
-groups.append(dict(
-    year="2026", date="6 April 2026", datetime="2026-04-06",
-    subhead="April 7–14 window — Rung A global-energy escalation (8%)",
-    sources=ESCALATION_WINDOW_SOURCES,
-    items=[
-        dict(
-            prediction="Probability that, in the April 7–14 window, strikes hit major Iranian oil/gas/petrochemical infrastructure — refineries, Kharg, South Pars — &ldquo;the rung that detonates the world economy&rdquo;: <strong>8%</strong>.",
-            resolution="Any confirmed US/coalition strike on Iranian oil/gas infrastructure during 7–14 April 2026.",
-            outcome="unres",
-            audits=[],
-        ),
-    ],
-))
-
-groups.append(dict(
-    year="2026", date="6 April 2026", datetime="2026-04-06",
-    subhead="April 7–14 window — combined back-down vs. follow-through (~78% C+D)",
-    sources=ESCALATION_WINDOW_SOURCES,
-    items=[
-        dict(
-            prediction="For the narrow April 7–14 window, backing down or symbolic hits is more likely than literal energy/grid follow-through (Rungs C+D together: <strong>~78%</strong>). Not contradictory with the longer-horizon 85% grid probability, which runs through 30 September.",
-            resolution="Which rung materialised during 7–14 April 2026.",
+            prediction="For the narrow April 7–14 escalation window, the four-rung distribution is: <strong>Rung D — postponement / stand-down 48%</strong> (no new strikes on civilian infrastructure; strikes confined to military combatants — air defences, launchers, radars, bases); <strong>Rung C — transport-only escalation 30%</strong> (strikes on bridges, highways, rail); <strong>Rung B — domestic-grid escalation 14%</strong> (strikes on power generation or municipal water); <strong>Rung A — global-energy escalation 8%</strong> (strikes on refineries, Kharg, South Pars — &ldquo;the rung that detonates the world economy&rdquo;). Headline call is the modal outcome &mdash; <strong>Rung D</strong>; combined back-down or symbolic (Rungs C+D) ~78% vs. literal energy/grid follow-through (Rungs A+B) ~22%. Not contradictory with the longer-horizon 85% grid probability, which runs through 30 September.",
+            resolution="Classify which rung materialised during 7–14 April 2026 by target type of any US/coalition strikes during that window; the prediction hits if Rung D is the outcome.",
             outcome="unres",
             audits=[],
         ),
