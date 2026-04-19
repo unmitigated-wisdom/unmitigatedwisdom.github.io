@@ -2,10 +2,14 @@
 """
 Generate the atomized prediction ledger for Unmitigated Wisdom.
 
-Each item is one falsifiable forecast. The `prediction` sentence carries
-the subject + claim + metric inline wherever possible. An optional
-`resolution` field spells out the explicit test criterion for cases
-where the check is non-obvious or multi-part.
+Each top-level entry is one falsifiable forecast. The `prediction`
+sentence carries the subject + claim + metric inline wherever possible;
+an optional `resolution` field spells out the explicit test criterion.
+
+Two predictions only share a group when they are literally the same
+prediction restated at a different time (publication date or event
+horizon shifted with no change in substance). Different forecasts that
+merely share a topic are different signals and each get their own entry.
 """
 
 TG = "https://t.me/unmitigated_wisdom"
@@ -17,42 +21,62 @@ groups = []
 # 2020
 # ============================================================
 
+# 13 March 2020 — COVID market trajectory (Telegram #6) split into three signals.
+
 groups.append(dict(
     year="2020", date="13 March 2020", datetime="2020-03-13",
-    subhead="COVID market trajectory — short, mid, long-term",
+    subhead="COVID market trajectory — short-term sell-offs",
     sources=[("Telegram #6", tg(6))],
     items=[
         dict(
-            prediction="<strong>Short term.</strong> US equity markets will experience further major sell-offs (single-day declines of roughly 5%+) during the weeks in which daily US COVID-19 case growth continues to rise in the Italy-like way, followed by partial recoveries once daily case growth stabilises.",
+            prediction="US equity markets will experience further major sell-offs (single-day declines of roughly 5%+) during the weeks in which daily US COVID-19 case growth continues to rise in the Italy-like way, followed by partial recoveries once daily case growth stabilises.",
             resolution="Compare S&amp;P 500 and Dow Jones daily returns against US daily case-growth inflections, March–May 2020.",
             audits=[
                 dict(meta="9 May 2020 · #24", url=tg(24),
                      text="Accurate — major US market drops coincided with case reports, followed by partial recoveries once statistics stabilised."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="13 March 2020", datetime="2020-03-13",
+    subhead="COVID market trajectory — mid-term reactions to GDP prints",
+    sources=[("Telegram #6", tg(6))],
+    items=[
         dict(
-            prediction="<strong>Mid term.</strong> Each time a major authority (IMF, ECB, the US, or China) publishes a negative or near-zero Q1/Q2 2020 GDP print, US equity markets will see a further major sell-off (roughly 5%+ single-day drop, or comparable drawdown across the week of release).",
+            prediction="Each time a major authority (IMF, ECB, the US, or China) publishes a negative or near-zero Q1/Q2 2020 GDP print, US equity markets will see a further major sell-off (roughly 5%+ single-day drop, or comparable drawdown across the week of release).",
             resolution="S&amp;P 500 / Dow Jones behaviour on or within the week of each major Q1/Q2 2020 GDP release.",
             audits=[
                 dict(meta="9 May 2020 · #24", url=tg(24),
                      text="Partially accurate — unemployment and oil prices point to a major depression looming; awaiting full market reaction."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="13 March 2020", datetime="2020-03-13",
+    subhead="COVID market trajectory — 12–18 month recovery to pre-COVID highs",
+    sources=[("Telegram #6", tg(6))],
+    items=[
         dict(
-            prediction="<strong>Long term.</strong> Within 12–18 months (by late 2021), doomsday macro scenarios will have failed to materialise and US equity indices will have fully recovered to their February 2020 pre-COVID highs, possibly eclipsing them.",
+            prediction="Within 12–18 months (by late 2021), doomsday macro scenarios will have failed to materialise and US equity indices will have fully recovered to their February 2020 pre-COVID highs, possibly eclipsing them.",
             resolution="S&amp;P 500 / Dow Jones closing levels between September 2021 and March 2022 vs. the Feb 2020 peak.",
             audits=[],
         ),
     ],
 ))
 
+# 18 March 2020 — Global 2020 GDP forecast (Telegram #9) split into three signals.
+
 groups.append(dict(
     year="2020", date="18 March 2020", datetime="2020-03-18",
-    subhead="Global 2020 GDP forecast",
+    subhead="Global 2020 GDP — world growth at or below 0.5%",
     sources=[("Telegram #9", tg(9))],
     items=[
         dict(
-            prediction="<strong>World.</strong> Global real GDP growth for calendar year 2020 will come in at or below 0.5% (i.e. effectively zero or negative).",
+            prediction="Global real GDP growth for calendar year 2020 will come in at or below 0.5% (i.e. effectively zero or negative).",
             resolution="IMF World Economic Outlook or World Bank final 2020 real world GDP growth figure.",
             audits=[
                 dict(meta="25 Mar 2020 · #18", url=tg(18),
@@ -61,25 +85,43 @@ groups.append(dict(
                      text="European Commission validates a slow recovery — EU GDP −8.7% in 2020, +6.1% in 2021, still below pre-outbreak by end of 2021 even absent a second wave."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="18 March 2020", datetime="2020-03-18",
+    subhead="Global 2020 GDP — Europe hardest-hit major region (−2 to −5%)",
+    sources=[("Telegram #9", tg(9))],
+    items=[
         dict(
-            prediction="<strong>Europe.</strong> European economies will be the hardest-hit major region in 2020, with full-year 2020 real GDP contracting by 2–5% (Euro Area or EU-27 aggregate).",
+            prediction="European economies will be the hardest-hit major region in 2020, with full-year 2020 real GDP contracting by 2–5% (Euro Area or EU-27 aggregate).",
             resolution="Eurostat / IMF Euro Area and EU-27 real GDP growth for CY2020.",
             audits=[
                 dict(meta="25 Mar 2020 · #18", url=tg(18),
                      text="Revised steeper — Italy specifically −10% or worse; the hardest-hit regions (Veneto, Lombardy) account for ~40% of Italy's economy."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="18 March 2020", datetime="2020-03-18",
+    subhead="Global 2020 GDP — East Asia best-performing major region",
+    sources=[("Telegram #9", tg(9))],
+    items=[
         dict(
-            prediction="<strong>East Asia.</strong> Far-eastern economies (China, Japan, South Korea, Taiwan, Vietnam) will be the best-performing major region in 2020, measured by aggregate or median real GDP growth.",
+            prediction="Far-eastern economies (China, Japan, South Korea, Taiwan, Vietnam) will be the best-performing major region in 2020, measured by aggregate or median real GDP growth.",
             resolution="IMF 2020 real GDP growth for East Asian majors vs. other world regions.",
             audits=[],
         ),
     ],
 ))
 
+# 19 March 2020 — US COVID stimulus (Telegram #10/11/19) split into three signals.
+
 groups.append(dict(
     year="2020", date="19 March 2020", datetime="2020-03-19",
-    subhead="US COVID stimulus — bailout and market reaction",
+    subhead="US COVID stimulus — BA, XOM, CVX bailed out and rise on signing",
     sources=[("Telegram #10", tg(10)), ("Follow-up #11", tg(11)), ("Follow-up #19", tg(19))],
     items=[
         dict(
@@ -92,6 +134,14 @@ groups.append(dict(
                      text="Indices up 5% on signing expectation; airlines, planes, shale oil, post, and hotels all carved out and expected to outperform once signed."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="19 March 2020", datetime="2020-03-19",
+    subhead="US COVID stimulus — American Airlines (AAL) bailed out and surges",
+    sources=[("Telegram #10", tg(10)), ("Follow-up #11", tg(11)), ("Follow-up #19", tg(19))],
+    items=[
         dict(
             prediction="American Airlines (AAL) will receive federal bailout funding in the coming stimulus, and its stock will surge on or immediately after signing.",
             resolution="Federal funding directed at AAL; AAL single-day return on signing day.",
@@ -100,6 +150,14 @@ groups.append(dict(
                      text="Confirmed — American Airlines +40.3% on the day of the rebound."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="19 March 2020", datetime="2020-03-19",
+    subhead="US COVID stimulus — major US indices surge 5%+ on signing day",
+    sources=[("Telegram #10", tg(10)), ("Follow-up #11", tg(11)), ("Follow-up #19", tg(19))],
+    items=[
         dict(
             prediction="On the day the US stimulus bill is signed into law, the major US equity indices will post a temporary surge (single-day gain of 5%+).",
             resolution="S&amp;P 500 / Dow Jones single-day return on CARES Act signing day.",
@@ -153,9 +211,11 @@ groups.append(dict(
     ],
 ))
 
+# 11 May 2020 — Trump 2020 re-election (Telegram #26/27/38/48) split into two signals.
+
 groups.append(dict(
     year="2020", date="11 May 2020", datetime="2020-05-11",
-    subhead="Trump 2020 re-election",
+    subhead="Trump loses 2020 US presidential election",
     sources=[("Telegram #26", tg(26)), ("Follow-up #27", tg(27)), ("Follow-up #38–39", tg(38)), ("Follow-up #48", tg(48))],
     items=[
         dict(
@@ -176,6 +236,14 @@ groups.append(dict(
                      text="The pandemic is the biggest wildcard and should hurt Trump; 10% chance of winning is non-zero but rare."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2020", date="11 May 2020", datetime="2020-05-11",
+    subhead="Biden 2020 — 6–10% popular margin and 330–370 EC votes",
+    sources=[("Telegram #26", tg(26)), ("Follow-up #27", tg(27)), ("Follow-up #38–39", tg(38)), ("Follow-up #48", tg(48))],
+    items=[
         dict(
             prediction="Biden will win the 2020 election with a 6–10% popular-vote margin and 330–370 electoral-college votes.",
             resolution="Certified 2020 popular-vote margin and EC vote count.",
@@ -408,16 +476,23 @@ groups.append(dict(
 # 2026 — Iran War
 # ============================================================
 
+# 1 March 2026 — four scenarios for the Iran bombing campaign (Telegram #78/79 + Bayesian
+# 15-Expert Report) split into four distinct signals.
+
+IRAN_SCENARIO_SOURCES = [
+    ("Telegram #78", tg(78)),
+    ("Telegram #79 — Bayesian priors", tg(79)),
+    ("Bayesian 15-Expert Report", "posts/Bayesian_15Expert_Report.html"),
+    ("Who Should We Believe About Iran", "posts/Who_Should_We_Believe_About_Iran.html"),
+]
+
 groups.append(dict(
     year="2026", date="1 March 2026", datetime="2026-03-01",
-    subhead="Iran regime survival vs. the bombing campaign",
-    sources=[("Telegram #78", tg(78)),
-             ("Telegram #79 — Bayesian priors", tg(79)),
-             ("Bayesian 15-Expert Report", "posts/Bayesian_15Expert_Report.html"),
-             ("Who Should We Believe About Iran", "posts/Who_Should_We_Believe_About_Iran.html")],
+    subhead="Iran regime survives the 2026 bombing campaign (air alone &lt; 10%)",
+    sources=IRAN_SCENARIO_SOURCES,
     items=[
         dict(
-            prediction="<strong>Regime change.</strong> The Islamic Republic's governing structure (Supreme Leader + IRGC + Guardian Council) will survive the 2026 US/Israel bombing campaign. Probability of regime change strictly from air campaign alone: &lt; 10%. The IRGC is being forced into existential-survival mode; protest crackdowns will intensify rather than crumble the state.",
+            prediction="The Islamic Republic's governing structure (Supreme Leader + IRGC + Guardian Council) will survive the 2026 US/Israel bombing campaign. Probability of regime change strictly from air campaign alone: &lt; 10%. The IRGC is being forced into existential-survival mode; protest crackdowns will intensify rather than crumble the state.",
             resolution="Existence of the Islamic Republic as the ruling government of Iran on 31 December 2026 (no successor state, no collapse of central authority).",
             audits=[
                 dict(meta="2 Mar 2026 · #79", url=tg(79),
@@ -432,8 +507,16 @@ groups.append(dict(
                      text="Day 15 — Catastrophe 45%, Quagmire 31%, Off-Ramp rises to 18% (first time since Day 1), Quick Win 2%."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="1 March 2026", datetime="2026-03-01",
+    subhead="Iran war — Quagmire scenario (&gt; 90 days, ~52% initial)",
+    sources=IRAN_SCENARIO_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Quagmire scenario.</strong> The war will drag into prolonged attrition (lasting &gt; 90 days without decisive military or diplomatic resolution) — modal outcome at ~52% initial probability, driven by IRGC cohesion and Mojtaba continuity.",
+            prediction="The war will drag into prolonged attrition (lasting &gt; 90 days without decisive military or diplomatic resolution) — modal outcome at ~52% initial probability, driven by IRGC cohesion and Mojtaba continuity.",
             resolution="War still active on Day 90 without a formal ceasefire or a decisive military outcome.",
             audits=[
                 dict(meta="9 Mar 2026 · #92", url=tg(92), text="Day 10 — Quagmire 42–46%, still modal."),
@@ -441,8 +524,16 @@ groups.append(dict(
                 dict(meta="15 Mar 2026 · #105", url=tg(105), text="Day 15 — Quagmire 31% as Kharg ultimatum forces a decision."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="1 March 2026", datetime="2026-03-01",
+    subhead="Iran war — Catastrophic regional escalation (~17% initial)",
+    sources=IRAN_SCENARIO_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Catastrophic regional escalation.</strong> The war will escalate into wider regional catastrophe — defined as any of: (a) deliberate strikes on major Iranian oil/gas infrastructure (Kharg, South Pars, major refineries), (b) Houthi active entry into the Red Sea theatre with sustained anti-shipping operations, or (c) Israeli strikes on Iranian civilian infrastructure producing mass civilian casualties. Initial probability ~17%.",
+            prediction="The war will escalate into wider regional catastrophe — defined as any of: (a) deliberate strikes on major Iranian oil/gas infrastructure (Kharg, South Pars, major refineries), (b) Houthi active entry into the Red Sea theatre with sustained anti-shipping operations, or (c) Israeli strikes on Iranian civilian infrastructure producing mass civilian casualties. Initial probability ~17%.",
             resolution="Occurrence of any of (a)/(b)/(c) by end of the war or 31 December 2026.",
             audits=[
                 dict(meta="9 Mar 2026 · #92", url=tg(92), text="Day 10 — Catastrophe 35–38% (oil at $119, Iraq collapse, SF option)."),
@@ -451,8 +542,16 @@ groups.append(dict(
                 dict(meta="15 Mar 2026 · #105", url=tg(105), text="Day 15 — Catastrophe 45% (UAE port threat, Kharg ultimatum, KC-135 losses)."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="1 March 2026", datetime="2026-03-01",
+    subhead="Iran war — Diplomatic off-ramp / ceasefire by Day 90 (~22% initial)",
+    sources=IRAN_SCENARIO_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Diplomatic off-ramp / ceasefire.</strong> A formal ceasefire or de-escalation agreement will be reached within the first 90 days of the war. Initial probability ~22%.",
+            prediction="A formal ceasefire or de-escalation agreement will be reached within the first 90 days of the war. Initial probability ~22%.",
             resolution="Formal ceasefire or equivalent de-escalation agreement signed or announced by Day 90 of the war.",
             audits=[
                 dict(meta="9 Mar 2026 · #92", url=tg(92), text="Day 10 — Off-Ramp falls to 10–13% (Larijani: &ldquo;no talks&rdquo;)."),
@@ -546,11 +645,18 @@ groups.append(dict(
     ],
 ))
 
+# 16 March 2026 — Ground-troops report (Telegram #109–110 + posts/Ground_Troops_Iran_Probability_Assessment_v3)
+# split into three signals: any presence, full conventional invasion, Kharg occupation outcome.
+
+GROUND_TROOPS_SOURCES = [
+    ("Telegram #109–110", tg(109)),
+    ("Ground Troops Probability Assessment", "posts/Ground_Troops_Iran_Probability_Assessment_v3.html"),
+]
+
 groups.append(dict(
     year="2026", date="16 March 2026", datetime="2026-03-16",
-    subhead="US ground forces in Iran",
-    sources=[("Telegram #109–110", tg(109)),
-             ("Ground Troops Probability Assessment", "posts/Ground_Troops_Iran_Probability_Assessment_v3.html")],
+    subhead="US ground forces inside Iran — any presence (~19%, 95% CI 9–33%)",
+    sources=GROUND_TROOPS_SOURCES,
     items=[
         dict(
             prediction="Probability of <strong>any</strong> US ground forces operating inside Iranian territory during Operation Epic Fury (SOF, island seizure, or larger): <strong>~19%</strong>, 95% CI [9%, 33%]. Three independent evidence lines — expert-accuracy audit, first-principles extraction from political statements, Bayesian-discounted prediction markets — converge on this band.",
@@ -562,11 +668,27 @@ groups.append(dict(
                      text="Structural forecast (64-expert panel) — Q2: Ground forces by June 30: <strong>68% Yes</strong>, resolves Yes."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="16 March 2026", datetime="2026-03-16",
+    subhead="US full conventional invasion of Iran (Iraq-2003 scale) — ~4%",
+    sources=GROUND_TROOPS_SOURCES,
+    items=[
         dict(
             prediction="Probability of a <strong>full conventional US invasion</strong> of Iran (Iraq-2003 scale, &gt;100,000 troops): <strong>~4%</strong>, 95% CI [1%, 9%].",
             resolution="Any US deployment &gt; 100,000 troops inside Iran during the war.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="16 March 2026", datetime="2026-03-16",
+    subhead="Kharg Island occupation fails to reopen Hormuz or seize Iranian oil",
+    sources=GROUND_TROOPS_SOURCES,
+    items=[
         dict(
             prediction="Occupying Kharg Island (or any single Iranian southern island) will <strong>not achieve</strong> either of the US's strategic goals: (1) it cannot reopen the Strait of Hormuz because Iran has never used Kharg to close it; (2) it cannot give the US control of Iranian oil, because occupying Kharg lets Iran shut off the submarine pipelines (de-facto embargo) and invites retaliation on GCC infrastructure. If attempted, oil prices and regional escalation will rise, not fall.",
             resolution="If a Kharg-occupation operation is mounted, compare post-operation Hormuz throughput and Iranian-oil-on-market volumes vs. pre-operation levels.",
@@ -575,11 +697,18 @@ groups.append(dict(
     ],
 ))
 
+# 19 March 2026 — Oil-prices special report (Telegram #115 + posts/Iran_Oil_Special_Report)
+# split into two signals: divergent reading + four-scenario war-end framing.
+
+OIL_RED_LINES_SOURCES = [
+    ("Telegram #115", tg(115)),
+    ("Iran Oil Special Report", "posts/Iran_Oil_Special_Report.html"),
+]
+
 groups.append(dict(
     year="2026", date="19 March 2026", datetime="2026-03-19",
-    subhead="Oil prices &amp; the political red lines",
-    sources=[("Telegram #115", tg(115)),
-             ("Iran Oil Special Report", "posts/Iran_Oil_Special_Report.html")],
+    subhead="Three belligerents read energy prices divergently — drives near-term behaviour",
+    sources=OIL_RED_LINES_SOURCES,
     items=[
         dict(
             prediction="At current energy prices (US gas $3.84/gal, diesel $5.04, Brent $109) the three belligerents read the signal differently: the US as an unsustainable political-economic drain, Iran as its most effective weapon, Israel as a countdown clock on American political will. This divergence will drive near-term strategic behaviour more than any other single variable.",
@@ -589,6 +718,14 @@ groups.append(dict(
                      text="Gas was $2.927 on Feb 28 and is $3.884 today — 96¢ / 33% in 20 days, the sharpest rise in over two decades. &gt;$4.00 makes gas prices politically unsustainable."),
             ],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="19 March 2026", datetime="2026-03-19",
+    subhead="Iran war ends via one of four oil-price-driven scenarios",
+    sources=OIL_RED_LINES_SOURCES,
+    items=[
         dict(
             prediction="The war will end via one of four oil-price-driven scenarios (full analysis in the linked report). As of 19 March, the trajectory sits between the first two. Brent will determine which scenario realises.",
             resolution="Identify which of the four linked scenarios the war actually resolves into, with Brent trajectory as the primary driver.",
@@ -614,19 +751,34 @@ groups.append(dict(
     ],
 ))
 
+# 24 March 2026 — How does the Iran war end (Telegram #122–123 + report) split into
+# the strategic-outcome signal and the trajectory-forecast signal.
+
+WAR_END_SOURCES = [
+    ("Telegram #122–123", tg(122)),
+    ("How Does the Iran War End", "posts/747fd16f-2d22-4532-ad84-e0c5b816ea46.html"),
+]
+
 groups.append(dict(
     year="2026", date="24 March 2026", datetime="2026-03-24",
-    subhead="How the war ends — aggregate model",
-    sources=[("Telegram #122–123", tg(122)),
-             ("How Does the Iran War End", "posts/747fd16f-2d22-4532-ad84-e0c5b816ea46.html")],
+    subhead="Iran war strategic outcome — Iran-favoured ~47%, US/Israel ~28%, stalemate ~25%",
+    sources=WAR_END_SOURCES,
     items=[
         dict(
-            prediction="<strong>Strategic outcome.</strong> Probabilities of war-end outcome (64-expert accuracy-weighted panel, τ=0.20, κ=5.0): Iran-favoured <strong>~47%</strong>, US/Israel-favoured <strong>~28%</strong>, stalemate <strong>~25%</strong>.",
+            prediction="Probabilities of war-end outcome (64-expert accuracy-weighted panel, τ=0.20, κ=5.0): Iran-favoured <strong>~47%</strong>, US/Israel-favoured <strong>~28%</strong>, stalemate <strong>~25%</strong>.",
             resolution="Classify the actual war-end outcome (see report for definitions) once the war concludes.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="24 March 2026", datetime="2026-03-24",
+    subhead="Iran war trajectory — quick end 24%, ground invasion 34%, Hormuz reopened 22%, civilian strikes 47%",
+    sources=WAR_END_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Trajectory forecasts.</strong> Within the remainder of the war: quick end <strong>24%</strong>; major US ground invasion <strong>34%</strong>; Hormuz reopened by force <strong>22%</strong>; major civilian-infrastructure strikes <strong>47%</strong>.",
+            prediction="Within the remainder of the war: quick end <strong>24%</strong>; major US ground invasion <strong>34%</strong>; Hormuz reopened by force <strong>22%</strong>; major civilian-infrastructure strikes <strong>47%</strong>.",
             resolution="Resolve each item against the observed trajectory through the end of the war.",
             audits=[],
         ),
@@ -659,35 +811,95 @@ groups.append(dict(
     ],
 ))
 
+# 2 April 2026 — Structural forecast (Telegram #128 + posts/da97...) split into five
+# resolvable questions, each its own signal.
+
+STRUCTURAL_FORECAST_SOURCES = [
+    ("Telegram #128", tg(128)),
+    ("Structural Forecast Briefing", "posts/da975520-bf35-4c71-a457-9289db15b22c.html"),
+]
+
 groups.append(dict(
     year="2026", date="2 April 2026", datetime="2026-04-02",
-    subhead="Structural forecast — five resolvable questions",
-    sources=[("Telegram #128", tg(128)),
-             ("Structural Forecast Briefing", "posts/da975520-bf35-4c71-a457-9289db15b22c.html")],
+    subhead="Iran war — formal ceasefire by 30 June 2026 (15% Yes)",
+    sources=STRUCTURAL_FORECAST_SOURCES,
     items=[
         dict(
-            prediction="<strong>Q1 — Ceasefire by 30 June 2026: 15% Yes.</strong> The panel resolves No.",
+            prediction="Probability that a formal ceasefire or equivalent agreement between the US/Israel and Iran is in place by 30 June 2026: <strong>15% Yes</strong> (64-expert structural panel). The panel resolves No.",
             resolution="Formal ceasefire or equivalent agreement by 30 June 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="2 April 2026", datetime="2026-04-02",
+    subhead="Iran war — US ground forces inside Iran by 30 June 2026 (68% Yes)",
+    sources=STRUCTURAL_FORECAST_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Q2 — US ground forces inside Iran by 30 June 2026: 68% Yes.</strong> Panel resolves Yes (mixed consensus).",
+            prediction="Probability of any confirmed US ground-forces presence inside Iran by 30 June 2026: <strong>68% Yes</strong> (64-expert structural panel). Panel resolves Yes (mixed consensus).",
             resolution="Any confirmed US ground-forces presence inside Iran by 30 June 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="2 April 2026", datetime="2026-04-02",
+    subhead="Iran war — Strait of Hormuz at ≥ 50% pre-war volume by 30 Sept 2026 (48% Yes)",
+    sources=STRUCTURAL_FORECAST_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Q3 — Strait of Hormuz transits at ≥ 50% of pre-war volume by 30 September 2026: 48% Yes.</strong> Toss-up with panel divergence.",
+            prediction="Probability that monthly Strait of Hormuz transits reach <strong>≥ 50% of pre-war (Feb 2026) volume</strong> by 30 September 2026: <strong>48% Yes</strong> (64-expert structural panel). Toss-up with panel divergence.",
             resolution="Hormuz tanker-transit count or tonnage for September 2026 vs. Feb 2026 baseline.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="2 April 2026", datetime="2026-04-02",
+    subhead="Iran war — Brent crude closes above $150/bbl before 31 July 2026 (52% Yes)",
+    sources=STRUCTURAL_FORECAST_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Q4 — Brent crude closes above $150/bbl at any point before 31 July 2026: 52% Yes.</strong> Lean Yes, conditional on continued Hormuz disruption.",
+            prediction="Probability that Brent crude front-month closes above <strong>$150/bbl</strong> on any day before 31 July 2026: <strong>52% Yes</strong> (64-expert structural panel). Lean Yes, conditional on continued Hormuz disruption.",
             resolution="Brent front-month close &gt; $150 on any day 2 Apr – 31 Jul 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="2 April 2026", datetime="2026-04-02",
+    subhead="Iran regime remains in power through 31 December 2026 (92% Yes)",
+    sources=STRUCTURAL_FORECAST_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Q5 — Iranian regime remains in power through 31 December 2026: 92% Yes.</strong> Strongest cross-ideological consensus.",
+            prediction="Probability that the Islamic Republic remains the ruling government of Iran on 31 December 2026: <strong>92% Yes</strong> (64-expert structural panel). Strongest cross-ideological consensus.",
             resolution="Islamic Republic remains the ruling government of Iran on 31 December 2026.",
+            audits=[],
+        ),
+    ],
+))
+
+# 4 April 2026 — Critical civilian infrastructure (Telegram #130–131 + report) split
+# into three signals: power & grid, oil & gas, water.
+
+CIVILIAN_INFRA_SOURCES = [
+    ("Telegram #130–131", tg(130)),
+    ("Critical Infrastructure Escalation Analysis", "posts/12024222-8ebc-4e9a-81fb-8db7598f4490.html"),
+]
+
+groups.append(dict(
+    year="2026", date="4 April 2026", datetime="2026-04-04",
+    subhead="Iran power-grid strikes by 30 Sept 2026 — 85%",
+    sources=CIVILIAN_INFRA_SOURCES,
+    items=[
+        dict(
+            prediction="Probability that deliberate US/Israeli kinetic strikes on Iran's 400 kV national transmission backbone or thermal plants ≥ 500 MW occur at least once before 30 September 2026: <strong>85%</strong>.",
+            resolution="Confirmed kinetic strike on Iranian grid backbone or ≥500 MW thermal plant by 30 Sep 2026.",
             audits=[],
         ),
     ],
@@ -695,23 +907,46 @@ groups.append(dict(
 
 groups.append(dict(
     year="2026", date="4 April 2026", datetime="2026-04-04",
-    subhead="Critical civilian infrastructure — by 30 September 2026",
-    sources=[("Telegram #130–131", tg(130)),
-             ("Critical Infrastructure Escalation Analysis", "posts/12024222-8ebc-4e9a-81fb-8db7598f4490.html")],
+    subhead="Iran oil &amp; gas strikes (Kharg / refineries) by 30 Sept 2026 — 45%",
+    sources=CIVILIAN_INFRA_SOURCES,
     items=[
         dict(
-            prediction="<strong>Power &amp; grid: 85%.</strong> Deliberate US/Israeli kinetic strikes on Iran's 400 kV national transmission backbone or thermal plants ≥ 500 MW will occur at least once before 30 September 2026.",
-            resolution="Confirmed kinetic strike on Iranian grid backbone or ≥500 MW thermal plant by 30 Sep 2026.",
-            audits=[],
-        ),
-        dict(
-            prediction="<strong>Oil &amp; gas: 45%.</strong> Deliberate strikes on Kharg Island or major Iranian refineries will occur at least once before 30 September 2026. Coin flip — Iran's &ldquo;Symmetry Doctrine&rdquo; deters, Trump's ultimatum and 95%-closed Strait create a credibility trap.",
+            prediction="Probability that deliberate strikes on Kharg Island or major Iranian refineries occur at least once before 30 September 2026: <strong>45%</strong>. Coin flip — Iran's &ldquo;Symmetry Doctrine&rdquo; deters, Trump's ultimatum and 95%-closed Strait create a credibility trap.",
             resolution="Confirmed kinetic strike on Kharg or major Iranian refinery by 30 Sep 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="4 April 2026", datetime="2026-04-04",
+    subhead="Iran water-infrastructure strikes (dams / desalination) by 30 Sept 2026 — 15%",
+    sources=CIVILIAN_INFRA_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Water: 15%.</strong> Deliberate strikes on Iranian dams or desalination plants will occur at least once before 30 September 2026. The absolute red line — would trigger reciprocal annihilation of Gulf water infrastructure.",
+            prediction="Probability that deliberate strikes on Iranian dams or desalination plants occur at least once before 30 September 2026: <strong>15%</strong>. The absolute red line — would trigger reciprocal annihilation of Gulf water infrastructure.",
             resolution="Confirmed kinetic strike on Iranian dam or desalination plant by 30 Sep 2026.",
+            audits=[],
+        ),
+    ],
+))
+
+# 6 April 2026 — April 7 escalation window (Telegram #133 + Labyrinth of Bad Options)
+# split into five signals: Rungs A–D, plus the combined back-down vs. follow-through framing.
+
+ESCALATION_WINDOW_SOURCES = [
+    ("Telegram #133", tg(133)),
+    ("The Labyrinth of Bad Options", "posts/976fb517-fc7c-4449-afe0-014eb0533899.html"),
+]
+
+groups.append(dict(
+    year="2026", date="6 April 2026", datetime="2026-04-06",
+    subhead="April 7–14 window — Rung D postponement / stand-down (48%)",
+    sources=ESCALATION_WINDOW_SOURCES,
+    items=[
+        dict(
+            prediction="Probability that, in the April 7–14 window, no new deliberate strikes on Iranian civilian infrastructure occur and strikes are confined to military combatants (air defences, missile launchers, radars, bases): <strong>48%</strong>.",
+            resolution="Target type of any US/coalition strikes during 7–14 April 2026.",
             audits=[],
         ),
     ],
@@ -719,32 +954,50 @@ groups.append(dict(
 
 groups.append(dict(
     year="2026", date="6 April 2026", datetime="2026-04-06",
-    subhead="The April 7 escalation window — Power Plant Day",
-    sources=[("Telegram #133", tg(133)),
-             ("The Labyrinth of Bad Options", "posts/976fb517-fc7c-4449-afe0-014eb0533899.html")],
+    subhead="April 7–14 window — Rung C transport-only escalation (30%)",
+    sources=ESCALATION_WINDOW_SOURCES,
     items=[
         dict(
-            prediction="<strong>Rung D — Postponement / stand-down: 48%.</strong> In the April 7–14 window, no new deliberate strikes on civilian infrastructure; strikes confined to military combatants (air defences, missile launchers, radars, bases).",
-            resolution="Target type of any US/coalition strikes during 7–14 April 2026.",
-            audits=[],
-        ),
-        dict(
-            prediction="<strong>Rung C — Transport-only escalation: 30%.</strong> In the April 7–14 window, deliberate strikes on Iranian civilian transport (bridges, highways, rail) — the lowest civilian rung that still reads as follow-through.",
+            prediction="Probability that, in the April 7–14 window, deliberate strikes hit Iranian civilian transport (bridges, highways, rail) — the lowest civilian rung that still reads as follow-through: <strong>30%</strong>.",
             resolution="Any confirmed US/coalition strike on Iranian transport infrastructure during 7–14 April 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="6 April 2026", datetime="2026-04-06",
+    subhead="April 7–14 window — Rung B domestic-grid escalation (14%)",
+    sources=ESCALATION_WINDOW_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Rung B — Domestic grid escalation: 14%.</strong> In the April 7–14 window, deliberate strikes on Iranian power generation or municipal water infrastructure (the rung Trump's rhetoric explicitly points toward).",
+            prediction="Probability that, in the April 7–14 window, deliberate strikes hit Iranian power generation or municipal water infrastructure (the rung Trump's rhetoric explicitly points toward): <strong>14%</strong>.",
             resolution="Any confirmed US/coalition strike on Iranian power or water infrastructure during 7–14 April 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="6 April 2026", datetime="2026-04-06",
+    subhead="April 7–14 window — Rung A global-energy escalation (8%)",
+    sources=ESCALATION_WINDOW_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Rung A — Global energy escalation: 8%.</strong> In the April 7–14 window, strikes on major Iranian oil/gas/petrochemical infrastructure — refineries, Kharg, South Pars. &ldquo;The rung that detonates the world economy.&rdquo;",
+            prediction="Probability that, in the April 7–14 window, strikes hit major Iranian oil/gas/petrochemical infrastructure — refineries, Kharg, South Pars — &ldquo;the rung that detonates the world economy&rdquo;: <strong>8%</strong>.",
             resolution="Any confirmed US/coalition strike on Iranian oil/gas infrastructure during 7–14 April 2026.",
             audits=[],
         ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="6 April 2026", datetime="2026-04-06",
+    subhead="April 7–14 window — combined back-down vs. follow-through (~78% C+D)",
+    sources=ESCALATION_WINDOW_SOURCES,
+    items=[
         dict(
-            prediction="<strong>Combined forecast.</strong> For the narrow April 7–14 window, backing down or symbolic hits is more likely than literal energy/grid follow-through (Rungs C+D together: ~78%). Not contradictory with the longer-horizon 85% grid probability, which runs through 30 September.",
+            prediction="For the narrow April 7–14 window, backing down or symbolic hits is more likely than literal energy/grid follow-through (Rungs C+D together: <strong>~78%</strong>). Not contradictory with the longer-horizon 85% grid probability, which runs through 30 September.",
             resolution="Which rung materialised during 7–14 April 2026.",
             audits=[],
         ),
@@ -818,7 +1071,7 @@ HEAD = """<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unmitigated Wisdom — Prediction Ledger</title>
-<meta name="description" content="An atomized prediction ledger — every falsifiable forecast from the Unmitigated Wisdom channel and its reports, one claim per entry, sourced and audited in threads.">
+<meta name="description" content="An atomized prediction ledger — every falsifiable forecast from the Unmitigated Wisdom channel and its reports, one signal per entry, sourced and audited in threads.">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -839,12 +1092,12 @@ HEAD = """<!DOCTYPE html>
 
   <header class="masthead">
     <h1>Prediction Ledger</h1>
-    <p class="tagline">One falsifiable forecast per entry, grouped under the post or report that made it, with audits of each forecast in its own thread.</p>
+    <p class="tagline">One falsifiable forecast per entry. Different signals get different entries; only a literal restatement of the same prediction at a shifted date joins the original.</p>
     <a class="channel-link" href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">t.me/unmitigated_wisdom →</a>
   </header>
 
   <div class="ledger-intro">
-    Every forecast with a source, an explicit test criterion, and an audit trail. A single post or report often contains several distinct predictions &mdash; each is listed as its own item under the originating date. Sources link to the Telegram message where the claim was first made, and to any report that published or refined it. The <em>Resolves</em> line on each entry spells out the observable that decides whether the forecast hit. Validations, revisions, and resolutions live in threads beneath the prediction they apply to.
+    Every forecast with a source, an explicit test criterion, and an audit trail. Each falsifiable claim is its own entry, dated to the post or report that first made it &mdash; even when several entries share a topic or originating post, they are listed separately because they resolve on different observables. Two predictions only share an entry when one is a literal restatement of the other at a shifted publication date or event horizon (a forecast pushed forward by a day or week with no change in substance). Sources link to the Telegram message where the claim was first made, and to any report that published or refined it. The <em>Resolves</em> line spells out the observable that decides whether the forecast hit. Validations, revisions, and resolutions live in threads beneath each prediction.
   </div>
 
 """
@@ -868,5 +1121,5 @@ if __name__ == "__main__":
     total_preds = sum(len(g['items']) for g in groups)
     with_res = sum(1 for g in groups for it in g['items'] if it.get('resolution'))
     sys.stdout.write(f"wrote {path} ({len(out.splitlines())} lines, "
-                     f"{len(groups)} groups, {total_preds} atomic predictions, "
+                     f"{len(groups)} entries, {total_preds} atomic predictions, "
                      f"{with_res} with explicit resolution)\n")
