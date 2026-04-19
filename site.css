@@ -1284,4 +1284,18 @@ footer.site em { font-family: var(--font-serif); }
   .thread-children { margin-left: 12px; padding-left: 14px; }
   article.post .permalink { margin-left: 0; width: 100%; }
   .controls .grow { min-width: 140px; }
+
+  .track-record { padding: 14px 16px; gap: 10px 14px; margin-bottom: 28px; }
+  .track-record .record-num { font-size: 1.65rem; }
+  .track-record .record-body { font-size: 0.9rem; flex-basis: 100%; }
+  .track-record .record-link { font-size: 0.86rem; }
+
+  .ledger-score { padding: 18px 16px; }
+  .ledger-score .score-num { font-size: 1.9rem; }
+  .ledger-score .score-label { font-size: 0.85rem; }
+  .ledger-score .score-breakdown { gap: 10px 14px; }
+  .ledger-score .score-cell { font-size: 0.84rem; }
+
+  .pred-item .outcome { gap: 6px 10px; font-size: 0.84rem; }
+  .pred-item .outcome .outcome-note { flex-basis: 100%; }
 }
