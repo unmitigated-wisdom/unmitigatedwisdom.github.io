@@ -1254,6 +1254,37 @@ FOOT = """
 </html>
 """
 
+INDEX_STATS_TEMPLATE = """  <!-- LEDGER-STATS-AUTO -->
+  <div class="stats">
+    <div class="stat"><span class="num">{pct:.1f}%</span><span class="label">Track-record accuracy</span></div>
+    <div class="stat"><span class="num">{resolved}</span><span class="label">Resolved predictions</span></div>
+    <div class="stat"><span class="num">{unres}</span><span class="label">Live (unresolved)</span></div>
+    <div class="stat"><span class="num">2020</span><span class="label">Ledger since</span></div>
+  </div>
+  <p class="stats-note"><a href="ledger.html">See the full ledger with per-year accuracy and per-prediction verdicts →</a></p>
+  <!-- /LEDGER-STATS-AUTO -->"""
+
+def update_index_stats(stats, index_path):
+    import re
+    with open(index_path) as f:
+        html = f.read()
+    block = INDEX_STATS_TEMPLATE.format(
+        pct=stats["pct"], resolved=stats["resolved"],
+        unres=stats["counts"]["unres"],
+    )
+    pattern = re.compile(
+        r"  <!-- LEDGER-STATS-AUTO -->.*?<!-- /LEDGER-STATS-AUTO -->",
+        re.DOTALL,
+    )
+    if not pattern.search(html):
+        raise RuntimeError(f"LEDGER-STATS-AUTO markers not found in {index_path}")
+    new_html = pattern.sub(block, html)
+    if new_html != html:
+        with open(index_path, "w") as f:
+            f.write(new_html)
+        return True
+    return False
+
 if __name__ == "__main__":
     import sys
     stats = compute_stats()
@@ -1269,3 +1300,8 @@ if __name__ == "__main__":
     sys.stdout.write(f"score: {stats['earned']:.2f} / {stats['resolved']} "
                      f"resolved = {stats['pct']:.2f}% accuracy "
                      f"({stats['counts']['unres']} unresolved excluded)\n")
+    index_path = "/Users/amirjoudaki/Codes/unmitigated-wisdom.github.io/index.html"
+    if update_index_stats(stats, index_path):
+        sys.stdout.write(f"updated {index_path} stats block\n")
+    else:
+        sys.stdout.write(f"{index_path} stats block already in sync\n")
