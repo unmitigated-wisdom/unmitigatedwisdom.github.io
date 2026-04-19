@@ -380,8 +380,15 @@ section .section-sub {
   line-height: 1.22;
   letter-spacing: -0.01em;
   margin: 0 0 8px;
+  padding-bottom: 0;
+  border-bottom: none;
   font-weight: 600;
   color: var(--fg);
+}
+.reports-feed .meta .rating {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-left: auto;
 }
 .reports-feed a:hover h2 { color: var(--accent); }
 .reports-feed .deck {
@@ -421,7 +428,8 @@ section .section-sub {
   white-space: nowrap;
 }
 .feed-list li a.permalink:hover { color: var(--accent); text-decoration: none; }
-.feed-list .more-link {
+.feed-list .more-link,
+section .more-link {
   margin-top: 22px;
   font-family: var(--font-sans);
   font-size: 0.9rem;
