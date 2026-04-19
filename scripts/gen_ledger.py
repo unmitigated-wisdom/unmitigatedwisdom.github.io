@@ -1025,7 +1025,8 @@ groups.append(dict(
         dict(
             prediction="For the narrow April 7–14 escalation window, the four-rung distribution is: <strong>Rung D — postponement / stand-down 48%</strong> (no new strikes on civilian infrastructure; strikes confined to military combatants — air defences, launchers, radars, bases); <strong>Rung C — transport-only escalation 30%</strong> (strikes on bridges, highways, rail); <strong>Rung B — domestic-grid escalation 14%</strong> (strikes on power generation or municipal water); <strong>Rung A — global-energy escalation 8%</strong> (strikes on refineries, Kharg, South Pars — &ldquo;the rung that detonates the world economy&rdquo;). Headline call is the modal outcome &mdash; <strong>Rung D</strong>; combined back-down or symbolic (Rungs C+D) ~78% vs. literal energy/grid follow-through (Rungs A+B) ~22%. Not contradictory with the longer-horizon 85% grid probability, which runs through 30 September.",
             resolution="Classify which rung materialised during 7–14 April 2026 by target type of any US/coalition strikes during that window; the prediction hits if Rung D is the outcome.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="The window resolved on Rung D — a 7 April two-week US–Iran ceasefire (effective 8 April, Pakistan-mediated) replaced civilian-infrastructure escalation with the Islamabad diplomatic track on 11–12 April. No new deliberate strikes on Iranian transport, grid, or oil/gas infrastructure occurred during 7–14 April; the modal call (48%) was the realised outcome.",
             audits=[],
         ),
     ],
@@ -1047,7 +1048,8 @@ groups.append(dict(
         dict(
             prediction="The Islamabad US–Iran talks will not produce a grand bargain. They are far more likely to yield an interim, ambiguous, reversible process than a full settlement.",
             resolution="Text and scope of any joint statement or agreement emerging from the Islamabad track — full settlement vs. interim/ambiguous/reversible arrangement.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="The Islamabad talks (11–12 April, 21 hours across three rounds with Vance, Witkoff, and Kushner) ended with no agreement and no MoU — even more pessimistic than the predicted &ldquo;interim, ambiguous, reversible&rdquo; outcome. The US grand-bargain offer (full sanctions lift) was rejected outright on nuclear red lines.",
             audits=[],
         ),
     ],
@@ -1061,7 +1063,8 @@ groups.append(dict(
         dict(
             prediction="Iran will not accept zero enrichment, full dismantlement, or a missile surrender. If Washington insists publicly on those endpoints, diplomacy will narrow into a managed holding pattern or drift back toward confrontation.",
             resolution="Any signed Iranian commitment to zero enrichment, full nuclear dismantlement, or missile surrender during the Islamabad track; alternatively, observable shift to a holding pattern or renewed confrontation if the US insists publicly on those endpoints.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="Iran rejected all three US red lines &mdash; ending uranium enrichment, dismantling enrichment facilities, removing the HEU stockpile. AEOI head Eslami stated explicitly that any attempt to limit Iranian enrichment would fail; talks then drifted into renewed confrontation (US blockade 13 April, Trump &ldquo;no longer cared about negotiations&rdquo;).",
             audits=[],
         ),
     ],
@@ -1075,7 +1078,8 @@ groups.append(dict(
         dict(
             prediction="The real near-term test of the Islamabad track is not the nuclear issue alone — it is whether Washington can keep Lebanon and the Strait of Hormuz from blowing up the negotiation before any serious technical deal can even begin.",
             resolution="Whether a Lebanon or Hormuz incident derails the Islamabad track before substantive nuclear-deal text emerges.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="Both flashpoints derailed the track: Lebanon was excluded from the 8 April ceasefire (Trump: &ldquo;Because of Hezbollah, they were not included&rdquo;), Israel launched its strongest Lebanon strikes since the war's start, and Iran paused Hormuz traffic in response. After the Islamabad talks failed (12 April), the US imposed a naval blockade on 13 April, and on 18 April Iran reclosed the Strait of Hormuz and fired on transiting vessels &mdash; both flashpoints did indeed blow up the negotiation before any nuclear-deal text emerged.",
             audits=[],
         ),
     ],
@@ -1089,7 +1093,8 @@ groups.append(dict(
         dict(
             prediction="A complete US blockade of the Strait of Hormuz, if fully enforced, will make the surging oil and gas prices surge even faster — strategically self-defeating, the same problem flagged for Kharg-island seizure. Furthermore, if Iranian oil is moved by Chinese tankers, US willingness to sink or confiscate it is highly questionable.",
             resolution="If a complete US Hormuz blockade is mounted, compare oil/gas prices before vs. after, and observe US enforcement record against Chinese-flagged tankers carrying Iranian oil.",
-            outcome="unres",
+            outcome="true",
+            outcome_note="The US imposed its naval blockade on 13 April after the Islamabad talks failed. Iran responded on 18 April by reclosing the Strait of Hormuz and firing on transiting vessels — Brent crude jumped 10–13% in early trading and Hormuz throughput fell &gt; 90%. The blockade did indeed accelerate the price surge it was meant to leverage against Iran, exactly as the &ldquo;self-defeating&rdquo; thesis predicted.",
             audits=[],
         ),
     ],
