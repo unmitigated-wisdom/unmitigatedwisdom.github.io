@@ -1127,6 +1127,52 @@ def build_body():
         out.append(render_group(g))
     return "\n".join(out)
 
+# Numeric weights for the accuracy score. Unresolved is excluded from the
+# denominator (it has no truth value yet, not a half-truth).
+OUTCOME_WEIGHT = {
+    "true":    1.00,
+    "mtrue":   0.75,
+    "partial": 0.50,
+    "mfalse":  0.25,
+    "false":   0.00,
+}
+
+def compute_stats():
+    counts = {k: 0 for k in OUTCOME_META}
+    for g in groups:
+        for it in g["items"]:
+            counts[it.get("outcome", "unres")] += 1
+    resolved = sum(counts[k] for k in OUTCOME_WEIGHT)
+    earned = sum(counts[k] * w for k, w in OUTCOME_WEIGHT.items())
+    pct = (earned / resolved * 100) if resolved else 0.0
+    return dict(counts=counts, resolved=resolved, earned=earned, pct=pct,
+                total=sum(counts.values()))
+
+def render_stats(s):
+    counts = s["counts"]
+    cells = []
+    for key in ("true", "mtrue", "partial", "mfalse", "false", "unres"):
+        label, cls = OUTCOME_META[key]
+        cells.append(f'<div class="score-cell">'
+                     f'<span class="score-cell-num">{counts[key]}</span>'
+                     f'<span class="rating r-{cls}">{label}</span>'
+                     f'</div>')
+    cells_html = "".join(cells)
+    return (f'<section class="ledger-score">'
+            f'<div class="score-headline">'
+            f'<span class="score-num">{s["pct"]:.1f}%</span>'
+            f'<span class="score-label">overall accuracy &middot; '
+            f'<strong>{s["earned"]:.2f}</strong> / {s["resolved"]} resolved '
+            f'(of {s["total"]} total)</span>'
+            f'</div>'
+            f'<div class="score-breakdown">{cells_html}</div>'
+            f'<p class="score-method">'
+            f'Scoring weights: True 1.00 &middot; Partially true 0.75 &middot; '
+            f'Mixed 0.50 &middot; Partially false 0.25 &middot; False 0.00. '
+            f'Unresolved entries are excluded from the denominator.'
+            f'</p>'
+            f'</section>')
+
 # ============================================================
 # Page shell
 # ============================================================
@@ -1180,7 +1226,8 @@ FOOT = """
 
 if __name__ == "__main__":
     import sys
-    out = HEAD + build_body() + FOOT
+    stats = compute_stats()
+    out = HEAD + render_stats(stats) + build_body() + FOOT
     path = "/Users/amirjoudaki/Codes/unmitigated-wisdom.github.io/ledger.html"
     with open(path, "w") as f:
         f.write(out)
@@ -1189,3 +1236,6 @@ if __name__ == "__main__":
     sys.stdout.write(f"wrote {path} ({len(out.splitlines())} lines, "
                      f"{len(groups)} entries, {total_preds} atomic predictions, "
                      f"{with_res} with explicit resolution)\n")
+    sys.stdout.write(f"score: {stats['earned']:.2f} / {stats['resolved']} "
+                     f"resolved = {stats['pct']:.2f}% accuracy "
+                     f"({stats['counts']['unres']} unresolved excluded)\n")

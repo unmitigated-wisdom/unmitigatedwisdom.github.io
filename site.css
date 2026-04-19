@@ -809,6 +809,63 @@ article.post-body iframe.pdf { height: 90vh; min-height: 600px; }
   font-size: 0.7rem;
   margin-right: 2px;
 }
+/* Ledger accuracy score panel (top of ledger.html) */
+.ledger-score {
+  margin: 0 0 28px;
+  padding: 22px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.ledger-score .score-headline {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.ledger-score .score-num {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.ledger-score .score-label {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.ledger-score .score-label strong { color: var(--fg); font-weight: 600; }
+.ledger-score .score-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  align-items: center;
+}
+.ledger-score .score-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+.ledger-score .score-cell-num {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.5em;
+  text-align: right;
+}
+.ledger-score .score-method {
+  margin: 14px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .pred-item .outcome {
   margin: 10px 0 0;
   font-family: var(--font-sans);
