@@ -388,21 +388,6 @@ groups.append(dict(
 ))
 
 groups.append(dict(
-    year="2021", date="17 June 2021", datetime="2021-06-17",
-    subhead="Musk as &ldquo;smart Trump&rdquo; risk",
-    sources=[("Telegram #54", tg(54))],
-    items=[
-        dict(
-            prediction="Elon Musk will display an increasingly Trump-adjacent political-media style (Twitter/X combat, cult of personality, self-serving use of platforms) over the next 2–5 years, increasing his net political footprint. His intelligence and engineering track record keep open the alternative that he transitions to a post-Microsoft Bill Gates role instead.",
-            resolution="Musk's X posting pattern, endorsements and political spending, and role in US politics through 2026.",
-            outcome="true",
-            outcome_note="Musk endorsed Trump in 2024, spent ~$200M backing his campaign, took the DOGE role, and turned X into a partisan megaphone — fully realising the &ldquo;smart Trump&rdquo; political-media trajectory.",
-            audits=[],
-        ),
-    ],
-))
-
-groups.append(dict(
     year="2021", date="29 July 2021", datetime="2021-07-29",
     subhead="Infrastructure bill — stocks that will rise",
     sources=[("Telegram #57", tg(57))],
