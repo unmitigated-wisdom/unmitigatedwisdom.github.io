@@ -518,8 +518,8 @@ groups.append(dict(
 IRAN_SCENARIO_SOURCES = [
     ("Telegram #78", tg(78)),
     ("Telegram #79 — Bayesian priors", tg(79)),
-    ("Bayesian 15-Expert Report", "posts/Bayesian_15Expert_Report.html"),
-    ("Who Should We Believe About Iran", "posts/Who_Should_We_Believe_About_Iran.html"),
+    ("Bayesian 15-Expert Report", "posts/bayesian-15-expert-aggregation-2026-03-03.html"),
+    ("Who Should We Believe About Iran", "posts/who-should-we-believe-about-iran-2026-03-02.html"),
 ]
 
 groups.append(dict(
@@ -632,7 +632,7 @@ groups.append(dict(
     year="2026", date="3 March 2026", datetime="2026-03-03",
     subhead="Iran supreme leader succession",
     sources=[("Telegram #83", tg(83)),
-             ("Iran Succession Bayesian Expert Report", "posts/Iran_Succession_Bayesian_Expert_Report_v2.html")],
+             ("Iran Succession Bayesian Expert Report", "posts/iran-succession-bayesian-2026-03-03.html")],
     items=[
         dict(
             prediction="Accuracy-weighted consensus of 14 Iran specialists (76 scored predictions back to 2006, 100,000 Monte Carlo draws) produces a calibrated probability distribution over 10 candidate outcomes for Khamenei's successor — published in the linked report.",
@@ -669,7 +669,7 @@ groups.append(dict(
     year="2026", date="16 March 2026", datetime="2026-03-16",
     subhead="Israeli nuclear use",
     sources=[("Telegram #108", tg(108)),
-             ("Nuclear Threshold Assessment — Day 15", "posts/Nuclear_Threshold_Assessment_Day15.html")],
+             ("Nuclear Threshold Assessment — Day 15", "posts/israeli-nuclear-threshold-2026-03-16.html")],
     items=[
         dict(
             prediction="Probability that Israel will use nuclear weapons against Iran as a direct consequence of failing to change Iran's regime via the 2026 campaign: <strong>~3.1%</strong>, 90% credible interval [0.5%, 9.0%] (13-expert Bayesian panel).",
@@ -680,12 +680,12 @@ groups.append(dict(
     ],
 ))
 
-# 16 March 2026 — Ground-troops report (Telegram #109–110 + posts/Ground_Troops_Iran_Probability_Assessment_v3)
+# 16 March 2026 — Ground-troops report (Telegram #109–110 + posts/us-ground-troops-iran-2026-03-16)
 # split into three signals: any presence, full conventional invasion, Kharg occupation outcome.
 
 GROUND_TROOPS_SOURCES = [
     ("Telegram #109–110", tg(109)),
-    ("Ground Troops Probability Assessment", "posts/Ground_Troops_Iran_Probability_Assessment_v3.html"),
+    ("Ground Troops Probability Assessment", "posts/us-ground-troops-iran-2026-03-16.html"),
 ]
 
 groups.append(dict(
@@ -739,7 +739,7 @@ groups.append(dict(
     year="2026", date="19 March 2026", datetime="2026-03-19",
     subhead="Iran war ends via one of four oil-price-driven scenarios",
     sources=[("Telegram #115", tg(115)),
-             ("Iran Oil Special Report", "posts/Iran_Oil_Special_Report.html")],
+             ("Iran Oil Special Report", "posts/pump-price-end-war-2026-03-19.html")],
     items=[
         dict(
             prediction="The war will end via one of four oil-price-driven scenarios (full analysis in the linked report). As of 19 March, the trajectory sits between the first two. Brent will determine which scenario realises.",
@@ -755,7 +755,7 @@ groups.append(dict(
 
 WAR_END_SOURCES = [
     ("Telegram #122–123", tg(122)),
-    ("How Does the Iran War End", "posts/747fd16f-2d22-4532-ad84-e0c5b816ea46.html"),
+    ("How Does the Iran War End", "posts/how-iran-war-ends-2026-03-24.html"),
 ]
 
 groups.append(dict(
@@ -821,7 +821,7 @@ groups.append(dict(
 
 STRUCTURAL_FORECAST_SOURCES = [
     ("Telegram #128", tg(128)),
-    ("Structural Forecast Briefing", "posts/da975520-bf35-4c71-a457-9289db15b22c.html"),
+    ("Structural Forecast Briefing", "posts/structural-forecast-briefing-2026-04-02.html"),
 ]
 
 groups.append(dict(
@@ -900,7 +900,7 @@ groups.append(dict(
 
 CIVILIAN_INFRA_SOURCES = [
     ("Telegram #130–131", tg(130)),
-    ("Critical Infrastructure Escalation Analysis", "posts/12024222-8ebc-4e9a-81fb-8db7598f4490.html"),
+    ("Critical Infrastructure Escalation Analysis", "posts/critical-infrastructure-strikes-2026-04-04.html"),
 ]
 
 groups.append(dict(
@@ -953,7 +953,7 @@ groups.append(dict(
     year="2026", date="6 April 2026", datetime="2026-04-06",
     subhead="April 7–14 escalation window — modal call: Rung D postponement / stand-down (48%)",
     sources=[("Telegram #133", tg(133)),
-             ("The Labyrinth of Bad Options", "posts/976fb517-fc7c-4449-afe0-014eb0533899.html")],
+             ("The Labyrinth of Bad Options", "posts/labyrinth-of-bad-options-2026-04-06.html")],
     items=[
         dict(
             prediction="For the narrow April 7–14 escalation window, the four-rung distribution is: <strong>Rung D — postponement / stand-down 48%</strong> (no new strikes on civilian infrastructure; strikes confined to military combatants — air defences, launchers, radars, bases); <strong>Rung C — transport-only escalation 30%</strong> (strikes on bridges, highways, rail); <strong>Rung B — domestic-grid escalation 14%</strong> (strikes on power generation or municipal water); <strong>Rung A — global-energy escalation 8%</strong> (strikes on refineries, Kharg, South Pars — &ldquo;the rung that detonates the world economy&rdquo;). Headline call is the modal outcome &mdash; <strong>Rung D</strong>; combined back-down or symbolic (Rungs C+D) ~78% vs. literal energy/grid follow-through (Rungs A+B) ~22%. Not contradictory with the longer-horizon 85% grid probability, which runs through 30 September.",
@@ -965,12 +965,12 @@ groups.append(dict(
     ],
 ))
 
-# 11 April 2026 — Islamabad US–Iran talks (Telegram #135 + posts/a5a2b2e0... &ldquo;Bargaining
-# in the Shadow of a Ceasefire&rdquo;) split into three headline predictions.
+# 11 April 2026 — Islamabad US–Iran talks (Telegram #135 + posts/bargaining-shadow-ceasefire-2026-04-11
+# &ldquo;Bargaining in the Shadow of a Ceasefire&rdquo;) split into three headline predictions.
 
 ISLAMABAD_SOURCES = [
     ("Telegram #135", tg(135)),
-    ("Bargaining in the Shadow of a Ceasefire", "posts/a5a2b2e0-787c-43d3-878b-554cf509ac1c.html"),
+    ("Bargaining in the Shadow of a Ceasefire", "posts/bargaining-shadow-ceasefire-2026-04-11.html"),
 ]
 
 groups.append(dict(
@@ -1037,7 +1037,7 @@ groups.append(dict(
     year="2026", date="16 April 2026", datetime="2026-04-16",
     subhead="Ceasefire is not peace — permanent US–Iran settlement remains unlikely",
     sources=[("Telegram #137", tg(137)),
-             ("Ceasefire Is Not Peace", "posts/ceasefire_is_not_peace.html")],
+             ("Ceasefire Is Not Peace", "posts/ceasefire-is-not-peace-2026-04-16.html")],
     items=[
         dict(
             prediction="Ceasefire is not peace — while ceasefire talks may continue, a permanent US–Iran peace settlement remains unlikely. Synthesising Danny Citrinowicz, John Mearsheimer, and Behnam Ben Taleblu: temporary pauses, extensions, and deconfliction arrangements are plausible, but the core disputes (enrichment, sanctions, missiles, proxies, regional leverage) remain unresolved, so a full resolution path stays unlikely.",
