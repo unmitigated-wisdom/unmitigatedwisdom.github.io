@@ -48,15 +48,26 @@
 
     <p>Both questions need narrow definitions to be useful.</p>
 
-    <p><strong>&ldquo;Hot war resumes&rdquo;</strong> does <em>not</em> mean the current background level of blockade enforcement, ship seizures, mine-clearing, or maritime harassment. Those are already happening. I define hot-war resumption as a return to sustained strategic air and missile strikes, major interstate naval combat, or comparably intense direct U.S./Iran or Israel/Iran military action <em>above</em> the current coercive-maritime baseline.</p>
+    <p><strong>&ldquo;Hot war resumes&rdquo;</strong> does <em>not</em> mean the current background level of blockade enforcement, ship seizures, mine-clearing, or maritime harassment &mdash; those are already happening. I define hot-war resumption as a return to <strong>sustained strategic air and missile strikes, major interstate naval combat, or comparably intense direct U.S./Iran or Israel/Iran military action above the present coercive-maritime baseline</strong>.</p>
 
-    <p><strong>&ldquo;Permanent peace deal&rdquo;</strong> is defined narrowly: a public announcement or signed agreement by both governments that is presented as a lasting end to hostilities. A murky ceasefire extension, indirect mediation, or a temporary technical understanding does not count.</p>
+    <p><strong>&ldquo;Permanent peace deal&rdquo;</strong> is defined narrowly: a public announcement or signed agreement by <strong>both governments</strong> presented as a lasting end to hostilities. A vague ceasefire extension, indirect mediation, or a temporary technical understanding does <em>not</em> qualify.</p>
 
     <h2>Methodology</h2>
 
-    <p>The forecast uses a two-layer method. First, the <a href="../mixture-of-experts.html">Expert Prediction Accuracy Tracker</a> serves as a structured prior on which analysts have historically been strong on which types of questions. The tracker covers 64 experts, 501 predictions, and 461 resolved cases, scored on a TRUE / MOSTLY TRUE / PARTIALLY TRUE / MOSTLY FALSE / FALSE scale, with unresolved predictions excluded; included calls had to be falsifiable, forward-looking, specific, and attributable. I treat that dataset as a curated prior, not as ground truth.</p>
+    <p>The forecast uses a <strong>two-layer method</strong>. First, the <a href="../mixture-of-experts.html">Expert Prediction Accuracy Tracker</a><sup><a href="../mixture-of-experts.html">[11]</a></sup> serves as a structured prior on which analysts have historically been strongest on which kinds of questions. The tracker covers 64 experts, 501 predictions, and 461 resolved cases, scored on a TRUE / MOSTLY TRUE / PARTIALLY TRUE / MOSTLY FALSE / FALSE scale, with unresolved calls excluded; included predictions had to be falsifiable, forward-looking, specific, and attributable. I treat that dataset as a <em>curated prior</em>, not as ground truth.</p>
 
-    <p>Second, I do not mechanically average those scores. I weight each expert mainly inside their strongest domain &mdash; McNally on energy and Hormuz, Kavanagh and Rumbaugh on U.S. strategic constraints and stockpiles, Bastani and Citrinowicz on regime structure and Tehran's behaviour under pressure, and Mearsheimer on structural escalation logic. Tracker scores for the six focal experts:</p>
+    <p>Second, I do not mechanically average those scores. I weight each expert mainly inside their strongest domain:</p>
+
+    <ul>
+      <li><strong>Bob McNally</strong> &mdash; energy markets, Hormuz, oil/LNG disruption.</li>
+      <li><strong>Jennifer Kavanagh</strong> &mdash; U.S. strategic incentives, coercion vs. time horizons.</li>
+      <li><strong>Wes Rumbaugh</strong> &mdash; missile-defense inventories, cost-exchange ratios, readiness constraints.</li>
+      <li><strong>Hossein Bastani</strong> &mdash; Iranian regime structure, succession, IRGC institutional depth.</li>
+      <li><strong>Danny Citrinowicz</strong> &mdash; Tehran's behaviour under pressure, deterrence logic, Gulf leverage.</li>
+      <li><strong>John Mearsheimer</strong> &mdash; structural incentives, escalation logic, limits of military coercion.</li>
+    </ul>
+
+    <p>Tracker scores for the six focal experts:</p>
 
     <table>
       <thead>
@@ -66,66 +77,126 @@
         <tr><td>Danny Citrinowicz</td><td>84</td><td>12</td><td>11</td></tr>
         <tr><td>Hossein Bastani</td><td>79</td><td>15</td><td>14</td></tr>
         <tr><td>John Mearsheimer</td><td>77</td><td>15</td><td>14</td></tr>
-        <tr><td>Bob McNally</td><td>75</td><td>11</td><td>—</td></tr>
-        <tr><td>Jennifer Kavanagh</td><td>75</td><td>7</td><td>—</td></tr>
-        <tr><td>Wes Rumbaugh</td><td>75</td><td>7</td><td>—</td></tr>
+        <tr><td>Bob McNally</td><td>75</td><td>11</td><td>10</td></tr>
+        <tr><td>Jennifer Kavanagh</td><td>75</td><td>7</td><td>6</td></tr>
+        <tr><td>Wes Rumbaugh</td><td>75</td><td>7</td><td>7</td></tr>
       </tbody>
     </table>
+
+    <p>I then combine those expert priors with current-war reporting: blockade status, ship seizures, the status of talks, Israeli signalling, and the current coercive equilibrium.</p>
 
     <h2>The current strategic picture</h2>
 
-    <p>The present situation is not peace. Reuters reported on 22 April that Trump said he was extending the ceasefire indefinitely, but Iranian officials did not say they had agreed, and Tehran said a full ceasefire only made sense if the U.S. blockade was lifted. The same reporting noted that the Strait of Hormuz remained effectively shut, that Iran had seized two ships, and that vessel traffic had collapsed from roughly 130 per day pre-war to just a handful. On 23 April, Reuters reported there was no formal extension of the ceasefire and no plans announced for further talks.</p>
+    <p>The present condition is <strong>not peace</strong>.</p>
 
-    <p>Military friction is rising, not fading. Reuters reported on 23 April that Israel said it was waiting for a U.S. &ldquo;green light&rdquo; to resume attacks, while Iran said it would not consider reopening Hormuz until Washington lifted the blockade. AP reported the same day that Trump ordered the U.S. military to &ldquo;shoot and kill&rdquo; Iranian small boats laying mines and to intensify mine-clearing efforts. Brookings described the diplomatic picture as being &ldquo;in limbo&rdquo; and warned that an indefinite ceasefire still allows Iran to do &ldquo;massive damage to the global economy.&rdquo;</p>
+    <p>Reuters reported on 22 April that Trump said he was extending the ceasefire indefinitely, but Iranian officials did not clearly confirm agreement, and Tehran stated that a full ceasefire only made sense if the U.S. blockade was lifted. The same reporting noted that the Strait of Hormuz remained effectively shut, that Iran had seized two ships, and that vessel traffic had collapsed from roughly 130 per day pre-war to just a handful.<sup><a href="https://www.reuters.com/world/asia-pacific/us-will-indefinitely-extend-ceasefire-unclear-if-iran-agrees-2026-04-22/" target="_blank" rel="noopener">[1]</a></sup> On 23 April, Reuters further reported that there was no formal extension and no announced plan for additional talks.<sup><a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">[2]</a></sup></p>
+
+    <p>The military friction is rising rather than fading. Reuters reported that Israel said it was waiting for a U.S. &ldquo;green light&rdquo; to resume attacks, while Iran said it would not consider reopening Hormuz until Washington lifted the blockade.<sup><a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">[2]</a></sup> AP reported the same day that Trump ordered the U.S. military to &ldquo;shoot and kill&rdquo; Iranian small boats laying mines and to intensify mine-clearing efforts.<sup><a href="https://apnews.com/article/d88a46b2e17cf7ef732af2b2836ca501" target="_blank" rel="noopener">[3]</a></sup> Brookings described the talks as &ldquo;in limbo&rdquo; and warned that an indefinite ceasefire still allows Iran to impose major economic damage.<sup><a href="https://www.brookings.edu/articles/will-the-iran-ceasefire-hold/" target="_blank" rel="noopener">[4]</a></sup></p>
+
+    <p>This is best understood as an <strong>armed coercive pause</strong>, not a peace process.</p>
+
+    <h2>The six expert lenses</h2>
+
+    <h3>Bob McNally &mdash; the energy-and-Hormuz lens</h3>
+
+    <p>McNally's signature line is: <em>&ldquo;The market is overly optimistic about resumption of Strait of Hormuz.&rdquo;</em> That captures his strongest pattern: he is best when the question is not simply political intent, but how coercion translates into <strong>flows, spare capacity, LNG chokepoints, and market stress</strong>.</p>
+
+    <p>His tracker profile shows strong performance on U.S. strike probability, Hormuz disruption, and LNG vulnerability, with weaker results on some medium-term market-structure calls. For this forecast, McNally pushes hard against any quick-peace thesis. Bloomberg reported on 17 April that he believed any improvement in Hormuz would reverse without a real breakthrough, and that even with a deal it could take three to four months for supply traffic to normalise.<sup><a href="https://www.marketscreener.com/news/hormuz-strait-progress-likely-to-reverse-without-breakthrough-says-bob-mcnally-ce7e50d3d98efe2c" target="_blank" rel="noopener">[5]</a></sup></p>
+
+    <h3>Jennifer Kavanagh &mdash; the strategic-mismatch lens</h3>
+
+    <p>Kavanagh's key line is: <em>&ldquo;The Houthis are undeterred.&rdquo;</em> Her broader pattern: she is strongest at identifying situations where Washington is using force in ways that are tactically active but strategically misaligned.</p>
+
+    <p>Her current argument is especially important. On 22 April she argued that the blockade is &ldquo;unlikely to work&rdquo; because of a &ldquo;mismatch of stakes and time horizons&rdquo;: Iran sees the conflict as existential and can endure pain longer than Trump, who wants a rapid political result.<sup><a href="https://www.defensepriorities.org/opinion/irans-leaders-can-afford-to-be-patient/" target="_blank" rel="noopener">[6]</a></sup> This logic points away from both quick capitulation and quick peace.</p>
+
+    <h3>Wes Rumbaugh &mdash; the constraint-and-inventory lens</h3>
+
+    <p>Rumbaugh's analytical signature is captured by the phrase <em>&ldquo;No THAADs 'til 2027.&rdquo;</em> He is most useful not as a forecaster of Tehran's intentions, but as an analyst of the <strong>cost structure and inventory arithmetic</strong> behind U.S. decisions.</p>
+
+    <p>His strongest calls have been on missile-defense depletion and bad cost-exchange ratios between cheap attacking systems and expensive interceptors. His importance to the current forecast is indirect but real: renewed high-intensity war is not impossible, but it becomes strategically less attractive when it burns scarce missile-defense inventories at a faster rate than they can be replenished.</p>
+
+    <h3>Hossein Bastani &mdash; the regime-structure lens</h3>
+
+    <p>A Bastani-style core proposition can be summarised as: <em>Iran–U.S. relations are not normalising, and the regime should be analysed as an institutional system, not a headline event.</em></p>
+
+    <p>His strongest historical performance is on IRGC institutional depth, succession, and the overestimation of overthrow scenarios. His most important contribution here is that the regime appears <em>brittle but not broken</em>. That lowers the expected payoff from renewed bombing, because the political effect is unlikely to match the military effort.</p>
+
+    <h3>Danny Citrinowicz &mdash; the Iran-behaviour-under-pressure lens</h3>
+
+    <p>Citrinowicz's key line is: <em>&ldquo;Iran's leadership operates under its own sunk-cost logic.&rdquo;</em> Among the six experts he has the highest tracker score and is the single strongest guide to <strong>Iranian bargaining behaviour under pressure</strong>.</p>
+
+    <p>In his 15–17 April material his position sharpens into three claims:</p>
+
+    <ol>
+      <li>Iran does not want endless war, but it will <strong>not surrender under pressure</strong>.</li>
+      <li>Hormuz is now a <strong>usable coercive lever</strong>, not merely a threat.</li>
+      <li>Any arrangement without credible enforcement and technical precision will be unstable.</li>
+    </ol>
+
+    <p>His current public framing is even more concise: &ldquo;You cannot beat geography,&rdquo; and in any renewed round, &ldquo;closing the strait will be the first thing in the Iranian textbook.&rdquo;<sup><a href="https://english.aawsat.com/features/5264414-iran-flexing-control-over-hormuz-new-deterrent" target="_blank" rel="noopener">[7]</a></sup></p>
+
+    <h3>John Mearsheimer &mdash; the structural-escalation lens</h3>
+
+    <p>Mearsheimer's key line is: <em>&ldquo;He has no good military option at this point.&rdquo;</em> His main value here is not personality reading but <strong>structural logic</strong>: what happens when coercion lacks a plausible path to political closure.</p>
+
+    <p>On 22 April he wrote that Trump lacks a &ldquo;viable military option&rdquo; against Iran and therefore has strong reasons to extend the ceasefire and pursue negotiations instead of reopening major war.<sup><a href="https://mearsheimer.substack.com/p/thankfully-trump-blinks" target="_blank" rel="noopener">[8]</a></sup></p>
+
+    <h2>Synthesis</h2>
+
+    <div class="callout">
+      <span class="label">The Convergent Proposition</span>
+      <p>Iran can continue imposing serious costs without reopening full-scale war, and the United States can continue imposing pressure without solving the problem.</p>
+    </div>
+
+    <ul>
+      <li><strong>McNally</strong> explains the leverage mechanism: <em>Hormuz remains the hinge.</em></li>
+      <li><strong>Kavanagh</strong> explains why blockade pressure alone is strategically mismatched.</li>
+      <li><strong>Rumbaugh</strong> explains why another intense round would be expensive in readiness terms.</li>
+      <li><strong>Bastani</strong> explains why the regime can absorb punishment without collapsing.</li>
+      <li><strong>Citrinowicz</strong> explains why Tehran will bargain from defiance, not surrender.</li>
+      <li><strong>Mearsheimer</strong> explains why Washington lacks a military path that obviously turns escalation into political closure.</li>
+    </ul>
+
+    <p>That synthesis strongly supports a <strong>continued coercive standoff</strong> as the modal near-term condition.</p>
 
     <h2>Binary 1 &mdash; Will hot war resume in the next month?</h2>
 
-    <p>The answer is probably not, but the risk is material.</p>
+    <p><strong>Forecast: No. 66% no / 34% yes.</strong></p>
 
-    <p>The strongest case for no resumption is structural. Jennifer Kavanagh argues that the blockade is &ldquo;unlikely to work&rdquo; because of a &ldquo;mismatch of stakes and time horizons&rdquo;: Iran is treating the conflict as existential and can afford patience, while Trump wants a fast, decisive result that blockade pressure cannot deliver. John Mearsheimer's current view points in the same direction &mdash; he says Trump lacks a &ldquo;viable military option&rdquo; and has a strong incentive to stop the economic damage. Reuters' March reporting also matters here: U.S. intelligence assessed that Iran's government was not at imminent risk of collapse, and Reuters separately reported that Mojtaba Khamenei was elevated with decisive Revolutionary Guard backing, reinforcing the view that renewed bombing would be costly without guaranteeing political closure.</p>
+    <p>The strongest case for <em>no</em> is structural. The current equilibrium is costly, but it is still more attractive to both sides than immediate major escalation:</p>
 
-    <p>This is where the expert blend matters. Each lens has a single sharp signature:</p>
+    <ul>
+      <li>Washington wants pressure <em>without</em> another large strategic round if it can avoid it.</li>
+      <li>Tehran wants leverage <em>without</em> inviting maximal destruction.</li>
+      <li>Israel is willing to resume attacks, but Reuters reports it is still waiting for a U.S. &ldquo;green light.&rdquo;<sup><a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">[2]</a></sup></li>
+    </ul>
 
-    <table>
-      <thead>
-        <tr><th>Expert</th><th>Sharpest current line</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>McNally</td><td>&ldquo;The market is overly optimistic about resumption of Strait of Hormuz.&rdquo;</td></tr>
-        <tr><td>Kavanagh</td><td>&ldquo;Mismatch of stakes and time horizons.&rdquo;</td></tr>
-        <tr><td>Rumbaugh</td><td>&ldquo;No THAADs 'til 2027&rdquo; &mdash; the stockpile constraint.</td></tr>
-        <tr><td>Bastani</td><td>IRGC institutional depth prevents immediate collapse after leadership decapitation.</td></tr>
-        <tr><td>Citrinowicz</td><td>&ldquo;You cannot beat geography&rdquo; &mdash; &ldquo;closing the strait will be the first thing in the Iranian textbook.&rdquo;</td></tr>
-        <tr><td>Mearsheimer</td><td>Trump lacks a &ldquo;viable military option.&rdquo;</td></tr>
-      </tbody>
-    </table>
+    <p>Kavanagh's argument about the &ldquo;mismatch of stakes and time horizons&rdquo; is central here.<sup><a href="https://www.defensepriorities.org/opinion/irans-leaders-can-afford-to-be-patient/" target="_blank" rel="noopener">[6]</a></sup> Mearsheimer's argument that Trump lacks a &ldquo;viable military option&rdquo; reinforces it.<sup><a href="https://mearsheimer.substack.com/p/thankfully-trump-blinks" target="_blank" rel="noopener">[8]</a></sup> Reuters' March reporting that U.S. intelligence did not see imminent regime collapse also matters, because it lowers the expected political value of renewed bombing.<sup><a href="https://www.reuters.com/business/media-telecom/us-intelligence-says-iran-government-is-not-risk-collapse-say-sources-2026-03-11/" target="_blank" rel="noopener">[9]</a></sup> The same case is reinforced by the elevation of Mojtaba Khamenei with decisive Revolutionary Guard backing.<sup><a href="https://www.reuters.com/world/middle-east/irans-new-leader-still-silent-was-elevated-by-revolutionary-guards-2026-03-10/" target="_blank" rel="noopener">[10]</a></sup></p>
 
-    <p>Together, these six lenses point to an ugly but intelligible equilibrium: Iran can keep imposing pain without reopening a full strategic campaign, and Washington has reasons to avoid another all-out round unless forced by events.</p>
-
-    <p>The reason I do not push the &ldquo;no hot war&rdquo; probability higher is that the current equilibrium is fragile. AP's report about the shoot-and-kill order sharply raises the odds of a tactical encounter spiraling upward. Reuters says Israel is openly preparing for a restart if Washington agrees. Brookings says that if the parties do not get back to the table, the conflict is &ldquo;still very ripe&rdquo; and may return to an &ldquo;active military phase.&rdquo; The main danger is not that one side has found a clean path to victory; it is that coercive maritime friction and veto players make accidental or semi-deliberate escalation easy.</p>
+    <p>So why is the &ldquo;yes&rdquo; probability still as high as 34%? Because the current equilibrium is highly fragile. AP's report on the new mine-clearing rules of engagement substantially increases the chance that a tactical clash turns into something larger.<sup><a href="https://apnews.com/article/d88a46b2e17cf7ef732af2b2836ca501" target="_blank" rel="noopener">[3]</a></sup> Reuters' reporting that Israel is actively prepared for renewed attacks keeps the veto-player risk alive.<sup><a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">[2]</a></sup> Brookings is right to say the situation remains ripe for return to an active military phase if talks do not resume.<sup><a href="https://www.brookings.edu/articles/will-the-iran-ceasefire-hold/" target="_blank" rel="noopener">[4]</a></sup></p>
 
     <div class="callout amber">
       <span class="label">Triggers that would flip this forecast</span>
-      <p>A fatal maritime clash; a successful mine-laying operation that kills Americans or major third-country crews; an Israeli decision that waiting is worse than acting. Each is plausible enough on its own that <strong>34%</strong> remains the right yes-probability rather than something lower.</p>
+      <p>A fatal maritime clash; a successful Iranian mine operation causing major casualties; a major strike on neutral or third-country shipping; or an Israeli decision that waiting is worse than acting. Each is plausible enough on its own that <strong>34%</strong> remains the right yes-probability rather than something lower.</p>
     </div>
+
+    <p>The most likely path is a continuation of blockade, seizures, mine-clearing, threats, and coercive bargaining <em>without</em> a return to sustained strategic bombing.</p>
 
     <h2>Binary 2 &mdash; Will a permanent peace deal be announced or signed in the next month?</h2>
 
-    <p>The answer is almost certainly not.</p>
+    <p><strong>Forecast: No. 91% no / 9% yes.</strong></p>
 
-    <p>The immediate reason is simple: the diplomacy is not yet on a track that plausibly ends in a formal bilateral peace announcement within 30 days. Reuters reported on 23 April that there was no formal extension of the ceasefire and no plans announced for further talks. The same reporting says Tehran will not consider opening Hormuz until the United States lifts the blockade, and that Iran is demanding the blockade end before it resumes serious movement. Brookings says peace talks are &ldquo;in limbo.&rdquo; Reuters also reported on 23 April that Trump said he does not want to be rushed into a deal and prefers a lasting arrangement over a quick fix. None of those are the conditions under which a permanent bilateral peace agreement normally appears quickly.</p>
+    <p>The immediate reason is simple: diplomacy is not yet on a timeline consistent with a formal permanent bilateral peace announcement within 30 days. Reuters reported on 23 April that there was no formal ceasefire extension and no announced plan for further talks.<sup><a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">[2]</a></sup> Tehran's position, as reported by Reuters, is that Hormuz will not be reopened unless the blockade is lifted.<sup><a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">[2]</a></sup> Brookings says peace talks are &ldquo;in limbo.&rdquo;<sup><a href="https://www.brookings.edu/articles/will-the-iran-ceasefire-hold/" target="_blank" rel="noopener">[4]</a></sup> Reuters also reported that Trump said he did not want to be rushed into a deal and preferred a <em>lasting</em> arrangement over a quick one.<sup><a href="https://www.reuters.com/world/asia-pacific/us-will-indefinitely-extend-ceasefire-unclear-if-iran-agrees-2026-04-22/" target="_blank" rel="noopener">[1]</a></sup></p>
 
-    <p>Substantively, the gap remains too wide. Reuters says Washington wants Iran to give up highly enriched uranium and further enrichment, while Iran wants sanctions relief, reparations, and recognition of its control over the strait; Reuters also reports that Iran has tied truce talks to Hezbollah-Lebanon issues. Brookings' 23 April discussion says the sequencing problem is still unresolved and the divide between the parties remains considerable. In plain terms: even if a temporary arrangement or another ceasefire understanding is possible, a publicly announced permanent end to hostilities signed off by both governments is a much narrower and harder event.</p>
+    <p>The substantive gap is also large. Reuters reported that Washington wants Iran to give up highly enriched uranium and further enrichment, while Iran wants sanctions relief, compensation, and recognition of its position over the strait; the same reporting says Tehran has tied truce talks to Hezbollah-Lebanon issues.<sup><a href="https://www.reuters.com/world/asia-pacific/us-will-indefinitely-extend-ceasefire-unclear-if-iran-agrees-2026-04-22/" target="_blank" rel="noopener">[1]</a></sup> Even if a temporary understanding is possible, a publicly announced permanent end-of-hostilities agreement by both governments is a much narrower and harder event.</p>
 
-    <p>Here again the expert synthesis points the same way. McNally implies that even with a deal, supply normalization would take months, not days. Kavanagh's model says coercion alone will not generate a fast capitulation. Rumbaugh's framework says Washington has reasons to avoid renewed war, but not that it has found a stable settlement formula. Bastani and Citrinowicz both point to a regime that is hardened, Guard-influenced, and structurally capable of bargaining from defiance rather than surrender. Mearsheimer says Trump wants negotiations, but the road is full of obstacles. The Citrinowicz posts of 15–17 April fit the same pattern: Iran may negotiate, but from a position that treats Hormuz as leverage and treats pressure alone as inadequate to force ideological concessions.</p>
+    <p>The expert synthesis supports the same conclusion. McNally implies that even after a deal, normalisation would take months.<sup><a href="https://www.marketscreener.com/news/hormuz-strait-progress-likely-to-reverse-without-breakthrough-says-bob-mcnally-ce7e50d3d98efe2c" target="_blank" rel="noopener">[5]</a></sup> Kavanagh implies coercion alone will not produce fast capitulation.<sup><a href="https://www.defensepriorities.org/opinion/irans-leaders-can-afford-to-be-patient/" target="_blank" rel="noopener">[6]</a></sup> Bastani and Citrinowicz both imply Tehran is bargaining from hardline resilience, not weakness. Mearsheimer implies Trump wants negotiations, but not that an actual permanent settlement is close.<sup><a href="https://mearsheimer.substack.com/p/thankfully-trump-blinks" target="_blank" rel="noopener">[8]</a></sup></p>
 
-    <p>The only realistic way this forecast fails is if Washington suddenly redesigns the blockade into a negotiating off-ramp, Tehran reciprocates quickly, and Israel accepts a near-term settlement framework rather than pressing for another round. Current evidence does not make that the base case.</p>
+    <p>The most plausible alternative to renewed hot war is <strong>not peace, but an extended dirty truce</strong>.</p>
 
     <div class="ornament">· · ·</div>
 
     <h2>Bottom line</h2>
-
-    <p>The revised binary forecast is straightforward.</p>
 
     <table>
       <thead>
@@ -137,20 +208,22 @@
       </tbody>
     </table>
 
-    <p>The logic tying both forecasts together is this: <strong>the current pause is most consistent with a dirty coercive standoff, not with real settlement and not yet with deliberate full-scale resumption.</strong> That middle condition is unstable, which is why hot-war risk is still substantial; but it is still more likely than either an immediate relapse into all-out fighting or a clean, formal peace accord.</p>
+    <p>The logic tying both forecasts together is simple: <strong>the current pause is best understood as a coercive frozen standoff.</strong> That middle condition is unstable, which is why hot-war risk remains substantial; but it is still more likely than either an immediate relapse into full-scale strategic war or a clean, formal bilateral peace agreement.</p>
 
     <div class="sources">
-      <h3>Selected references</h3>
+      <h3>References</h3>
       <ol>
-        <li>Reuters &mdash; on the unclear ceasefire extension, effective shutdown of Hormuz, ship seizures, vessel traffic collapse, and the absence of a formal new talks track (22–23 April 2026).</li>
-        <li>Reuters &mdash; on Israel waiting for a U.S. &ldquo;green light&rdquo; to resume war, and on Iran's demand that the blockade be lifted before reopening Hormuz (23 April 2026).</li>
-        <li>AP &mdash; on Trump's order to &ldquo;shoot and kill&rdquo; mine-laying Iranian boats and intensify mine-clearing (23 April 2026).</li>
-        <li>Brookings &mdash; on talks being &ldquo;in limbo,&rdquo; the economic damage of an indefinite ceasefire, and the risk of return to an active military phase if diplomacy stalls.</li>
-        <li>Jennifer Kavanagh &mdash; on the blockade's &ldquo;mismatch of stakes and time horizons&rdquo; (Defense Priorities).</li>
-        <li>John Mearsheimer &mdash; on Trump lacking a &ldquo;viable military option&rdquo; and therefore preferring ceasefire extension and negotiations (mearsheimer.substack.com).</li>
-        <li>Reuters &mdash; on U.S. intelligence judging that Iran's regime was not at imminent risk of collapse, and on Mojtaba Khamenei's elevation with Revolutionary Guard backing.</li>
-        <li>Danny Citrinowicz &mdash; on Hormuz as a reusable strategic lever: &ldquo;closing the strait will be the first thing in the Iranian textbook&rdquo; and &ldquo;You cannot beat geography&rdquo; (english.aawsat.com).</li>
-        <li><a href="../mixture-of-experts.html">Expert Prediction Accuracy Tracker</a> &mdash; methodology and score tallies for the six focal experts.</li>
+        <li><strong>Reuters, 22 April 2026</strong> &mdash; U.S. indefinite ceasefire extension, uncertainty over Iranian agreement, and stalled shipping. <a href="https://www.reuters.com/world/asia-pacific/us-will-indefinitely-extend-ceasefire-unclear-if-iran-agrees-2026-04-22/" target="_blank" rel="noopener">reuters.com →</a></li>
+        <li><strong>Reuters, 23 April 2026</strong> &mdash; Iran tightens control over Hormuz; no formal ceasefire extension; no further talks announced; Israel awaiting U.S. &ldquo;green light.&rdquo; <a href="https://www.reuters.com/world/asia-pacific/iran-tightens-control-hormuz-after-us-calls-off-renewed-attacks-2026-04-23/" target="_blank" rel="noopener">reuters.com →</a></li>
+        <li><strong>AP, 23 April 2026</strong> &mdash; Trump orders U.S. military to &ldquo;shoot and kill&rdquo; Iranian mine-laying boats and intensify mine-clearing. <a href="https://apnews.com/article/d88a46b2e17cf7ef732af2b2836ca501" target="_blank" rel="noopener">apnews.com →</a></li>
+        <li><strong>Brookings, 23 April 2026</strong> &mdash; Ceasefire durability, talks &ldquo;in limbo,&rdquo; and risk of return to active military phase. <a href="https://www.brookings.edu/articles/will-the-iran-ceasefire-hold/" target="_blank" rel="noopener">brookings.edu →</a></li>
+        <li><strong>Bloomberg / syndicated, 17 April 2026</strong> &mdash; Bob McNally on fragile Hormuz progress and delayed normalisation. <a href="https://www.marketscreener.com/news/hormuz-strait-progress-likely-to-reverse-without-breakthrough-says-bob-mcnally-ce7e50d3d98efe2c" target="_blank" rel="noopener">marketscreener.com →</a></li>
+        <li><strong>Defense Priorities, 22 April 2026</strong> &mdash; Jennifer Kavanagh on the blockade and the &ldquo;mismatch of stakes and time horizons.&rdquo; <a href="https://www.defensepriorities.org/opinion/irans-leaders-can-afford-to-be-patient/" target="_blank" rel="noopener">defensepriorities.org →</a></li>
+        <li><strong>Asharq Al-Awsat English, 22 April 2026</strong> &mdash; Danny Citrinowicz on Hormuz as a first-move lever and &ldquo;you cannot beat geography.&rdquo; <a href="https://english.aawsat.com/features/5264414-iran-flexing-control-over-hormuz-new-deterrent" target="_blank" rel="noopener">english.aawsat.com →</a></li>
+        <li><strong>John Mearsheimer, 22 April 2026</strong> &mdash; Argument that Trump lacks a viable military option and therefore prefers ceasefire extension and negotiations. <a href="https://mearsheimer.substack.com/p/thankfully-trump-blinks" target="_blank" rel="noopener">mearsheimer.substack.com →</a></li>
+        <li><strong>Reuters, 11 March 2026</strong> &mdash; U.S. intelligence says Iran's government is not at imminent risk of collapse. <a href="https://www.reuters.com/business/media-telecom/us-intelligence-says-iran-government-is-not-risk-collapse-say-sources-2026-03-11/" target="_blank" rel="noopener">reuters.com →</a></li>
+        <li><strong>Reuters, 10 March 2026</strong> &mdash; Mojtaba Khamenei elevated with decisive Revolutionary Guard backing. <a href="https://www.reuters.com/world/middle-east/irans-new-leader-still-silent-was-elevated-by-revolutionary-guards-2026-03-10/" target="_blank" rel="noopener">reuters.com →</a></li>
+        <li><strong><a href="../mixture-of-experts.html">Expert Prediction Accuracy Tracker</a></strong> &mdash; methodology and score tallies for the six focal experts.</li>
       </ol>
     </div>
 
