@@ -1120,7 +1120,7 @@ def render_group(g):
 def build_body():
     out = []
     current_year = None
-    for g in groups:
+    for g in reversed(groups):
         if g["year"] != current_year:
             out.append(f'<h2 class="year">{g["year"]}</h2>')
             current_year = g["year"]
