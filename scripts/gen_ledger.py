@@ -1053,6 +1053,7 @@ groups.append(dict(
 # its two independent binary predictions.
 
 BINARY_FORECAST_SOURCES = [
+    ("Telegram #140", tg(140)),
     ("Will Hot War Resume? Will Peace Be Announced?",
      "posts/will-hot-war-resume-will-peace-be-announced-2026-04-24.html"),
 ]
