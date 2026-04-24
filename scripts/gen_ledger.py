@@ -1048,6 +1048,43 @@ groups.append(dict(
     ],
 ))
 
+# 24 April 2026 — Binary forecast on the 30-day Iran-U.S. war window (24 Apr – 24 May)
+# posted at posts/will-hot-war-resume-will-peace-be-announced-2026-04-24 — split into
+# its two independent binary predictions.
+
+BINARY_FORECAST_SOURCES = [
+    ("Will Hot War Resume? Will Peace Be Announced?",
+     "posts/will-hot-war-resume-will-peace-be-announced-2026-04-24.html"),
+]
+
+groups.append(dict(
+    year="2026", date="24 April 2026", datetime="2026-04-24",
+    subhead="Iran–U.S. hot war does not resume within 30 days (34% yes)",
+    sources=BINARY_FORECAST_SOURCES,
+    items=[
+        dict(
+            prediction="Over the 24 April – 24 May 2026 window, the Iran–U.S. conflict does <strong>not</strong> re-escalate above the current coercive-maritime baseline into sustained strategic air/missile strikes, major interstate naval combat, or comparably intense direct U.S./Iran or Israel/Iran military action. Probability of such hot-war resumption: <strong>34%</strong> yes / 66% no; 80% subjective interval for yes: 23–46%.",
+            resolution="Any confirmed return to sustained strategic strikes or major interstate naval combat above the current blockade / mine-clearing / ship-seizure baseline between 24 April and 24 May 2026.",
+            outcome="unres",
+            audits=[],
+        ),
+    ],
+))
+
+groups.append(dict(
+    year="2026", date="24 April 2026", datetime="2026-04-24",
+    subhead="No permanent US–Iran peace deal announced within 30 days (9% yes)",
+    sources=BINARY_FORECAST_SOURCES,
+    items=[
+        dict(
+            prediction="Over the 24 April – 24 May 2026 window, no permanent US–Iran peace deal is publicly announced or signed by both governments as a lasting end to hostilities. Vague ceasefire extensions, indirect mediation, or temporary technical understandings do not count. Probability of such an announcement: <strong>9%</strong> yes / 91% no; 80% subjective interval for yes: 4–17%.",
+            resolution="Any public announcement or signed agreement by both the US and Iranian governments presented as a lasting end to hostilities, between 24 April and 24 May 2026.",
+            outcome="unres",
+            audits=[],
+        ),
+    ],
+))
+
 # ============================================================
 # HTML generator
 # ============================================================
