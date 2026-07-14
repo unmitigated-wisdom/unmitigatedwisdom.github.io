@@ -1,0 +1,68 @@
+Expert,Prediction,Year,Score,Verdict,Category
+Molyneux,Predicted Western civilization collapse imminent due to immigration,2015-2019,0.0,FALSE,geopolitical
+Molyneux,Predicted Trump would transform US FP away from interventionism,2016,0.25,MOSTLY FALSE,geopolitical
+Molyneux,Claimed Brexit would trigger EU collapse,2016,0.0,FALSE,geopolitical
+Molyneux,Predicted mass social breakdown in Sweden/Germany,2017,0.25,MOSTLY FALSE,regime
+Molyneux,Predicted Canadian economy collapse under Trudeau,2017,0.0,FALSE,economic
+Molyneux,Implied Iran deal withdrawal → quick Iranian capitulation,2018,0.0,FALSE,geopolitical
+Molyneux,Predicted red wave in US midterms,2022,0.0,FALSE,geopolitical
+Mearsheimer,NATO expansion would provoke Russian aggression vs Ukraine,2014,1.0,TRUE,geopolitical
+Mearsheimer,Iraq War would be strategic disaster / quagmire,2003,1.0,TRUE,military
+Mearsheimer,Israel lobby shapes US Mideast policy detrimentally,2006,0.75,TRUE,geopolitical
+Mearsheimer,US pivot to Asia disrupted by ME entanglements,2012,0.75,TRUE,geopolitical
+Mearsheimer,Libya intervention → failed state / chaos,2011,1.0,TRUE,military
+Mearsheimer,Ukraine conflict → prolonged war of attrition,2022,1.0,TRUE,military
+Mearsheimer,Great power competition (US-China) defining dynamic,2018,0.75,TRUE,geopolitical
+Mearsheimer,US would not deter Russia from invading Ukraine,2021,1.0,TRUE,military
+Sachs,Iraq sanctions → humanitarian catastrophe w/o regime change,1990s,1.0,TRUE,economic
+Sachs,Shock therapy success in Poland,1990,0.75,TRUE,economic
+Sachs,Shock therapy success in Russia (similar to Poland),1992,0.25,MOSTLY FALSE,economic
+Sachs,Iraq War → broad ME destabilization,2003,1.0,TRUE,military
+Sachs,Iran sanctions hurt civilians w/o changing regime,2018,1.0,TRUE,economic
+Sachs,"Multipolar world order emerging, reducing US power",2020,0.75,TRUE,geopolitical
+Sachs,Ukraine conflict → nuclear escalation risk,2022,0.25,MOSTLY FALSE,military
+Sachs,COVID origins debate suppressed then vindicated,2021,0.5,PARTIAL,geopolitical
+Friedman,US-jihadist conflict defines post-9/11 era,2001,0.75,TRUE,military
+Friedman,Russia reasserts regional power in former Soviet space,2009,1.0,TRUE,geopolitical
+Friedman,EU structural crisis and fragmentation,2011,0.75,TRUE,geopolitical
+Friedman,Japan-China tensions intensify,2011,0.5,PARTIAL,geopolitical
+Friedman,Turkey emerges as major regional power,2009,0.5,PARTIAL,geopolitical
+Friedman,Poland becomes key European power by 2030s,2009,0.25,MOSTLY FALSE,geopolitical
+Friedman,US remains dominant through 2020s despite decline narratives,2011,0.75,TRUE,geopolitical
+Friedman,Major US-Mexico tensions over immigration/border,2009,0.75,TRUE,geopolitical
+Friedman,Major US-Japan military tensions by 2050,2009,0.0,FALSE,military
+Ritter,Iraq had no significant WMD stockpiles,2002,1.0,TRUE,nuclear
+Ritter,Iraq War not quick/easy victory,2003,0.5,PARTIAL,military
+Ritter,US couldn't take Baghdad / leave w/ tail between legs,2003,0.25,MOSTLY FALSE,military
+Ritter,Imminent US attack on Iran June 2005,2005,0.0,FALSE,military
+Ritter,Syria al-Kibar not nuclear facility (was confirmed),2007,0.0,FALSE,nuclear
+Ritter,Decisive Russian victory in Ukraine in 2023,2023,0.25,MOSTLY FALSE,military
+Ritter,Ukraine unsustainable losses / cannot win,2022,0.5,PARTIAL,military
+Ritter,Denied Russian responsibility for Bucha,2022,0.0,FALSE,geopolitical
+Ritter,Russian economy survives Western sanctions,2022,0.75,TRUE,economic
+Crooke,Hamas election victory dynamics / Western miscalculation,2006,1.0,TRUE,geopolitical
+Crooke,"Hezbollah survives 2006 war, emerges stronger",2006,1.0,TRUE,military
+Crooke,Western Syria intervention empowers jihadists,2012,1.0,TRUE,military
+Crooke,Assad regime survives (w/ Russia/Iran support),2013-23,0.5,PARTIAL,regime
+Crooke,Resistance axis durable and coherent,2020,0.25,MOSTLY FALSE,geopolitical
+Crooke,Hezbollah existence not in question post-Nasrallah,2024,0.25,MOSTLY FALSE,military
+Crooke,Syria in much better place by end 2017,2017,0.25,MOSTLY FALSE,geopolitical
+Crooke,US Syria strikes emotionally driven w/ lasting consequences,2017,0.75,TRUE,military
+Bajoghli,Internal regime anxiety about youth legitimacy,2019,0.75,TRUE,regime
+Bajoghli,Sanctions hurt civilians more than regime elites,2022,1.0,TRUE,economic
+Bajoghli,Mahsa Amini protests = deep structural legitimacy crisis,2022,0.75,TRUE,regime
+Bajoghli,IRGC more internally fractured than analysts assume,2019,0.75,TRUE,regime
+Bajoghli,Sanctions won't change regime behavior on nuclear,2022,0.75,TRUE,nuclear
+Vaez,Framework leading to 2015 JCPOA deal,2013-15,0.75,TRUE,nuclear
+Vaez,JCPOA withdrawal → accelerated enrichment,2018,1.0,TRUE,nuclear
+Vaez,Iranian protests met w/ crackdown but not regime fall,2019,1.0,TRUE,regime
+Vaez,Maximum pressure sanctions fail to change regime,2019,1.0,TRUE,economic
+Vaez,Diplomacy possible after Soleimani killing,2020,0.5,PARTIAL,geopolitical
+Vaez,Iran accelerates nuclear program post-JCPOA,2019,1.0,TRUE,nuclear
+Kinzer,1953 coup blowback pattern repeats in interventions,2003,1.0,TRUE,geopolitical
+Kinzer,Iraq invasion follows failed regime change pattern,2003,1.0,TRUE,military
+Kinzer,US regime changes consistently produce worse outcomes,2006,0.75,TRUE,geopolitical
+Kinzer,Turkey and Iran natural US partners (Reset thesis),2010,0.25,MOSTLY FALSE,geopolitical
+Kinzer,Libya intervention → chaos (Overthrow thesis),2011,1.0,TRUE,military
+Kinzer,US-Iran hostility rooted in 1953 coup continues,2003+,1.0,TRUE,geopolitical
+Kinzer,US would eventually attempt military action vs Iran,2006,0.75,TRUE,military

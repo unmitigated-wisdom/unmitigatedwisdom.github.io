@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A War With No Exits: Forecasting the Iran War Through December · Unmitigated Wisdom</title>
+<meta name="description" content="Five tightly-defined probabilistic forecasts on the Iran–U.S. war through 31 December 2026 — sustained strikes, qualitative escalation, MoU implementation, Hormuz control, and Israeli withdrawal from Lebanon — from our new Opus-based agentic forecasting pipeline.">
+<link rel="stylesheet" href="../site.css">
+<script data-goatcounter="https://unmitigated-wisdom.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="wrap wide">
+  <nav class="top">
+    <a class="brand" href="../index.html" aria-label="Unmitigated Wisdom">
+      <img src="../logos/07_strict_monotonic_site_accent_split.svg" alt="Unmitigated Wisdom">
+    </a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../ledger.html">Ledger</a></li>
+      <li><a href="../reports.html">Reports</a></li>
+      <li><a href="../mixture-of-experts.html">Experts</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+  </nav>
+  <header class="post-head">
+    <p class="eyebrow">Probabilistic Forecast · Iran–U.S. War · 14 July – 31 December 2026</p>
+    <h1>A War With No Exits: Forecasting the Iran War Through December</h1>
+    <p class="meta">
+      By <strong>Unmitigated Wisdom</strong> &nbsp;·&nbsp;
+      <time datetime="2026-07-14">14 July 2026</time>
+    </p>
+  </header>
+  <article class="post-body prose">
+
+    <p class="deck">The war is back. On 7 July the United States resumed strikes on Iran, and by 13 July President Trump had formally notified Congress that the country was &ldquo;once again at war,&rdquo; declared the interim ceasefire over, revoked Iran&rsquo;s oil-export license, and proclaimed himself &ldquo;Guardian of the Hormuz Strait.&rdquo; This report scores five tightly-defined questions on where the conflict goes between now and 31 December 2026. The pattern across all five is stark: everything that requires only the continuation of violence is likely, and everything that requires cooperation, restraint, or settlement sits near ten percent.</p>
+
+    <div class="callout">
+      <span class="label">Headline Forecasts &mdash; as of 14 July 2026, horizon 31 December 2026</span>
+      <table>
+        <thead>
+          <tr><th>Question</th><th>P(YES)</th><th>90% CI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sustained strike campaign on Iran continues (7+ strike-days in any 14-day window)</td><td><strong>85%</strong></td><td>70&ndash;94%</td></tr>
+          <tr><td>High-intensity war (strategic-depth strikes, formal declaration, deep salvo, or 500+ deaths)</td><td><strong>64%</strong></td><td>45&ndash;80%</td></tr>
+          <tr><td>U.S. executes a concrete MoU implementation step (&gt;$10B version)</td><td><strong>10%</strong></td><td>3&ndash;20%</td></tr>
+          <tr><td>U.S. establishes effective control of the Strait of Hormuz</td><td><strong>10%</strong></td><td>4&ndash;19%</td></tr>
+          <tr><td>Israel completes a full military withdrawal from Lebanon</td><td><strong>9%</strong></td><td>3&ndash;18%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="dropcap">When we last published a forecast on 24 April, the question was whether hot war would resume within thirty days. We said no at 66%, while warning that the coercive pause was &ldquo;highly fragile&rdquo; and that the triggers for reversal were easy to imagine. That window closed without a return to sustained strategic bombing; a 60-day memorandum of understanding was even signed on 17 June. But the deeper judgment — that the pause was an armed coercive standoff, not a peace process — has now been vindicated in the most direct way possible. The MoU&rsquo;s relief measures have been rolled back, U.S. aircraft are hitting well over a hundred Iranian targets a night under a resumed Operation Epic Fury, Iran is striking tankers in the Gulf, and both sides are again exchanging fire around the Strait of Hormuz.<sup><a href="https://www.aljazeera.com/news/2026/7/14/us-bombs-iran-again-tehran-strikes-gulf-tankers-whats-the-latest" target="_blank" rel="noopener">[1]</a></sup><sup><a href="https://www.politico.com/news/2026/07/13/trump-notifies-congress-of-new-war-against-iran-00995170" target="_blank" rel="noopener">[2]</a></sup></p>
+
+    <p>Forecasting from inside an active war is a different exercise from forecasting a fragile truce. The questions below are therefore deliberately narrow, each framed with the precision of a prediction-market question &mdash; named confirming sources, numeric thresholds, and hard deadlines &mdash; even though no actual market exists for them. Vague outcomes — &ldquo;tensions rise,&rdquo; &ldquo;talks progress&rdquo; — do not resolve anything.</p>
+
+    <h2>How these forecasts are built</h2>
+
+    <p>This report is the first produced end-to-end by our new agentic forecasting pipeline running <strong>Claude Opus</strong>. For each question, the pipeline retrieves and audits a large evidence set (wire reporting, official statements, analyst commentary), tags each source for whether it bears on the resolution window or is background only, decomposes the question into mutually exclusive causal paths with explicit probabilities, and then aggregates — adjusting for overlap between paths and for the gap between &ldquo;the world moves that way&rdquo; and &ldquo;the specific resolution criteria are met.&rdquo; The final probability is a judgment on the resolution criteria, not on the vibe of the headlines. Each forecast below shows its path decomposition so the reasoning can be audited, and each will be scored on the <a href="../ledger.html">ledger</a> when it resolves.</p>
+
+    <p>That last distinction does a lot of work in this report. Three of the five questions have a wide gulf between the newsworthy version of the event and the resolving version. A U.S. escort regime in Hormuz can be announced and still fail the test; a partial Israeli pullback from Lebanon is a NO by construction; a sanctions promise is nothing until it appears in the Federal Register.</p>
+
+    <h2>1 &mdash; Will the sustained strike campaign continue? <span style="white-space:nowrap;">85% yes</span></h2>
+
+    <p><strong>Resolution:</strong> YES if U.S. or Israeli airstrikes hit Iranian territory on 7 or more days within any 14-day window before 31 December 2026, confirmed by CENTCOM/IDF or 3+ major wires. Isolated retaliatory exchanges below that tempo resolve NO.</p>
+
+    <table>
+      <thead>
+        <tr><th>Causal path</th><th>Probability</th><th>Resolves</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Continuation of the active strike campaign</td><td>60%</td><td>YES</td></tr>
+        <tr><td>Deliberate escalation to a &ldquo;short and powerful&rdquo; decisive blow</td><td>15%</td><td>YES</td></tr>
+        <tr><td>Rapid brokered ceasefire / diplomatic off-ramp</td><td>15%</td><td>NO</td></tr>
+        <tr><td>Shift to blockade / low-intensity substitution</td><td>10%</td><td>NO</td></tr>
+      </tbody>
+    </table>
+
+    <p>This is the closest thing to a mechanical forecast in the set. A high-tempo campaign is already underway — near-nightly strikes on 140&ndash;170+ targets confirmed by CENTCOM and multiple wires<sup><a href="https://www.nytimes.com/2026/07/10/us/politics/iran-war-escalation.html" target="_blank" rel="noopener">[3]</a></sup> — so the campaign merely persisting for one to two more weeks at the observed tempo clears the 7-in-14 threshold. The continuation and escalation paths together give roughly 75%, and we shade above that because the NO paths are demanding: strikes must not only halt, they must stay below threshold for the entire remaining five and a half months. What keeps this from being 95% is the demonstrated pattern of externally brokered ceasefires — Qatar, Oman, and Pakistan have each pulled the parties back before — and reporting that Trump has at times preferred a blockade posture over renewed bombing.<sup><a href="https://axios.com/2026/04/30/trump-military-plans-iran-briefing-centcom" target="_blank" rel="noopener">[4]</a></sup></p>
+
+    <h2>2 &mdash; Will the war turn high-intensity? <span style="white-space:nowrap;">64% yes</span></h2>
+
+    <p><strong>Resolution:</strong> YES if any of the following occurs by year-end: (a) confirmed strikes on Tehran province or a declared nuclear facility; (b) an official U.S. declaration of resumed &ldquo;major combat operations,&rdquo; or formal withdrawal from the MoU / permanent termination of negotiations; (c) an Iranian salvo of 50+ ballistic missiles within 24 hours at Israel or the U.S.; or (d) 500+ combined deaths in any 14-day window. The current pattern — coastal strikes, Hormuz maritime attacks, sub-threshold fire at Gulf bases — explicitly does <em>not</em> qualify.</p>
+
+    <table>
+      <thead>
+        <tr><th>Causal path</th><th>Probability</th><th>Resolves</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Strategic-depth strikes on Tehran or nuclear facilities (a)</td><td>28%</td><td>YES</td></tr>
+        <tr><td>Deep salvo or 500-death casualty threshold (c/d)</td><td>22%</td><td>YES</td></tr>
+        <tr><td>Formal declaration or MoU collapse (b)</td><td>18%</td><td>YES</td></tr>
+        <tr><td>Conflict stays in the excluded coastal/maritime pattern</td><td>32%</td><td>NO</td></tr>
+      </tbody>
+    </table>
+
+    <p>This is the most genuinely uncertain call of the five, and the wide interval (45&ndash;80%) is honest about that. The situation is bimodal. On one side: a shooting war is already active, the escalation baseline is unusually high, and capability and intent are both demonstrated — the June 2025 round hit Natanz, Fordow, and Isfahan, and Iran has previously fired 180+ missile salvos.<sup><a href="https://www.politico.com/news/2026/07/13/trump-notifies-congress-of-new-war-against-iran-00995170" target="_blank" rel="noopener">[2]</a></sup> On the other: the current campaign has deliberately stayed on southern coastal targets, the administration keeps insisting a &ldquo;full-on war&rdquo; has not resumed, and Iran&rsquo;s published Gulf-energy target list creates a real mutual-deterrence logic around going deeper. We trim slightly below the raw sum of YES paths because they overlap — in a real escalation spiral, clauses (a), (c), and (d) tend to arrive together — and because both sides retain incentives to keep the fighting ambiguous and deniable rather than declared.</p>
+
+    <h2>3 &mdash; Will the U.S. take a concrete MoU implementation step? <span style="white-space:nowrap;">10% yes</span></h2>
+
+    <p><strong>Resolution:</strong> YES only on an <em>executed, documented</em> U.S. action pursuant to the signed memorandum: a formal OFAC/Federal Register sanctions revocation, reinstatement of Iran&rsquo;s oil-export license, an officially announced deal-tied withdrawal of strike assets, or a Treasury-confirmed release of more than $10B in frozen Iranian funds. Statements of intent and draft frameworks do not count.</p>
+
+    <table>
+      <thead>
+        <tr><th>Causal path</th><th>Probability</th><th>Resolves</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Deal collapse / continued military escalation</td><td>72%</td><td>NO</td></tr>
+        <tr><td>Frozen-funds release via the Treasury escrow mechanism</td><td>12%</td><td>YES</td></tr>
+        <tr><td>Sanctions relief re-enacted (OFAC revocation or oil-license reinstatement)</td><td>9%</td><td>YES</td></tr>
+        <tr><td>Officially announced deal-tied withdrawal of strike assets</td><td>4%</td><td>YES</td></tr>
+      </tbody>
+    </table>
+
+    <p>Every recent data point runs the wrong way for YES. In the week before this forecast, the U.S. revoked the oil-export license it had granted under the MoU,<sup><a href="https://www.usnews.com/news/top-news/articles/2026-07-07/us-revoking-license-that-authorized-iranian-oil-sales-official-says" target="_blank" rel="noopener">[5]</a></sup> OFAC reversed the associated sanctions relaxation, and Washington reinstated the naval blockade and a 20% Hormuz toll while trading strikes with Tehran.<sup><a href="https://www.theguardian.com/business/2026/jul/13/oil-prices-leap-stocks-fall-us-iran-strait-of-hormuz-brent-crude-markets" target="_blank" rel="noopener">[6]</a></sup> The reason the probability is 10% rather than 3% is that one YES path is genuinely pre-positioned: Treasury Secretary Bessent has publicly described the escrow mechanism for releasing frozen Iranian funds, with figures around $20B discussed.<sup><a href="https://www.cnbc.com/2026/06/24/us-treasury-will-oversee-frozen-iranian-funds-when-theyre-released-bessent-says.html" target="_blank" rel="noopener">[7]</a></sup> Diplomatic reversals in this conflict have been abrupt before — the MoU itself materialized out of an active war<sup><a href="https://foreignpolicy.com/2026/06/17/trump-us-iran-memorandum-of-understanding-mou-deal-read-full-text/" target="_blank" rel="noopener">[8]</a></sup> — but a documented implementation step requires first reversing the current escalation and then clearing a demanding evidentiary bar, all before year-end.</p>
+
+    <h2>4 &mdash; Will the U.S. establish effective control of Hormuz? <span style="white-space:nowrap;">10% yes</span></h2>
+
+    <p><strong>Resolution:</strong> YES requires both (a) an officially announced U.S. convoy/escort, toll, or exclusive security regime governing commercial transit, announced by 1 December, and (b) 30 consecutive days afterward with zero successful Iranian attacks on commercial vessels in the Strait. A vessel actually struck resets the clock; intercepted attempts do not.</p>
+
+    <table>
+      <thead>
+        <tr><th>Causal path</th><th>Probability</th><th>Resolves</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Regime announced, but Iran keeps striking — the 30-day clock never completes</td><td>46%</td><td>NO</td></tr>
+        <tr><td>U.S. defers to allies / relies on blockade rather than a qualifying regime</td><td>25%</td><td>NO</td></tr>
+        <tr><td>Negotiated settlement acknowledging de facto Iranian control or toll</td><td>15%</td><td>NO</td></tr>
+        <tr><td>Formalized &ldquo;Guardian&rdquo; regime plus a clean 30-day lull</td><td>14%</td><td>YES</td></tr>
+      </tbody>
+    </table>
+
+    <p>The announcement half of this question is easy — Trump&rsquo;s 13 July &ldquo;Guardian of the Hormuz Strait&rdquo; declaration, with its 20% cargo reimbursement and &ldquo;process and formation will begin immediately&rdquo; language, is most of the way to satisfying condition (a).<sup><a href="https://www.cbsnews.com/news/trump-iran-war-us-guardian-strait-of-hormuz-get-paid/" target="_blank" rel="noopener">[9]</a></sup> The binding constraint is the clean month. Iran has struck roughly fourteen commercial vessels since late February, hit tankers as recently as 7&ndash;13 July, and has vowed that not &ldquo;a single liter of oil&rdquo; will transit for U.S. benefit. Every prior U.S. escort attempt drew immediate strikes; geography, dense traffic, and dispersed drone-missile-mine capacity all favor the defender. As Danny Citrinowicz put it in April, and as we quoted then: <em>you cannot beat geography</em>. A single struck tanker resets the clock, and stringing together thirty spotless days inside an active war — with the announcement needed by 1 December just to leave room for the window — is a parlay, not a single bet. We shade below the raw YES path because condition (a) itself may never be cleanly met if Washington keeps preferring blockade postures and allied burden-shifting.<sup><a href="https://axios.com/2026/03/31/trump-europe-strait-hormuz-iran-uk-france" target="_blank" rel="noopener">[10]</a></sup></p>
+
+    <h2>5 &mdash; Will Israel fully withdraw from Lebanon? <span style="white-space:nowrap;">9% yes</span></h2>
+
+    <p><strong>Resolution:</strong> YES only if <em>all</em> Israeli ground forces and permanent positions are out of qualifying Lebanese territory by year-end, confirmed by the IDF, the Lebanese government (wire-corroborated), or UNIFIL. Completion of the framework&rsquo;s &ldquo;pilot zone&rdquo; handovers, or withdrawal from everything except the border security zone, resolves NO. Airstrikes and overflights do not block YES.</p>
+
+    <table>
+      <thead>
+        <tr><th>Causal path</th><th>Probability</th><th>Resolves</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Entrenchment as leverage — buffer held pending disarmament that never comes</td><td>52%</td><td>NO</td></tr>
+        <tr><td>Partial redeployment only — pilot zones handed over, buffer retained</td><td>30%</td><td>NO</td></tr>
+        <tr><td>Verified Hezbollah disarmament triggers reciprocal full withdrawal</td><td>12%</td><td>YES</td></tr>
+        <tr><td>Externally imposed full pullout (U.S. pressure or untenable occupation cost)</td><td>5%</td><td>YES</td></tr>
+      </tbody>
+    </table>
+
+    <p>The June 2026 Trilateral Framework is the crux, and it cuts against YES twice. First, it explicitly benchmarks Israeli withdrawal to verified Hezbollah disarmament — a condition Naim Qassem has flatly and repeatedly rejected, and which Netanyahu has mirrored from the other side: the buffer zone stays &ldquo;until Hezbollah disarms and as long as there is a threat.&rdquo;<sup><a href="https://www.aljazeera.com/features/2026/6/27/israel-lebanon-deal-ties-ceasefire-to-hezbollah-disarmament-will-it-work" target="_blank" rel="noopener">[11]</a></sup><sup><a href="https://www.fdd.org/analysis/2026/06/29/a-deal-with-teeth-lebanon-agrees-to-disarm-hezbollah-or-lose-territory/" target="_blank" rel="noopener">[12]</a></sup> Second, the framework&rsquo;s own mechanism — phased pilot-zone handovers while Israel retains roughly a fifth of the occupied strip as a buffer — is precisely the shape of progress most likely to occur, and it resolves NO by construction. The most probable futures here are an entrenched Israel using occupation as leverage, or visible partial progress that fails the full-withdrawal bar. The YES paths both run through the same bottleneck — rapid, complete, verified disarmament within five and a half months — which is why we shade below their naive sum.</p>
+
+    <div class="ornament">· · ·</div>
+
+    <h2>Bottom line</h2>
+
+    <table>
+      <thead>
+        <tr><th>Question</th><th>Forecast</th><th>P(YES)</th><th>90% CI</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1 &mdash; Sustained strike campaign continues</td><td><strong>Yes</strong></td><td>85%</td><td>70&ndash;94%</td></tr>
+        <tr><td>2 &mdash; High-intensity war by year-end</td><td><strong>Yes, narrowly</strong></td><td>64%</td><td>45&ndash;80%</td></tr>
+        <tr><td>3 &mdash; Concrete MoU implementation step (&gt;$10B)</td><td><strong>No</strong></td><td>10%</td><td>3&ndash;20%</td></tr>
+        <tr><td>4 &mdash; U.S. effective control of Hormuz</td><td><strong>No</strong></td><td>10%</td><td>4&ndash;19%</td></tr>
+        <tr><td>5 &mdash; Israel full withdrawal from Lebanon</td><td><strong>No</strong></td><td>9%</td><td>3&ndash;18%</td></tr>
+      </tbody>
+    </table>
+
+    <p>Read as a set, the five numbers describe one world. The continuation of violence is the path of least resistance: it requires no agreement, no verification, and no political concession from anyone, which is why the strike-campaign forecast sits at 85% and qualitative escalation is more likely than not. Every off-ramp, by contrast, is a conjunction — a ceasefire that holds <em>and</em> a documented implementation step; an announced regime <em>and</em> thirty clean days at sea; a disarmament Hezbollah accepts <em>and</em> a withdrawal Israel completes — and conjunctions of unlikely things judged inside an active war all land in the same place: around one in ten. The April thesis stands, upgraded for wartime: this is still a conflict in which both sides can keep imposing costs indefinitely, and in which nobody yet has a path from coercion to closure.</p>
+
+    <div class="sources">
+      <h3>References</h3>
+      <ol>
+        <li><strong>Al Jazeera, 14 July 2026</strong> &mdash; U.S. bombs Iran again; Tehran strikes Gulf tankers; the latest on the resumed war. <a href="https://www.aljazeera.com/news/2026/7/14/us-bombs-iran-again-tehran-strikes-gulf-tankers-whats-the-latest" target="_blank" rel="noopener">aljazeera.com →</a></li>
+        <li><strong>Politico, 13 July 2026</strong> &mdash; Trump notifies Congress that the U.S. is &ldquo;once again at war&rdquo; with Iran. <a href="https://www.politico.com/news/2026/07/13/trump-notifies-congress-of-new-war-against-iran-00995170" target="_blank" rel="noopener">politico.com →</a></li>
+        <li><strong>New York Times, 10 July 2026</strong> &mdash; Two days of U.S. strikes on 170+ Iranian military targets signal a sharp escalation. <a href="https://www.nytimes.com/2026/07/10/us/politics/iran-war-escalation.html" target="_blank" rel="noopener">nytimes.com →</a></li>
+        <li><strong>Axios, 30 April 2026</strong> &mdash; CENTCOM briefs Trump on military options, including a &ldquo;short and powerful&rdquo; strike wave and blockade alternatives. <a href="https://axios.com/2026/04/30/trump-military-plans-iran-briefing-centcom" target="_blank" rel="noopener">axios.com →</a></li>
+        <li><strong>U.S. News / Reuters, 7 July 2026</strong> &mdash; U.S. revokes the license that authorized Iranian oil sales. <a href="https://www.usnews.com/news/top-news/articles/2026-07-07/us-revoking-license-that-authorized-iranian-oil-sales-official-says" target="_blank" rel="noopener">usnews.com →</a></li>
+        <li><strong>The Guardian, 13 July 2026</strong> &mdash; Oil prices leap and stocks fall as U.S.–Iran fighting and the Hormuz standoff intensify. <a href="https://www.theguardian.com/business/2026/jul/13/oil-prices-leap-stocks-fall-us-iran-strait-of-hormuz-brent-crude-markets" target="_blank" rel="noopener">theguardian.com →</a></li>
+        <li><strong>CNBC, 24 June 2026</strong> &mdash; Bessent: U.S. Treasury will oversee frozen Iranian funds when they are released. <a href="https://www.cnbc.com/2026/06/24/us-treasury-will-oversee-frozen-iranian-funds-when-theyre-released-bessent-says.html" target="_blank" rel="noopener">cnbc.com →</a></li>
+        <li><strong>Foreign Policy, 17 June 2026</strong> &mdash; Full text of the U.S.–Iran memorandum of understanding. <a href="https://foreignpolicy.com/2026/06/17/trump-us-iran-memorandum-of-understanding-mou-deal-read-full-text/" target="_blank" rel="noopener">foreignpolicy.com →</a></li>
+        <li><strong>CBS News, 13 July 2026</strong> &mdash; Trump declares the U.S. &ldquo;Guardian of the Hormuz Strait,&rdquo; with a 20% cargo reimbursement toll. <a href="https://www.cbsnews.com/news/trump-iran-war-us-guardian-strait-of-hormuz-get-paid/" target="_blank" rel="noopener">cbsnews.com →</a></li>
+        <li><strong>Axios, 31 March 2026</strong> &mdash; Trump presses European allies to police the Strait of Hormuz. <a href="https://axios.com/2026/03/31/trump-europe-strait-hormuz-iran-uk-france" target="_blank" rel="noopener">axios.com →</a></li>
+        <li><strong>Al Jazeera, 27 June 2026</strong> &mdash; The Israel–Lebanon framework ties ceasefire and withdrawal to Hezbollah disarmament. <a href="https://www.aljazeera.com/features/2026/6/27/israel-lebanon-deal-ties-ceasefire-to-hezbollah-disarmament-will-it-work" target="_blank" rel="noopener">aljazeera.com →</a></li>
+        <li><strong>FDD, 29 June 2026</strong> &mdash; &ldquo;A deal with teeth&rdquo;: Lebanon agrees to disarm Hezbollah or lose territory. <a href="https://www.fdd.org/analysis/2026/06/29/a-deal-with-teeth-lebanon-agrees-to-disarm-hezbollah-or-lose-territory/" target="_blank" rel="noopener">fdd.org →</a></li>
+      </ol>
+    </div>
+
+  </article>
+  <footer class="site">
+    © 2020–2026 Unmitigated Wisdom &nbsp;·&nbsp;
+    <a href="https://t.me/unmitigated_wisdom" target="_blank" rel="noopener">Telegram</a>
+  </footer>
+</div>
+</body>
+</html>
